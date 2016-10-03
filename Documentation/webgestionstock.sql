@@ -155,7 +155,7 @@ CREATE TABLE LotsArticles(
         la_dateRetour Date ,
         sa_id         Int NOT NULL ,
         ea_id         Int NOT NULL ,
-        PRIMARY KEY (sa_id ,ea_id )
+        PRIMARY KEY (la_id)
 )ENGINE=InnoDB;
 
 ALTER TABLE Articles ADD CONSTRAINT FK_Articles_fa_id FOREIGN KEY (fa_id) REFERENCES Familles(fa_id);
