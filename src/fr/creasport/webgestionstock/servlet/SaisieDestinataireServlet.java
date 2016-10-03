@@ -1,5 +1,5 @@
 package fr.creasport.webgestionstock.servlet;
-
+import fr.creasport.webgestionstock.dao.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,8 +38,10 @@ public class SaisieDestinataireServlet extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		OutilDao db = new OutilDao();
+		db.addClient();
 		if(request.getParameter("nom")!= null){
+		
 			request.getRequestDispatcher("vue/SaisieDestinataire.jsp").forward(request, response);
 			
 		}else{
