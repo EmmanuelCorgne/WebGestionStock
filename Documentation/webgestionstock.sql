@@ -95,6 +95,8 @@ CREATE TABLE Destinataires(
         de_pays       Char (2) ,
         de_IsClient   Bool NOT NULL ,
         de_isActive   Bool NOT NULL ,
+        de_telephone  Varchar (25) ,
+        de_email      Varchar (55) ,
         PRIMARY KEY (de_id ) ,
         UNIQUE (de_ref )
 )ENGINE=InnoDB;
