@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SaisieDestinataireServlet</display-name>
+    <servlet-name>SaisieDestinataireServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.SaisieDestinataireServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaisieDestinataireServlet</servlet-name>
+    <url-pattern>/SaisieDestinataireServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
