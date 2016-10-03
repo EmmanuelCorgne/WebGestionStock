@@ -13,6 +13,7 @@
           <input type="text" name="nom" id="nom"/>
           <input type="text" name="prenom" id="prenom"/>
           <input type="text" name="adress" id="adress"/>
+            <input type="text" name="pays" id="pays"/>
           <input type="submit" name="ajouterDest" id="ajouterDest" value="ajouterDestinataire"  />
         </form>
       </body>
