@@ -36,10 +36,16 @@ public class SaisieDestinataireServlet extends HttpServlet {
 		doWork(request, response);
 	}
 
-	private void doWork(HttpServletRequest request, HttpServletResponse response) {
+	private void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
+		if(request.getParameter("nom")!= null){
+			request.getRequestDispatcher("vue/SaisieDestinataire.jsp").forward(request, response);
+			
+		}else{
+			
+			request.getRequestDispatcher("vue/SaisieDestinataire.jsp").forward(request, response);
+		}
 		
 	}
 
