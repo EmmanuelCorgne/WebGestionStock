@@ -6,7 +6,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Saisie Destinataire</title>
         <link rel="stylesheet" href="SaisieDestinataire.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="jquery-3.1.0.min.js"></script>
         <script src="SaisieDestinataire.js"></script>
       </head>
       <body>
