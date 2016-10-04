@@ -22,7 +22,7 @@
 <body>
 	<table id="header">
 		<tr>
-			<td><img src="" width="300px" height="100px"></td>
+			<td><img src="images/logoCreasport&Slogan.png" width="363" height="72"></td>
 			<td><h1>Accueil</h1></td>
 		</tr>
 	</table>
@@ -34,8 +34,8 @@
 	</nav>
 	<hr>
 	<B>Rechercher</B>
-	<div>
-		<table id="recherche">
+	<div name="groupe">
+		<table id="recherche" width="100%">
 			<tr>
 				<td>Nom club</td>
 				<td><select id="selectClub">
@@ -46,6 +46,30 @@
 				<td>
 				<input type="text" id="datepicker"> au <input type="text" id="datepicker"> 
 				</td>
+			<td rowspan="3" name="validation"><button id="validRecherche">Valider</button></td>
+			</tr>
+			<tr>
+			<td>Nom contact</td>
+			<td><select id="selectContact">
+						<option value="value1">machin</option>
+						<option value="value1">truc</option>
+				</select>
+			</td>
+			<td>Nom Article</td>
+			<td><select id="selectArticle">
+						<option value="value1">AR1</option>
+						<option value="value1">AR2</option>
+				</select>
+			</td>
+			</tr>
+			<tr>
+			<td>Référence lot</td>
+			<td><select id="selectLot">
+						<option value="value1">001</option>
+						<option value="value1">002</option>
+				</select>
+			</td>
+			<td colspan="2"></td>
 			</tr>
 		</table>
 	</div>
