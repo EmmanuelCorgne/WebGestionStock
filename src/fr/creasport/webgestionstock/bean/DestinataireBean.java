@@ -18,15 +18,16 @@ public class DestinataireBean {
 		protected String pays="";
 		protected String email="";
 		protected String telephone="";
-		protected String djClient="0";
-		protected String actif="0";
+		protected Boolean djClient=true;
+		protected Boolean actif=true;
+		protected String refClient="";
 		
 		public DestinataireBean() {
 			super();
 		}
 
 		public DestinataireBean(String nomClub, String nomContact, String adresse1, String adresse2, String cp,
-				String ville, String pays, String email, String telephone, String djClient, String actif) {
+				String ville, String pays, String email, String telephone, Boolean djClient, Boolean actif, String refClient) {
 			super();
 			this.nomClub = nomClub;
 			this.nomContact = nomContact;
@@ -39,6 +40,7 @@ public class DestinataireBean {
 			this.telephone = telephone;
 			this.djClient = djClient;
 			this.actif = actif;
+			this.refClient=refClient;
 		}
 
 		public String getNomClub() {
@@ -113,20 +115,28 @@ public class DestinataireBean {
 			this.telephone = telephone;
 		}
 
-		public String getDjClient() {
+		public Boolean getDjClient() {
 			return djClient;
 		}
 
-		public void setDjClient(String djClient) {
-			this.djClient = djClient;
+		public void setDjClient(Boolean boolean1) {
+			this.djClient = boolean1;
 		}
 
-		public String getActif() {
+		public Boolean getActif() {
 			return actif;
 		}
 
-		public void setActif(String actif) {
+		public void setActif(Boolean actif) {
 			this.actif = actif;
+		}
+
+		public String getRefClient() {
+			return refClient;
+		}
+
+		public void setRefClient(String refClient) {
+			this.refClient = refClient;
 		}
 	
 	

@@ -53,10 +53,8 @@ public class SaisieDestinataireServlet extends HttpServlet {
 			bean.setPays(request.getParameter("pays"));
 			bean.setEmail(request.getParameter("email"));
 			bean.setTelephone(request.getParameter("pays"));
-		//	bean.setDjClient(request.getParameter("djClient"));
-		//	bean.setActif(request.getParameter("actif"));
-			System.out.println(bean.getDjClient());
-			System.out.println(bean.toString());///////////////////
+			bean.setDjClient(Boolean.valueOf(request.getParameter("djClient")));
+			bean.setActif(Boolean.valueOf(request.getParameter("actif")));
 			//creation de la connection base
 			OutilDao db = new OutilDao();
 			// insert dans la base
