@@ -22,7 +22,12 @@
           Adresse2 : <input type="text" name="adresse2" id="adresse2"/><br>
           Code postal : <input type="text" name="cp" id="cp"/><br>
           Ville : <input type="text" name="ville" id="ville"/><br>
-          Pays : <input type="text" name="pays" id="pays" value="FR"/><br>
+          Pays : <Select name="pays" id="pays">
+                <option value="france"selected>France</option>
+	           	<option value="espagne">Espagne</option>
+	           	<option value="italie">Italie</option>
+	           	</select>
+          <input id="ajoutPays" name="ajoutPays"/><br>
           Email : <input type="text" name="email" id="email"/><br>
           Telephone : <input type="text" name="telephone" id="telephone"/><br>
           Deja client <input type="checkbox" name="djClient" id="djClient" value=true /><br>
