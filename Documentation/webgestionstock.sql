@@ -8,7 +8,7 @@
 #------------------------------------------------------------
 
 CREATE TABLE Articles(
-        ar_id           Int NOT NULL ,
+        ar_id           int (11) Auto_increment  NOT NULL ,
         ar_ref          Varchar (50) NOT NULL ,
         ar_nom          Varchar (50) NOT NULL ,
         ar_isHC         Bool NOT NULL ,
@@ -95,8 +95,7 @@ CREATE TABLE Destinataires(
         de_pays       Char (2) ,
         de_IsClient   Bool NOT NULL ,
         de_isActive   Bool NOT NULL ,
-        de_telephone  Varchar (25) ,
-        de_email      Varchar (55) ,
+        pa_id         Int NOT NULL ,
         PRIMARY KEY (de_id ) ,
         UNIQUE (de_ref )
 )ENGINE=InnoDB;
@@ -147,6 +146,18 @@ CREATE TABLE Statuts(
 
 
 #------------------------------------------------------------
+# Table: Pays
+#------------------------------------------------------------
+
+CREATE TABLE Pays(
+        pa_id   int (11) Auto_increment  NOT NULL ,
+        pa_code Char (2) NOT NULL ,
+        pa_nom  Varchar (50) NOT NULL ,
+        PRIMARY KEY (pa_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
 # Table: LotsArticles
 #------------------------------------------------------------
 
@@ -163,6 +174,7 @@ ALTER TABLE Articles ADD CONSTRAINT FK_Articles_mo_id FOREIGN KEY (mo_id) REFERE
 ALTER TABLE StocksArticles ADD CONSTRAINT FK_StocksArticles_ar_id FOREIGN KEY (ar_id) REFERENCES Articles(ar_id);
 ALTER TABLE StocksArticles ADD CONSTRAINT FK_StocksArticles_ta_Id FOREIGN KEY (ta_Id) REFERENCES Tailles(ta_Id);
 ALTER TABLE StocksArticles ADD CONSTRAINT FK_StocksArticles_st_id FOREIGN KEY (st_id) REFERENCES Statuts(st_id);
+ALTER TABLE Destinataires ADD CONSTRAINT FK_Destinataires_pa_id FOREIGN KEY (pa_id) REFERENCES Pays(pa_id);
 ALTER TABLE ExpeditionsArticles ADD CONSTRAINT FK_ExpeditionsArticles_te_id FOREIGN KEY (te_id) REFERENCES TypesExpeditions(te_id);
 ALTER TABLE ExpeditionsArticles ADD CONSTRAINT FK_ExpeditionsArticles_de_id FOREIGN KEY (de_id) REFERENCES Destinataires(de_id);
 ALTER TABLE LotsArticles ADD CONSTRAINT FK_LotsArticles_sa_id FOREIGN KEY (sa_id) REFERENCES StocksArticles(sa_id);
