@@ -70,7 +70,7 @@ public class ExpedierServlet extends HttpServlet {
 		System.out.println(("b"+(bean.getSa_ref())));
 		System.out.println(("c"+(bean.getSa_ref())));
 		request.setAttribute("bean",bean);
-		request.getRequestDispatcher("vue/ExpedierLot.jsp").forward(request, response);
+		request.getRequestDispatcher("ExpedierLot.jsp").forward(request, response);
 		
 		
 	}

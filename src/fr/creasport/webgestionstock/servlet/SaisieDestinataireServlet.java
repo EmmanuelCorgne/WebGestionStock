@@ -60,10 +60,10 @@ public class SaisieDestinataireServlet extends HttpServlet {
 			// insert dans la base
 			db.addDestinataire(bean);
 			
-			request.getRequestDispatcher("vue/SaisieDestinataire.jsp").forward(request, response);
+			request.getRequestDispatcher("SaisieDestinataire.jsp").forward(request, response);
 			
 		}else{
-			request.getRequestDispatcher("vue/SaisieDestinataire.jsp").forward(request, response);
+			request.getRequestDispatcher("SaisieDestinataire.jsp").forward(request, response);
 		}
 		
 	}
