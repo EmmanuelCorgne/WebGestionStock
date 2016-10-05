@@ -29,4 +29,14 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/IndexServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExpedierServlet</display-name>
+    <servlet-name>ExpedierServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.ExpedierServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExpedierServlet</servlet-name>
+    <url-pattern>/ExpedierServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -24,7 +24,7 @@
 		<tr>
 			<td><img src="images/logoCreasport&Slogan.png" width="363"
 				height="72"></td>
-			<td><h1>Accueil</h1></td>
+			<td><h1>Expedier les lots</h1></td>
 		</tr>
 	</table>
 
