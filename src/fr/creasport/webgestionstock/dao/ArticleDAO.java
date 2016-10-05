@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import fr.creasport.webgestionstock.bean.ArticleBean;
+import fr.creasport.webgestionstock.metier.Article;
 
 public class ArticleDAO {
 
