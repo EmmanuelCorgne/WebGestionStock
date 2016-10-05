@@ -17,16 +17,21 @@ public class ArticleDAO {
 	}
 	
 	public void ajouter(ArticleBean article) {
-		String query="INSERT INTO artciles VALUES(?,?,?,?,?,?,?)";
+		String query="INSERT INTO articles VALUES(null,?,?,?,?,?,null,?,?,?)";
 		
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			
 			st.setString(1, article.getReference());
 			st.setString(2,article.getNom());
 			st.setBoolean(3, article.getIsHC());
 			st.setString(4,article.getImage());
+			st.setString(5,article.getDescription());
 			//st.setDate(5,Date.);
 			st.setBoolean(6,true );
+			
+			st.setInt(7, article.getFamille());
+			st.setInt(8, article.getModele());
 			st.executeUpdate();
 		    st.close();
 		} catch(Exception e) {

@@ -10,6 +10,10 @@ public class ArticleBean {
 	private Boolean isHC;
 	private Boolean isActive;
 	private int id;
+	private int famille;
+	private int modele;
+	
+	
 
 	public ArticleBean() {
 		// TODO Auto-generated constructor stub
@@ -69,6 +73,22 @@ public class ArticleBean {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getFamille() {
+		return famille;
+	}
+
+	public void setFamille(int famille) {
+		this.famille = famille;
+	}
+
+	public int getModele() {
+		return modele;
+	}
+
+	public void setModele(int modele) {
+		this.modele = modele;
 	}
 
 }
