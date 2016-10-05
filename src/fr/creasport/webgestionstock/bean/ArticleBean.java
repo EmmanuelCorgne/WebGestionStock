@@ -1,6 +1,6 @@
 package fr.creasport.webgestionstock.bean;
 
-import sun.util.calendar.BaseCalendar.Date;
+
 
 public class ArticleBean {
 	private String reference;

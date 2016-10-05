@@ -48,7 +48,7 @@ public class SaisirArticleServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// passage à la vue
-
+//sss
 		ArticleBean bean = new ArticleBean();
 		if (request.getParameter("refArticle") != null) {
 			bean.setReference(request.getParameter("refArticle"));
