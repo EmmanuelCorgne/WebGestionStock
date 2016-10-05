@@ -44,6 +44,11 @@ public class StockArticle {
 	public void setSt_id(int st_id) {
 		this.st_id = st_id;
 	}
+	@Override
+	public String toString() {
+		return "StockArticle [sa_id=" + sa_id + ", sa_ref=" + sa_ref + ", sa_isActive=" + sa_isActive + ", ar_id="
+				+ ar_id + ", ta_id=" + ta_id + ", st_id=" + st_id + "]";
+	}
 	
 	
 }

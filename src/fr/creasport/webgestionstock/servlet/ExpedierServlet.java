@@ -54,7 +54,7 @@ public class ExpedierServlet extends HttpServlet {
 		Article article = new Article();
 		ExpedierStockBean bean = new ExpedierStockBean();
 		try {
-			
+			//test push
 			stockArticle=dbStockArticle.selectParRef("CUICYELIT0510160002-S");
 			// on recupere le nom de la taille et on le place dans bean
 			bean.setTa_nom(dbTaille.selectNom(stockArticle.getTa_id()));
