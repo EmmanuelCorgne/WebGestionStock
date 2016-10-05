@@ -1,30 +1,71 @@
 @CHARSET "UTF-8";
 
-
-table #recherche{
-	width : 50%;
+table #recherche {
+	padding: 20px;
 	-moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    border: 3px solid black;
-    ma
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid black;
 }
-nav button:hover{
-	background-image: linear-gradient( cyan , gray); 
 
+table button:hover {
+	font-style:oblique;
+	background-image: linear-gradient(#00A8E2, gray);
 }
+
+table button {
+	border-radius: 10px;
+	font-family: Arial, sans-serif;
+	width: 100px;
+	height:30px;
+	font-size: 1.0em;
+	padding-top: 3px
+	text-align: center;
+	color: #ddd;
+	background-image: linear-gradient(black, grey);
+}
+
+td[name="validation"] {
+	text-align: right;
+	vertical-align: bottom;
+}
+
+nav button:hover {
+	font-style:oblique;
+	background-image: linear-gradient(#00A8E2, gray);
+}
+
 nav button {
 	border-radius: 10px;
-     font-family: Arial,sans-serif;
-     font-size: 1.6em;
-     width: 200px;
-     height: 43px;
-     padding-top: 5px; /*permet le centrage vertical*/
-     text-align: center;
-     color: #ddd;
-     background-image: linear-gradient( black, grey);
+	font-family: Arial, sans-serif;
+	font-size: 1.6em;
+	width: 200px;
+	height: 43px;
+	padding-top: 5px; /*permet le centrage vertical*/
+	text-align: center;
+	color: #ddd;
+	background-image: linear-gradient(black, grey);
 }
-footer{
+
+select :hover {
+	background-image: linear-gradient(#00A8E2, #D3D4D4);
+}
+
+input :hover :FOCUS {
+	background-image: linear-gradient(#00A8E2, #D3D4D4);
+}
+
+div[name="groupe"] {
+	border-radius: 10px;
+	border-style: solid;
+	border-color: grey;
+	text-align: center;
+	border-width: 1px;
+	padding: 3px;
+	padding-left: 10px;
+}
+
+footer {
 	clear: both;
 	margin-left: auto;
 	margin-right: auto;
@@ -33,14 +74,4 @@ footer{
 	border-radius: 10px;
 	border-style: dotted;
 	text-align: center;
-}
-select{
-	background-image: linear-gradient( cyan , gray); 
-}
-div {
-	border-radius: 10px;
-	border-style: solid;
-	border-color : grey;
-	text-align: center;
-		
 }
