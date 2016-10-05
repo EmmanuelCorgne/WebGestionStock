@@ -54,10 +54,10 @@ CREATE TABLE Modeles(
 #------------------------------------------------------------
 
 CREATE TABLE Tailles(
-        ta_Id   int (11) Auto_increment  NOT NULL ,
+        ta_id   int (11) Auto_increment  NOT NULL ,
         ta_code Varchar (10) NOT NULL ,
         ta_nom  Varchar (25) NOT NULL ,
-        PRIMARY KEY (ta_Id ) ,
+        PRIMARY KEY (ta_id ) ,
         UNIQUE (ta_code )
 )ENGINE=InnoDB;
 
@@ -72,7 +72,7 @@ CREATE TABLE StocksArticles(
         sa_dateCreation Date NOT NULL ,
         sa_isActive     Bool NOT NULL ,
         ar_id           Int NOT NULL ,
-        ta_Id           Int NOT NULL ,
+        ta_id           Int NOT NULL ,
         st_id           Int NOT NULL ,
         PRIMARY KEY (sa_id ) ,
         UNIQUE (sa_ref )
@@ -93,7 +93,7 @@ CREATE TABLE Destinataires(
         de_codePostal Varchar (10) NOT NULL ,
         de_ville      Varchar (50) ,
         de_pays       Char (2) ,
-        de_IsClient   Bool NOT NULL ,
+        de_isClient   Bool NOT NULL ,
         de_isActive   Bool NOT NULL ,
         pa_id         Int NOT NULL ,
         PRIMARY KEY (de_id ) ,
@@ -172,7 +172,7 @@ CREATE TABLE LotsArticles(
 ALTER TABLE Articles ADD CONSTRAINT FK_Articles_fa_id FOREIGN KEY (fa_id) REFERENCES Familles(fa_id);
 ALTER TABLE Articles ADD CONSTRAINT FK_Articles_mo_id FOREIGN KEY (mo_id) REFERENCES Modeles(mo_id);
 ALTER TABLE StocksArticles ADD CONSTRAINT FK_StocksArticles_ar_id FOREIGN KEY (ar_id) REFERENCES Articles(ar_id);
-ALTER TABLE StocksArticles ADD CONSTRAINT FK_StocksArticles_ta_Id FOREIGN KEY (ta_Id) REFERENCES Tailles(ta_Id);
+ALTER TABLE StocksArticles ADD CONSTRAINT FK_StocksArticles_ta_id FOREIGN KEY (ta_id) REFERENCES Tailles(ta_id);
 ALTER TABLE StocksArticles ADD CONSTRAINT FK_StocksArticles_st_id FOREIGN KEY (st_id) REFERENCES Statuts(st_id);
 ALTER TABLE Destinataires ADD CONSTRAINT FK_Destinataires_pa_id FOREIGN KEY (pa_id) REFERENCES Pays(pa_id);
 ALTER TABLE ExpeditionsArticles ADD CONSTRAINT FK_ExpeditionsArticles_te_id FOREIGN KEY (te_id) REFERENCES TypesExpeditions(te_id);
