@@ -1,16 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CreaSport : Menu général</title>
+<title>CreaSport : Menu gÃ©nÃ©ral</title>
 <link rel="stylesheet" href="CreaSport.css" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="jquery-ui.js"></script>
 <script src="jquery-3.1.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="Menu.js"></script>
 <link rel="stylesheet" href="jquery-ui.css">
 <script>
 	$(function() {
-		$("#datepicker").datepicker({
+		$("#datedeb").datepicker({
+			showOn : "button",
+			buttonImage : "images/calendar.gif",
+			buttonImageOnly : true,
+			buttonText : "Select date"
+		});
+	});
+	$(function() {
+		$("#datefin").datepicker({
 			showOn : "button",
 			buttonImage : "images/calendar.gif",
 			buttonImageOnly : true,
@@ -28,11 +42,7 @@
 		</tr>
 	</table>
 
-	<nav id="monMenu">
-		<button>Expédier</button>
-		<button>Réceptionner</button>
-		<button>Gestion Stock</button>
-	</nav>
+	<nav id="menu"></nav>
 	<hr>
 	<!-- 
 	 ____           _                   _               
@@ -50,9 +60,9 @@
 						<option value="value1">Le Mans</option>
 						<option value="value1">Nantes</option>
 				</select></td>
-				<td>période</td>
-				<td><input type="text" id="datepicker"> au <input
-					type="text" id="datepicker"></td>
+				<td>pÃ©riode</td>
+				<td><input type="date" size="10" id=datdeb> au <input
+					type="text" id="datefin" size="10"></td>
 				<td rowspan="3" name="validation"><button id="validRecherche">Valider</button></td>
 			</tr>
 			<tr>
@@ -68,7 +78,7 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td>Référence lot</td>
+				<td>RÃ©fÃ©rence lot</td>
 				<td><select id="selectLot">
 						<option value="value1">001</option>
 						<option value="value1">002</option>
@@ -84,35 +94,40 @@
 	 ___) | |_| | |\ V /| | | (_| |  __/\__ \ | | (_) | |_\__ \
 	|____/ \__,_|_| \_/ |_|  \__,_|\___||___/ |_|\___/ \__|___/
 	 -->
-	<hr>
 	<div name="groupe">
 		<B name="titregroupe">Suivi des lots</B>
-		<table>
+		<table class="tab0">
 			<tr>
 				<td>
-					<table id="envoyes" width="100%">
-						<tr><td colspan=10><B name="titregroupe">Envoyés</B></td></tr>
+					<table class="tab1" id="envoyes">
+						<tr>
+							<td colspan=10><B name="titregroupe">EnvoyÃ©s</B></td>
+						</tr>
 						<tr>
 							<th>Ref. Lot nom du club</th>
 							<th>Date d'envoi</th>
 							<th>Ref. Lot nom du club</th>
-							<th>date retour prévue</th>
+							<th>date retour prÃ©vue</th>
 							<th></th>
 						</tr>
 					</table>
 				</td>
 				<td>
-					<table id="recus" width="100%">
+					<table class="tab1" id="recus" width="100%">
+						<tr>
+							<td colspan=10><B name="titregroupe">ReÃ§us manquants</B></td>
+						</tr>
 						<tr>
 							<th>Ref. Lot nom du club</th>
-							<th>Date de réception</th>
-							<th>nombre de pièce manquante</th>
+							<th>Date de rÃ©ception</th>
+							<th>nombre de piÃ¨ce manquante</th>
 						</tr>
 					</table>
 				</td>
 			</tr>
 		</table>
 	</div>
+
 	<footer> CreaSport &copy; (2016) </footer>
 </body>
 </html>

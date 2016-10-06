@@ -9,9 +9,13 @@ table button:hover {
 	font-style: oblique;
 	background-image: linear-gradient(#00A8E2, gray);
 }
-
-table .envoyes {
+.tab0 {
+	vertical-align: top;
+	
+}
+.tab1 {
 	border: 1px solid black;
+	width: 100%;
 }
 
 table button {
@@ -20,7 +24,8 @@ table button {
 	width: 100px;
 	height: 30px;
 	font-size: 1.0em;
-	padding-top: 3px; text-align : center;
+	padding-top: 3px;
+	text-align: center;
 	color: #ddd;
 	background-image: linear-gradient(black, grey);
 	text-align: center;

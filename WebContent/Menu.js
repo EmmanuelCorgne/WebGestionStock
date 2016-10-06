@@ -2,7 +2,7 @@
 
  */
 $(document).ready(function() {
-	$('#Menu').html('<a href="ExpedierServlet"><button>Expédier</button></a>'
+	$('#menu').html('<a href="ExpedierServlet"><button>Expédier</button></a>'
 			+'<a href="ExpedierServlet"><button>Réceptionner</button></a>'
 			+'<a href=""><button>Gestion Stock</button></a>' );
 	

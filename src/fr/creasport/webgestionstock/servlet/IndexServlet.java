@@ -38,6 +38,7 @@ public class IndexServlet extends HttpServlet {
 	
 	protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		request.getRequestDispatcher("Index.jsp").forward(request, response);
 	}
 
