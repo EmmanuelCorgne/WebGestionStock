@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.creasport.webgestionstock.bean.ArticleBean;
 import fr.creasport.webgestionstock.bean.DestinataireBean;
 import fr.creasport.webgestionstock.dao.ArticleDAO;
+import fr.creasport.webgestionstock.metier.Article;
 
 /**
  * Servlet implementation class SaisirArticleServlet
@@ -48,7 +49,7 @@ public class SaisirArticleServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// passage à la vue
-//sss
+
 		ArticleBean bean = new ArticleBean();
 		if (request.getParameter("refArticle") != null) {
 			bean.setReference(request.getParameter("refArticle"));
@@ -58,8 +59,8 @@ public class SaisirArticleServlet extends HttpServlet {
 			bean.setFamille(Integer.valueOf(request.getParameter("famille")));
 			bean.setModele(Integer.valueOf(request.getParameter("modele")));
 			
-			ArticleDAO artDAO=new ArticleDAO();
-			artDAO.ajouter(bean);
+			Article artMetier=new Article();
+			artMetier.ajouter(bean);
 
 			request.setAttribute("bean", bean);
 			request.getRequestDispatcher("vue/SaisirArticle.jsp").forward(request, response);

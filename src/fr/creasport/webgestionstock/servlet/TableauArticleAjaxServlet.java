@@ -67,7 +67,7 @@ public class TableauArticleAjaxServlet extends HttpServlet {
 			// on recupere le nom de la taille et on le place dans bean
 			bean.setTa_nom(dbTaille.selectNom(stockArticle.getTa_id()));
 			// on recupere l'id de article pour aller chercher id de modele
-			article=dbArticle.Select(stockArticle.getAr_id()); 
+			article=dbArticle.SelectById(stockArticle.getAr_id()); 
 			// on recupere le nom du modele et on le place dans bean
 			bean.setMo_nom(dbModele.selectNom(article.getMo_id()));
 			// on envoi vers le .js

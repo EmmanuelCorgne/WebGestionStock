@@ -1,5 +1,8 @@
 package fr.creasport.webgestionstock.metier;
 
+import fr.creasport.webgestionstock.bean.ArticleBean;
+import fr.creasport.webgestionstock.dao.ArticleDAO;
+
 public class Article {
 	protected int ar_id;
 	protected String ar_ref="";
@@ -12,6 +15,40 @@ public class Article {
 	protected int fa_id;
 	protected int mo_id;
 	
+	
+	public void ajouter(ArticleBean articleBean){
+		this.ar_ref=articleBean.getReference();
+		this.ar_nom=articleBean.getNom();
+		this.ar_isHC=articleBean.getIsHC();
+		this.ar_description=articleBean.getDescription();
+		this.ar_image=articleBean.getImage();
+		this.fa_id=articleBean.getFamille();
+		this.mo_id=articleBean.getModele();
+		ArticleDAO dao=new ArticleDAO();
+		dao.ajouter(this);
+	}
+	
+	public void modifier(ArticleBean articleBean){
+		this.ar_ref=articleBean.getReference();
+		this.ar_nom=articleBean.getNom();
+		this.ar_isHC=articleBean.getIsHC();
+		this.ar_description=articleBean.getDescription();
+		this.ar_image=articleBean.getImage();
+		this.fa_id=articleBean.getFamille();
+		this.mo_id=articleBean.getModele();
+		ArticleDAO dao=new ArticleDAO();
+		dao.modifier(this);
+	}
+	
+	public void supprimer(int id){
+		ArticleDAO dao=new ArticleDAO();
+		try {
+			dao.supprimer(id);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public int getAr_id() {
 		return ar_id;
