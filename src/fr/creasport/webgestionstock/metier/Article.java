@@ -67,6 +67,12 @@ public class Article {
 	public void setMo_id(int mo_id) {
 		this.mo_id = mo_id;
 	}
+	@Override
+	public String toString() {
+		return "Article [ar_id=" + ar_id + ", ar_ref=" + ar_ref + ", ar_nom=" + ar_nom + ", ar_isHC=" + ar_isHC
+				+ ", ar_description=" + ar_description + ", ar_image=" + ar_image + ", ar_isActif=" + ar_isActif
+				+ ", fa_id=" + fa_id + ", mo_id=" + mo_id + "]";
+	}
 	
 
 }

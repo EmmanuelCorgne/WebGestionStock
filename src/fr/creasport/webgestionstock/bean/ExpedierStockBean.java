@@ -2,6 +2,13 @@ package fr.creasport.webgestionstock.bean;
 
 public class ExpedierStockBean {
 
+	public ExpedierStockBean() {
+		super();	
+	}
+	@Override
+	public String toString() {
+		return "ExpedierStockBean [sa_ref=" + sa_ref + ", mo_nom=" + mo_nom + ", ta_nom=" + ta_nom + "]";
+	}
 	protected String sa_ref="";
 	protected String mo_nom="";
 	protected String ta_nom="";
@@ -25,5 +32,6 @@ public class ExpedierStockBean {
 	public void setTa_nom(String ta_nom) {
 		this.ta_nom = ta_nom;
 	}
+
 	
 }

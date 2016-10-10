@@ -1,22 +1,31 @@
-$(document).ready(function() {
-	$('#ajouter').click(function(){
-		var val1=$("#reference").val();
-		var  ligne = '<tr>' +
-					'<td>'+val1+'</td>' +
-					'<td>toto</td>' +
-					'<td>36</td>' +
-					'<td><a href="#">Edit</a></td>'+
-					'<td><a href="#">Delete</a></td>'+
-					'</tr>';
+$(document).ready(
+		function() {
+			$(document).on("click", '#tabArticle a', function() {
+				if ($(this).html() == "Edit") {
+					var select = $(this).closest("tr").children("td").text();
+					alert(select);
+				}
+				if ($(this).html() == "Delete") {
+					$(this).closest("tr").hide('slow');
+				}
+			});
 
-		$(ligne).prependTo("#tabArticle");
-	});	
-	$(document).on("click",'#tabArticle a',function(){
-		if($(this).html()=="Edit"){
-			var select=$(this).closest("tr").children("td").text();
-			alert(select);}
-		if($(this).html()=="Delete"){
-			$(this).closest("tr").hide('slow');
-		}
-	});
-});
+			$('#ajouter').click(
+					function() {
+						var ref = $('#reference').val();
+						var url = "TableauArticleAjaxServlet?valeur="
+								+ escape(ref);
+						$.getJSON(url, function(data) {
+							console.log(data);
+							var ligne = '<tr>' + '<td>' + data.sa_ref
+									+ '</td>' + '<td>' + data.mo_nom
+									+ '</td>' + '<td>' + data.ta_nom
+									+ '</td>' + '<td><a href="#">Edit</a></td>'
+									+ '<td><a href="#">Delete</a></td>'
+									+ '</tr>';
+							$(ligne).prependTo("#tabArticle");
+						
+						});
+
+					});
+		});

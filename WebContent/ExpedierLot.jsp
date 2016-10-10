@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="ExpedierLot.css" />
 <link rel="stylesheet" href="CreaSport.css" />
 <script src="ExpedierLot.js"></script>
+<script src="Menu.js"></script>
 <title>EXPEDIER LOT</title>
 </head>
 <body>
@@ -22,11 +23,7 @@
 			</div>
 			<div class="header">
 				<div>
-					<nav id="monMenu">
-					<button>Expédier</button>
-					<button>Réceptionner</button>
-					<button>Gestion Stock</button>
-					</nav>
+					<nav id="menu"></nav>
 				</div>
 			</div>
 		</div>
@@ -43,7 +40,7 @@
 						id="destinataire" />
 				</div>
 				<div class="element">
-					Préparé par : <input type="text" name="preparePar" id="preparePar" />
+					PrÃ©parÃ© par : <input type="text" name="preparePar" id="preparePar" />
 				</div>
 				<div class="element">
 					Le : <input type="text" name="dateEnvoi" id="dateEnvoi" />
@@ -51,7 +48,7 @@
 			</div>
 			<div class="conteneur">
 				<div class="element1">
-					N° suivi colis : <input type="text" name="suiviColis"
+					NÂ° suivi colis : <input type="text" name="suiviColis"
 						id="suiviColis" />
 				</div>
 			</div>
@@ -72,7 +69,7 @@
 	<div class="cadre">
 		<div class="conteneur">
 			<div class="element">
-				Réference : <input type="text" name="reference" id="reference" />
+				RÃ©ference : <input type="text" name="reference" id="reference" />
 			</div>
 			<div class="element">
 				<input type="submit" name="ajouter" id="ajouter" value="ajouter" />
@@ -82,7 +79,7 @@
 			<div>
 				<table id="tabArticle" border="1">
 					<thead>
-						<!-- En-tête du tableau -->
+						<!-- En-tÃªte du tableau -->
 						<tr>
 							<th>Ref article</th>
 							<th>Nom</th>
