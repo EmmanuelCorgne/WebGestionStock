@@ -5,13 +5,11 @@ public class ExpedierStockBean {
 	public ExpedierStockBean() {
 		super();	
 	}
-	@Override
-	public String toString() {
-		return "ExpedierStockBean [sa_ref=" + sa_ref + ", mo_nom=" + mo_nom + ", ta_nom=" + ta_nom + "]";
-	}
+
 	protected String sa_ref="";
 	protected String mo_nom="";
 	protected String ta_nom="";
+	protected int sa_id;
 	
 	
 	public String getSa_ref() {
@@ -31,6 +29,17 @@ public class ExpedierStockBean {
 	}
 	public void setTa_nom(String ta_nom) {
 		this.ta_nom = ta_nom;
+	}
+	public int getSa_id() {
+		return sa_id;
+	}
+	public void setSa_id(int sa_id) {
+		this.sa_id = sa_id;
+	}
+	@Override
+	public String toString() {
+		return "ExpedierStockBean [sa_ref=" + sa_ref + ", mo_nom=" + mo_nom + ", ta_nom=" + ta_nom + ", sa_id=" + sa_id
+				+ "]";
 	}
 
 	

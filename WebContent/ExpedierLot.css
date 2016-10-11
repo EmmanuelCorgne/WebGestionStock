@@ -6,7 +6,6 @@ div
 }
 .conteneur {
 	display: flex;
-	background-color: #00b7b7;
 
 }
 
@@ -40,9 +39,11 @@ div
 	display: flex;
 }
 #bouton
-{	
-	
+{		
     display: flex;
-
-
+}
+#errBas
+{
+	color : red;
+	font-size: large;
 }
