@@ -4,34 +4,21 @@
 <head>
 <meta charset="UTF-8">
 <title>CreaSport : Menu général</title>
+
 <link rel="stylesheet" href="CreaSport.css" />
+<link rel="stylesheet" href="jquery-ui.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
 <script src="jquery-ui.js"></script>
 <script src="jquery-3.1.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script src="Menu.js"></script>
-<link rel="stylesheet" href="jquery-ui.css">
-<script>
-	$(function() {
-		$("#datedeb").datepicker({
-			showOn : "button",
-			buttonImage : "images/calendar.gif",
-			buttonImageOnly : true,
-			buttonText : "Select date"
-		});
-	});
-	$(function() {
-		$("#datefin").datepicker({
-			showOn : "button",
-			buttonImage : "images/calendar.gif",
-			buttonImageOnly : true,
-			buttonText : "Select date"
-		});
-	});
-</script>
+<script src="Index.js"></script>
+
+
 </head>
 <body>
 	<table id="header">
@@ -56,12 +43,9 @@
 		<table id="recherche" width="100%">
 			<tr>
 				<td>Nom club</td>
-				<td><select id="selectClub">
-						<option value="value1">Le Mans</option>
-						<option value="value1">Nantes</option>
-				</select></td>
+				<td><input type="text" value"Nom du club id="nomClub"></td>
 				<td>période</td>
-				<td><input type="date" size="10" id=datdeb> au <input
+				<td><input type="text" size="10" id=datedeb> au <input
 					type="text" id="datefin" size="10"></td>
 				<td rowspan="3" name="validation"><button id="validRecherche">Valider</button></td>
 			</tr>
