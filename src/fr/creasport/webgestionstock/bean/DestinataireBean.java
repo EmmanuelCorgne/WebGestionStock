@@ -2,12 +2,6 @@ package fr.creasport.webgestionstock.bean;
 
 public class DestinataireBean {
 
-		@Override
-	public String toString() {
-		return "DestinataireBean [nomClub=" + nomClub + ", nomContact=" + nomContact + ", adresse1=" + adresse1
-				+ ", adresse2=" + adresse2 + ", cp=" + cp + ", ville=" + ville + ", pays=" + pays + ", email=" + email
-				+ ", telephone=" + telephone + ", djClient=" + djClient + ", actif=" + actif + "]";
-	}
 
 		protected String nomClub="";
 		protected String nomContact="";
@@ -42,6 +36,13 @@ public class DestinataireBean {
 			this.actif = actif;
 			this.refClient=refClient;
 		}
+		@Override
+	public String toString() {
+		return "DestinataireBean [nomClub=" + nomClub + ", nomContact=" + nomContact + ", adresse1=" + adresse1
+				+ ", adresse2=" + adresse2 + ", cp=" + cp + ", ville=" + ville + ", pays=" + pays + ", email=" + email
+				+ ", telephone=" + telephone + ", djClient=" + djClient + ", actif=" + actif + "]";
+	}
+
 
 		public String getNomClub() {
 			return nomClub;

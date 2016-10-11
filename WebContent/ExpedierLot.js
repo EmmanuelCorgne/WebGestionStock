@@ -13,9 +13,8 @@ function desactiverAjouter() {
 
 $(document).ready(
 		function() {
-
 			desactiverAjouter();
-
+			// gestion des deletes Edit tableau en bas
 			$(document).on(
 					"click",
 					'#tabArticle a',
@@ -38,6 +37,7 @@ $(document).ready(
 							}
 						}
 					});
+			// connection ajax pour remplissage du tableau
 			$('#ajouter').click(
 					function() {
 						activerAjouter();
@@ -45,7 +45,8 @@ $(document).ready(
 						var url = "TableauArticleAjaxServlet?ref="
 								+ escape(ref);
 						$.getJSON(url, function(data) {
-							// on test s'il y a la ref dans la base sinon msg d'erreur
+							// on test s'il y a la ref dans la base sinon msg
+							// d'erreur
 							if (data.sa_ref) {
 								tabJsonStockArticle.push(data);
 								var ligne = '<tr>' + '<td>' + data.sa_ref
@@ -63,4 +64,15 @@ $(document).ready(
 						});
 
 					});
+			$('#destinataire').keyup(
+					function() {
+						var nomDestinataire = $('#destinataire').val();
+						var url = "AutoCompDestinataireExperdierLot?valeur="
+								+ escape(nomDestinataire);
+						$.getJSON(url, function(data) {
+							console.log(data);
+
+						});
+					});
+
 		});

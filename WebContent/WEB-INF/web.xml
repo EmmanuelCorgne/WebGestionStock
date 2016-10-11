@@ -69,4 +69,14 @@
     <servlet-name>TableauArticleAjaxServlet</servlet-name>
     <url-pattern>/TableauArticleAjaxServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AutoCompDestinataireExperdierLot</display-name>
+    <servlet-name>AutoCompDestinataireExperdierLot</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.AutoCompDestinataireExperdierLot</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutoCompDestinataireExperdierLot</servlet-name>
+    <url-pattern>/AutoCompDestinataireExperdierLot</url-pattern>
+  </servlet-mapping>
 </web-app>
