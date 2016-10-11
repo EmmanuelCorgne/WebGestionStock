@@ -47,7 +47,7 @@
 				<td>période</td>
 				<td><input type="text" size="10" id=datedeb> au <input
 					type="text" id="datefin" size="10"></td>
-				<td rowspan="3" name="validation"><button id="validRecherche">Valider</button></td>
+				<td rowspan="3" name="validation"><button class="buttonVal" id="validRecherche">Valider</button></td>
 			</tr>
 			<tr>
 				<td>Nom contact</td>

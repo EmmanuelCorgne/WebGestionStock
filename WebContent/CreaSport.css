@@ -18,7 +18,7 @@ table button:hover {
 	width: 100%;
 }
 
-table button {
+.buttonVal {
 	border-radius: 10px;
 	font-family: Arial, sans-serif;
 	width: 100px;
