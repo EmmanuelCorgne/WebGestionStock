@@ -2,8 +2,13 @@ package fr.creasport.webgestionstock.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import fr.creasport.webgestionstock.metier.Article;
 import fr.creasport.webgestionstock.metier.ExpeditionArticle;
 
 public class ExpeditionArtcileDAO {
@@ -75,4 +80,31 @@ public class ExpeditionArtcileDAO {
 		}
 	}
 
+	public List<ExpeditionArticle> SelectAll() throws ClassNotFoundException {
+		List<ExpeditionArticle> list = new ArrayList<ExpeditionArticle>();
+		ExpeditionArticle expArt;
+		String query="SELECT * FROM expeditionsarticles";
+		
+		try {
+			Statement st = DbConnection.getInstance().createStatement();
+		    ResultSet rs = st.executeQuery(query);
+		    while (rs.next()){
+		    	expArt=new ExpeditionArticle();
+		    	expArt.setDe_id(rs.getInt("de_id"));	
+		    	expArt.setEa_dateRetour(rs.getDate("ea_dateCreation"));
+		    	expArt.setEa_infoComplementaire(rs.getString("ea_infoComplementaire"));
+		    	expArt.setEa_id(rs.getInt("ea_id"));
+		    	expArt.setEa_isRetourIncomplet(rs.getBoolean("ea_isRetourIncomplet"));
+		    	expArt.setEa_nbArticleEnvoyeTotal(rs.getInt("ea_nbArticleEnvoyeTotal"));
+		    	expArt.setEa_realisePar(rs.getString("ea_realisePar"));
+		    	expArt.setEa_TrackingColis(rs.getString("ea_TrackingColis"));
+		    	expArt.setTe_id(rs.getInt("te_id"));
+		    	list.add(expArt);
+		    }
+		    st.close();
+		    rs.close();
+		} catch(SQLException e) {
+		}
+		return list;
+	}
 }

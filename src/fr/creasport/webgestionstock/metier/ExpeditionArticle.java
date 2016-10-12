@@ -1,6 +1,9 @@
 package fr.creasport.webgestionstock.metier;
 
 import java.util.Date;
+import java.util.List;
+
+import fr.creasport.webgestionstock.dao.ExpeditionArtcileDAO;
 
 public class ExpeditionArticle {
 	
@@ -19,6 +22,18 @@ public class ExpeditionArticle {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public List<ExpeditionArticle> getAll(){
+		ExpeditionArtcileDAO dao=new ExpeditionArtcileDAO();
+		try {
+			return dao.SelectAll();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 
 	public int getEa_id() {
 		return ea_id;
