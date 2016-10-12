@@ -7,8 +7,8 @@ $(document).ready(function() {
 	$('#validRecherche').click(function() {
 		console.log('insérer validRecherche');
 	});
-
-	var listClub = [];
+	// Gestion des autocomplete de la recherche club
+	
 	var choixClub = [];
 	var choixContact = [];
 	var data;
@@ -37,14 +37,45 @@ $(document).ready(function() {
 		});
 
 	});
+	
+	// gestion de l'autocomplete des numéros de lot
+	
+	var choixLot = [];
+	var data;
+	var url = "WSAlotServlet";
+	$.getJSON(url, function(data) {
+		console.log(data);
+		$.each(data, function(key, value) {
+			choixLot.push(value.de_nomClub);
+			choixLot.push(value.de_nomContact);
+		});
+		$("#selectLot").autocomplete({
+			source : choixLot,
+			select : function(event, ui) {
+				$('#idLot').val(data[choixLot.indexOf(ui.item.label)].de_nomContact);
+				console.log($('#nomContact').attr("placeholder"));
+			}
+		});
+		$("#nomContact").autocomplete({
+			source : choixContact,
+			select : function(event, ui) {
+				$('#nomClub').val("");
+				console.log($('#nomClub').attr("value"));
+				$('#nomClub').attr("placeholder",data[choixContact.indexOf(ui.item.label)].de_nomClub);
+				
+			}
+		});
+
+	});
+	
+	// validation de la recherche 
+	$('#validRecherche').click(function(){
+		
+	});
 	console.log('fin du javasrcipt');
-	/*
-	 * $(function() { var availableTags = listClub; // [ "Pommes", "Poires",
-	 * "Abricots", "Prunes", // "Raisins","Pastèques", // "pèches",
-	 * "Mirabelles", "Tomates", "Ananas","Lechies", // "Citrons", // "Oranges",
-	 * "Mandarines", "Clémentines" ]; $("#nomClub").autocomplete({ source :
-	 * availableTags }); });
-	 */
+
+	
+	// affichage des combo de date en Jquery UI
 	$(function() {
 		$("#datedeb").datepicker({
 			showOn : "button",

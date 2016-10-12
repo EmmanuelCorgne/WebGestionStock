@@ -71,16 +71,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>WSAclubServlet</display-name>
-    <servlet-name>WSAclubServlet</servlet-name>
-    <servlet-class>fr.creasport.webgestionstock.servlet.WSAclubServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>WSAclubServlet</servlet-name>
-    <url-pattern>/WSAclubServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>AutoCompDestinataireExperdierLot</display-name>
     <servlet-name>AutoCompDestinataireExperdierLot</servlet-name>
     <servlet-class>fr.creasport.webgestionstock.servlet.AutoCompDestinataireExperdierLot</servlet-class>
@@ -91,12 +81,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>WSAclubsServlet</display-name>
-    <servlet-name>WSAclubsServlet</servlet-name>
-    <servlet-class>fr.creasport.webgestionstock.servlet.WSAclubsServlet</servlet-class>
+    <display-name>WSAlotServlet</display-name>
+    <servlet-name>WSAlotServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSAlotServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>WSAclubsServlet</servlet-name>
-    <url-pattern>/WSAclubsServlet</url-pattern>
+    <servlet-name>WSAlotServlet</servlet-name>
+    <url-pattern>/WSAlotServlet</url-pattern>
   </servlet-mapping>
 </web-app>
