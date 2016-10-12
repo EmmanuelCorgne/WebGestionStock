@@ -1,6 +1,7 @@
 package fr.creasport.webgestionstock.metier;
 
 public class Taille {
+	
 	private int ta_id;
 	private String ta_code;
 	private String ta_nom;

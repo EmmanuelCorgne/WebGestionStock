@@ -14,28 +14,66 @@ public class DestinataireDAO {
 	
 	
 	public void ajouter(Destinataire destinataire) {
-		String query="INSERT INTO articles VALUES(null,?,?,?,?,?,null,?,?,?)";
+		String query="INSERT INTO destinatires VALUES(null,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
 			
-/*			st.setString(1, destinataire.getDe_ref());
+			st.setString(1, destinataire.getDe_ref());
 			st.setString(2,destinataire.getDe_nomClub());
-			st.setBoolean(3, destinataire.getDe_nomContact());
-			st.setString(4,destinataire.getDe_image());
-			st.setString(5,destinataire.getDe_description());
-			//st.setDate(5,Date.);
-			st.setBoolean(6,true );
-			
-			st.setInt(7, article.getFa_id());
-			st.setInt(8, article.getMo_id());
+			st.setString(3, destinataire.getDe_nomContact());
+			st.setString(4, destinataire.getDe_adresse1());
+			st.setString(5, destinataire.getDe_adresse2());
+			st.setString(6, destinataire.getDe_codePostal());
+			st.setString(7, destinataire.getDe_ville());
+			st.setBoolean(8,destinataire.isDe_IsClient());
+			st.setBoolean(9,destinataire.isDe_IsClient());
+
 			st.executeUpdate();
-		    st.close();*/
+		    st.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	public void modifier(Destinataire dest) {
+		String query="UPDATE destinataires SET de_ref=?, de_nomClub=?,de_nomContact=?, de_adresse1=?, de_adresse2=?,"
+				+ "de_codePostal=?,de_ville=?,de_isClient=?,de_isActif,pa_id=? "
+				+ " WHERE de_id=?";
+		try {
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			
+			st.setString(1, dest.getDe_ref());
+			st.setString(2,dest.getDe_nomClub());
+			st.setString(3, dest.getDe_nomContact());
+			st.setString(4,dest.getDe_adresse1());
+			st.setString(5,dest.getDe_adresse2());
+			st.setString(6,dest.getDe_codePostal());
+			st.setString(7,dest.getDe_ville());
+			st.setBoolean(8,dest.isDe_IsClient());
+			st.setBoolean(9,dest.isDe_isActive());
+			st.setInt(10, dest.getPa_id());
+
+			//where ID
+			st.setInt(11, dest.getDe_id());
+			
+			st.executeUpdate();
+		    st.close();
+		} catch(Exception e) {
+		}
+	}
+	
+	public void supprimer(int id) throws ClassNotFoundException {
+		String query="DELETE FROM destintaires WHERE de_id=?";
+		
+		try {
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);;
+			st.setInt(1, id);
+			st.executeUpdate();
+			st.close();
+		} catch(SQLException e) {
+		}
+	}
 	public List<Destinataire> findDestinataire(String ref) throws ClassNotFoundException {
 		
 			List<Destinataire> list = new ArrayList<>();

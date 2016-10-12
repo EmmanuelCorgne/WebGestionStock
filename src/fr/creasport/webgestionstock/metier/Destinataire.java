@@ -1,6 +1,5 @@
 package fr.creasport.webgestionstock.metier;
 
-import fr.creasport.webgestionstock.bean.ArticleBean;
 
 public class Destinataire {
 	
@@ -86,8 +85,5 @@ public class Destinataire {
 	public void setPa_id(int pa_id) {
 		this.pa_id = pa_id;
 	}
-	
-	
-	
 
 }
