@@ -7,9 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.creasport.webgestionstock.bean.DestinataireBean;
+import fr.creasport.webgestionstock.metier.Article;
 import fr.creasport.webgestionstock.metier.Destinataire;
 
 public class DestinataireDAO {
+	
+	
+	public void ajouter(Destinataire destinataire) {
+		String query="INSERT INTO articles VALUES(null,?,?,?,?,?,null,?,?,?)";
+		
+		try {
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			
+/*			st.setString(1, destinataire.getDe_ref());
+			st.setString(2,destinataire.getDe_nomClub());
+			st.setBoolean(3, destinataire.getDe_nomContact());
+			st.setString(4,destinataire.getDe_image());
+			st.setString(5,destinataire.getDe_description());
+			//st.setDate(5,Date.);
+			st.setBoolean(6,true );
+			
+			st.setInt(7, article.getFa_id());
+			st.setInt(8, article.getMo_id());
+			st.executeUpdate();
+		    st.close();*/
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public List<Destinataire> findDestinataire(String ref) throws ClassNotFoundException {
 		

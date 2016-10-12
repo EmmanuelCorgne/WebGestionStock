@@ -63,9 +63,9 @@ public class SaisirArticleServlet extends HttpServlet {
 			artMetier.ajouter(bean);
 
 			request.setAttribute("bean", bean);
-			request.getRequestDispatcher("vue/SaisirArticle.jsp").forward(request, response);
+			request.getRequestDispatcher("SaisirArticle.jsp").forward(request, response);
 		}else{
-			request.getRequestDispatcher("vue/SaisirArticle.jsp").forward(request, response);
+			request.getRequestDispatcher("SaisirArticle.jsp").forward(request, response);
 		}
 
 	}

@@ -1,9 +1,9 @@
 
-INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (NULL, '1', 'XS (1)');
-INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (NULL, '2', 'S (2)');
-INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (NULL, '3', 'M (3)');
-INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (NULL, '4', 'L (4)');
-INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (NULL, '5', 'XL (5)');
+INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (1, '1', 'XS (1)');
+INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (2, '2', 'S (2)');
+INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (3, '3', 'M (3)');
+INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (4, '4', 'L (4)');
+INSERT INTO `creasport`.`tailles` (`ta_Id`, `ta_code`, `ta_nom`) VALUES (5, '5', 'XL (5)');
 
 INSERT INTO `creasport`.`statuts` (`st_id`, `st_code`, `st_nom`) VALUES (NULL, '0', 'En stock');
 INSERT INTO `creasport`.`statuts` (`st_id`, `st_code`, `st_nom`) VALUES (NULL, '1', 'Envoyé');
@@ -15,5 +15,16 @@ INSERT INTO `creasport`.`typesexpeditions` (`te_id`, `te_code`, `te_nom`) VALUES
 INSERT INTO `creasport`.`typesexpeditions` (`te_id`, `te_code`, `te_nom`) VALUES (NULL, '3', 'Salon Commercial');
 
 INSERT INTO `creasport`.`familles` (`fa_id`, `fa_code`, `fa_nom`) VALUES (NULL, 'CUICY', 'Cuissard cycliste');
+INSERT INTO `creasport`.`familles` (`fa_id`, `fa_code`, `fa_nom`) VALUES (NULL, 'CUIATH', 'Cuissard Athletisme');
+INSERT INTO `creasport`.`familles` (`fa_id`, `fa_code`, `fa_nom`) VALUES (NULL, 'MAIATH', 'Maillot Athletisme');
+
 
 INSERT INTO `creasport`.`modeles` (`mo_id`, `mo_code`, `mo_nom`) VALUES (NULL, 'ELIT', 'Elite');
+INSERT INTO `creasport`.`modeles` (`mo_id`, `mo_code`, `mo_nom`) VALUES (NULL, 'ALBAN', 'Alban');
+INSERT INTO `creasport`.`modeles` (`mo_id`, `mo_code`, `mo_nom`) VALUES (NULL, 'PROTEAM', 'Proteam');
+INSERT INTO `creasport`.`modeles` (`mo_id`, `mo_code`, `mo_nom`) VALUES (NULL, 'MANUELA', 'Manuela');
+
+INSERT INTO `creasport`.`pays` (`pa_id`, `pa_code`, `pa_nom`) VALUES (NULL, 'FR', 'France');
+
+INSERT INTO `creasport`.`destinataires` (`de_id`, `de_ref`, `de_nomClub`, `de_nomContact`, `de_adresse1`, `de_adresse2`, `de_codePostal`, `de_ville`, `de_IsClient`, `de_isActive`, `pa_id`) VALUES (NULL, 'CTH-LESHERBIERS-111016', 'Cyclo Tourisme les Herbiers', 'Guy-marie Soulard', '10 rue de saulur', NULL, '85500', 'Les Herbiers', '1', '1', '1');
+INSERT INTO `creasport`.`destinataires` (`de_id`, `de_ref`, `de_nomClub`, `de_nomContact`, `de_adresse1`, `de_adresse2`, `de_codePostal`, `de_ville`, `de_IsClient`, `de_isActive`, `pa_id`) VALUES (NULL, 'StHerblainArchers-111016', 'Compagnie d''Archers Saint Herblain', 'Gweanelle Tonret', '1 rue de la loire', NULL, '44000', 'Nantes', '0', '1', '1');

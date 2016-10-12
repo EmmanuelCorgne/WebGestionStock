@@ -15,7 +15,6 @@ public class Article {
 	protected int fa_id;
 	protected int mo_id;
 	
-	
 	public void ajouter(ArticleBean articleBean){
 		this.ar_ref=articleBean.getReference();
 		this.ar_nom=articleBean.getNom();
