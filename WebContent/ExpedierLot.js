@@ -11,8 +11,10 @@ function desactiverAjouter() {
 	$("#valider").prop('disabled', true);
 }
 
-$(document).ready(
-		function() {
+
+
+$(document).ready(function() {
+	
 			desactiverAjouter();
 			$('#ajouter').click(function() {
 					

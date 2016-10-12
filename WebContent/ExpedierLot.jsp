@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="fr.creasport.webgestionstock.metier.TypeExpedition" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -15,6 +18,7 @@
 <script src="Menu.js"></script>
 
 <title>EXPEDIER LOT</title>
+
 </head>
 <body>
 
@@ -53,7 +57,18 @@
 			</div>
 		</div>
 		<div class="conteneur">
-			<div class="element1">
+			<div class="element">
+			<label for="expedition">Expedition : </label>
+			<select name="expedition" id="expedition" >
+			<% List<TypeExpedition> listeTypesExpeditions = (List<TypeExpedition>)request.getAttribute("listoption"); %>
+			<% for(int i=0, j=listeTypesExpeditions.size(); i < j ; i++) { %>
+				<option value="<% listeTypesExpeditions.get(i).getTe_id(); %>"><%=listeTypesExpeditions.get(i).getTe_nom() %></option>
+			<% } %>
+			</select>
+			</div>
+		</div>
+		<div class="conteneur">
+			<div class="element">
 				N° suivi colis : <input type="text" name="suiviColis"
 					id="suiviColis" Placeholder="N° suvi colis" />
 			</div>
