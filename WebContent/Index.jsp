@@ -7,9 +7,7 @@
 
 <link rel="stylesheet" href="CreaSport.css" />
 <link rel="stylesheet" href="jquery-ui.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	
+
 <script src="jquery-ui.js"></script>
 <script src="jquery-3.1.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -42,31 +40,25 @@
 		<B name="titregroupe">Rechercher</B>
 		<table id="recherche" width="100%">
 			<tr>
-				<td>Nom club</td>
-				<td><input type="text" value"Nom du club id="nomClub"></td>
+				<td>Club</td>
+				<td><input type="text" placeholder="référence du club" id="nomClub" value=""></td>
 				<td>période</td>
-				<td><input type="text" size="10" id=datedeb> au <input
-					type="text" id="datefin" size="10"></td>
+				<td><input type="text" placeholder="date de début" size="10" id=datedeb>
+				 au <input type="text" placeholder="date de fin" size="10" id="datefin"></td>
 				<td rowspan="3" name="validation"><button class="buttonVal" id="validRecherche">Valider</button></td>
 			</tr>
-			<tr>
-				<td>Nom contact</td>
-				<td><select id="selectContact">
-						<option value="value1">machin</option>
-						<option value="value1">truc</option>
-				</select></td>
-				<td>Nom Article</td>
-				<td><select id="selectArticle">
-						<option value="value1">AR1</option>
-						<option value="value1">AR2</option>
-				</select></td>
+			<tr> 
+				<td>Contact</td>
+				<td><input type="text size="10" placeholder="Nom" id="nomContact"/>
+</td>
+				<td>Article</td>
+				<td><input type="text" placeholder="Nom de l'article" size"5" id="selectArticle" ></td>
 			</tr>
 			<tr>
-				<td>Référence lot</td>
-				<td><select id="selectLot">
-						<option value="value1">001</option>
-						<option value="value1">002</option>
-				</select></td>
+				<td>Lot</td>
+				<td><input type="number" placeholder="Num. lot" id="selectLot"/>
+					<input type="text" hidden id="idLot"/>
+				</td>
 				<td colspan="2"></td>
 			</tr>
 		</table>
@@ -92,7 +84,7 @@
 							<th>Date d'envoi</th>
 							<th>Ref. Lot nom du club</th>
 							<th>date retour prévue</th>
-							<th></th>
+							<td></td>
 						</tr>
 					</table>
 				</td>
@@ -112,6 +104,6 @@
 		</table>
 	</div>
 
-	<footer> CreaSport &copy; (2016) </footer>
+	
 </body>
 </html>

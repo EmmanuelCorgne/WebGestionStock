@@ -3,6 +3,7 @@ package fr.creasport.webgestionstock.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import fr.creasport.webgestionstock.dao.ExpeditionArtcileDAO;
+
 /** 
  * Servlet implementation class WSAclubServlet
  */
-public class WSAclubServlet extends HttpServlet {
+public class WSAlotServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public WSAclubServlet() {
+	public WSAlotServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -44,20 +47,20 @@ public class WSAclubServlet extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("début de la procédure WSAclubServlet");
-		String str;
-		PrintWriter ecrire;
+		ExpeditionArtcileDAO LotDAO = new ExpeditionArtcileDAO();
+		int limit =  Integer.parseInt(request.getParameter("limit"));
 
-//		String str = (Util.jsonselect(morFilm));
-		str = "{4label4:'FC Nantes',id:1},"
-				+ "{label:'MSB','id':2},"
-				+ "{'label':'Mancehester UN','id':3}"
-				+ "]" ;
-		Gson gson = new Gson();
-		System.out.println(gson.toJson(str));
-		ecrire = response.getWriter();
-		ecrire.println(str);
+		PrintWriter ecrire;
+		try {
+			List list = LotDAO.SelectAll();
+		//	System.out.println(list);  
+			Gson gson = new Gson();
+			ecrire = response.getWriter();
+			ecrire.println(gson.toJson(list));
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

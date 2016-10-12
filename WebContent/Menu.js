@@ -17,4 +17,5 @@ $(document).ready(function() {
 	menu += '<a href="ExpedierServlet"><button>Réceptionner</button></a>'
 		+'<a href=""><button>Gestion Stock</button></a>' ;
 	$('#menu').html(menu);
+	$('body').append("<footer> CreaSport &copy; (2016) </footer>");
 });

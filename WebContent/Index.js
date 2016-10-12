@@ -7,45 +7,75 @@ $(document).ready(function() {
 	$('#validRecherche').click(function() {
 		console.log('insérer validRecherche');
 	});
-	var listClub = [];
-	$.ajax({
-		url : "WSAclubServlet",
-		type : "GET",
-		dataType : 'json',
-		contentType : 'application/json; charset=utf-8',
-		success : function(retour) {
-			console.log('-------------> ' + retour);
-			$.each(retour, function(key, value) {
-				var temp = "<tr><td>";
-				temp += value.firstname;
-				temp += "</td><td>";
-				temp += value.lastname;
-				temp += "</td><td>";
-				temp += value.address;
-				temp += "</td><td>";
-				temp += '<button value="' + value.id
-						+ '" name="del">Supprimer</button> (' + value.id
-						+ ')';
-				temp += "</td></tr>";
-				// $('#tab_customers').append(temp);
-			});
-			listClub = ['FC Nantes','MSB','Manchester'];
-			// $('#lister').hide();
-		},
-		error : function(error) {
-			listClub = ["error","Niort"]; 
-			console.log("le get ne fonctionne pas : " + error);
-		}
-	});
-	$(function() {
-		var availableTags = listClub;
-		// [ "Pommes", "Poires", "Abricots", "Prunes", "Raisins","Pastèques",
-		// "pèches", "Mirabelles", "Tomates", "Ananas","Lechies", "Citrons",
-		// "Oranges", "Mandarines", "Clémentines" ];
-		$("#nomClub").autocomplete({
-			source : availableTags
+	// Gestion des autocomplete de la recherche club
+	
+	var choixClub = [];
+	var choixContact = [];
+	var data;
+	var url = "AutoCompDestinataireExperdierLot?valeur=";
+	$.getJSON(url, function(data) {
+		$.each(data, function(key, value) {
+			choixClub.push(value.de_nomClub);
+			choixContact.push(value.de_nomContact);
 		});
+		$("#nomClub").autocomplete({
+			source : choixClub,
+			select : function(event, ui) {
+				$('#nomContact').val("");
+				$('#nomContact').attr("placeholder",data[choixClub.indexOf(ui.item.label)].de_nomContact);
+				console.log($('#nomContact').attr("placeholder"));
+			}
+		});
+		$("#nomContact").autocomplete({
+			source : choixContact,
+			select : function(event, ui) {
+				$('#nomClub').val("");
+				console.log($('#nomClub').attr("value"));
+				$('#nomClub').attr("placeholder",data[choixContact.indexOf(ui.item.label)].de_nomClub);
+				
+			}
+		});
+
 	});
+	
+	// gestion de l'autocomplete des numéros de lot
+	
+	var choixLot = [];
+	var data;
+	var url = "WSAlotServlet";
+	$.getJSON(url, function(data) {
+		console.log(data);
+		$.each(data, function(key, value) {
+			choixLot.push(value.de_nomClub);
+			choixLot.push(value.de_nomContact);
+		});
+		$("#selectLot").autocomplete({
+			source : choixLot,
+			select : function(event, ui) {
+				$('#idLot').val(data[choixLot.indexOf(ui.item.label)].de_nomContact);
+				console.log($('#nomContact').attr("placeholder"));
+			}
+		});
+		$("#nomContact").autocomplete({
+			source : choixContact,
+			select : function(event, ui) {
+				$('#nomClub').val("");
+				console.log($('#nomClub').attr("value"));
+				$('#nomClub').attr("placeholder",data[choixContact.indexOf(ui.item.label)].de_nomClub);
+				
+			}
+		});
+
+	});
+	
+	// validation de la recherche 
+	$('#validRecherche').click(function(){
+		
+	});
+	console.log('fin du javasrcipt');
+
+	
+	// affichage des combo de date en Jquery UI
 	$(function() {
 		$("#datedeb").datepicker({
 			showOn : "button",
@@ -64,9 +94,8 @@ $(document).ready(function() {
 	});
 });
 
-
 // a voir pour l'index dans l'autocomplete
-$(".selector").autocomplete({
+$("#temp").autocomplete({
 	source : [ {
 		label : "First",
 		idx : 1
