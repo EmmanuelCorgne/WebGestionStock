@@ -7,9 +7,7 @@
 
 <link rel="stylesheet" href="CreaSport.css" />
 <link rel="stylesheet" href="jquery-ui.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	
+
 <script src="jquery-ui.js"></script>
 <script src="jquery-3.1.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -42,19 +40,17 @@
 		<B name="titregroupe">Rechercher</B>
 		<table id="recherche" width="100%">
 			<tr>
-				<td>Nom club</td>
-				<td><input type="text" value"Nom du club id="nomClub"></td>
+				<td>Club</td>
+				<td><input type="text" placeholder="référence du club" id="nomClub" value=""></td>
 				<td>période</td>
 				<td><input type="text" size="10" id=datedeb> au <input
 					type="text" id="datefin" size="10"></td>
 				<td rowspan="3" name="validation"><button class="buttonVal" id="validRecherche">Valider</button></td>
 			</tr>
-			<tr>
-				<td>Nom contact</td>
-				<td><select id="selectContact">
-						<option value="value1">machin</option>
-						<option value="value1">truc</option>
-				</select></td>
+			<tr> 
+				<td>Contact</td>
+				<td><input type="text size="10" placeholder="Nom" id="nomContact">
+</td>
 				<td>Nom Article</td>
 				<td><select id="selectArticle">
 						<option value="value1">AR1</option>
@@ -112,6 +108,6 @@
 		</table>
 	</div>
 
-	<footer> CreaSport &copy; (2016) </footer>
+	
 </body>
 </html>

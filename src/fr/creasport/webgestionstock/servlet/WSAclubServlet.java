@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
+import com.google.gson.Gson;
+
+/** 
  * Servlet implementation class WSAclubServlet
  */
 public class WSAclubServlet extends HttpServlet {
@@ -48,11 +50,12 @@ public class WSAclubServlet extends HttpServlet {
 		PrintWriter ecrire;
 
 //		String str = (Util.jsonselect(morFilm));
-		str = "[{'label':'FC Nantes','id':1},"
-				+ "{'label':'MSB','id':2},"
-				+ "{'label':'Mancehester UN','id':3},"
+		str = "{4label4:'FC Nantes',id:1},"
+				+ "{label:'MSB','id':2},"
+				+ "{'label':'Mancehester UN','id':3}"
 				+ "]" ;
-		System.out.println(str);
+		Gson gson = new Gson();
+		System.out.println(gson.toJson(str));
 		ecrire = response.getWriter();
 		ecrire.println(str);
 
