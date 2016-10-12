@@ -33,7 +33,7 @@ $(document).ready(function() {
 			// $('#lister').hide();
 		},
 		error : function(error) {
-			listClub = ["error","Niort"];
+			listClub = ["error","Niort"]; 
 			console.log("le get ne fonctionne pas : " + error);
 		}
 	});

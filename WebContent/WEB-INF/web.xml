@@ -69,4 +69,14 @@
     <servlet-name>TableauArticleAjaxServlet</servlet-name>
     <url-pattern>/TableauArticleAjaxServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSAclubServlet</display-name>
+    <servlet-name>WSAclubServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSAclubServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSAclubServlet</servlet-name>
+    <url-pattern>/WSAclubServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
