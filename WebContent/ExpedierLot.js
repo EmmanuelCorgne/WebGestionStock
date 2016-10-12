@@ -1,6 +1,6 @@
 // declaration du tableau Json de stockage
 var tabJsonStockArticle = [];
-
+var idDestinataire;
 function activerAjouter() {
 	// Active le bouton
 	$('#valider').prop('disabled', false);
@@ -14,6 +14,9 @@ function desactiverAjouter() {
 $(document).ready(
 		function() {
 			desactiverAjouter();
+			$('#ajouter').click(function() {
+					
+		});
 			// gestion des deletes Edit tableau en bas
 			$(document).on(
 					"click",
@@ -64,15 +67,25 @@ $(document).ready(
 						});
 
 					});
-			$('#destinataire').keyup(
-					function() {
-						var nomDestinataire = $('#destinataire').val();
-						var url = "AutoCompDestinataireExperdierLot?valeur="
-								+ escape(nomDestinataire);
+						var JsonAutoComplete = [];
+						var url = "AutoCompDestinataireExperdierLot?valeur=";
+
 						$.getJSON(url, function(data) {
-							console.log(data);
+						//	console.log(data);
+							for (var k = 0; k < data.length; k++)
+							{
+								JsonAutoComplete.push(data[k].de_ref);
+
+							}
+							var options = {
+								source : JsonAutoComplete,
+								select: function( event, ui ) {
+									//idDestinataire=data[JsonAutoComplete.indexOf(ui.item.label)].de_id;
+									console.log(data[JsonAutoComplete.indexOf(ui.item.label)].de_nomContact);
+								}
+							};
+							$('#destinataire').autocomplete(options);
 
 						});
-					});
 
 		});

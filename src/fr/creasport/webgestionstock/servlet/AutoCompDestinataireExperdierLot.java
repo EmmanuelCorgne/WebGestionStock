@@ -51,7 +51,7 @@ public class AutoCompDestinataireExperdierLot extends HttpServlet {
 		PrintWriter ecrire;
 		try {
 			List list = destDAO.findDestinataire(morceauDestinataire);
-			//System.out.println(str);  
+		//	System.out.println(list);  
 			Gson gson = new Gson();
 			ecrire = response.getWriter();
 			ecrire.println(gson.toJson(list));

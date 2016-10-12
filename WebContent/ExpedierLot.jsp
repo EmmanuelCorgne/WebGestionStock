@@ -8,11 +8,16 @@
 <script src="jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="ExpedierLot.css" />
 <link rel="stylesheet" href="CreaSport.css" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="ExpedierLot.js"></script>
 <script src="Menu.js"></script>
+
 <title>EXPEDIER LOT</title>
 </head>
 <body>
+
 	<div id="menuHeader">
 		<div>
 			<div class="header">
@@ -27,34 +32,37 @@
 				</div>
 			</div>
 		</div>
-		<div class="titre">
+	<div class="titre">
 			<h1>Expedier Lot</h1>
-		</div>
+	</div>
 	</div>
 
 	<div class="cadre" name="groupe">
 		<div class="conteneur">
 			<div class="element">
 				Destinataire: <input type="text" name="destinataire"
-					id="destinataire" />
+					id="destinataire" Placeholder="Destinataire" />
 			</div>
 			<div class="element">
-				Préparé par : <input type="text" name="preparePar" id="preparePar" />
+				Préparé par : <input type="text" name="preparePar" id="preparePar"
+					Placeholder="Préparé par" />
 			</div>
 			<div class="element">
-				Le : <input type="text" name="dateEnvoi" id="dateEnvoi" />
+				Le : <input type="text" name="dateEnvoi" id="dateEnvoi"
+					Placeholder="date" />
 			</div>
 		</div>
 		<div class="conteneur">
 			<div class="element1">
 				N° suivi colis : <input type="text" name="suiviColis"
-					id="suiviColis" />
+					id="suiviColis" Placeholder="N° suvi colis" />
 			</div>
 		</div>
 		<div class="conteneur">
 			<div class="element">
 				<label for="ameliorer">Commentaire : </label>
-				<textarea name="commentaire" id="commentaire"></textarea>
+				<textarea name="commentaire" id="commentaire"
+					Placeholder="Commentaire"></textarea>
 			</div>
 		</div>
 		<div class="conteneur" id="bouton">
@@ -67,7 +75,8 @@
 	<div class="cadre" name="groupe">
 		<div class="conteneur">
 			<div class="element">
-				Réference : <input type="text" name="reference" id="reference" />
+				Réference : <input type="text" name="reference" id="reference"
+					Placeholder="Référence" />
 			</div>
 			<div class="element">
 				<input type="submit" name="ajouter" id="ajouter" value="ajouter" />
