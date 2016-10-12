@@ -1,8 +1,14 @@
 Installer le menu sur une page  
 
-	Juste après l'import de jquery-3.1.0.min.js, mettre la ligne :
+	Juste aprÃ¨s l'import de jquery-3.1.0.min.js, mettre la ligne :
 	<script src="Menu.js"></script>
-	Puis mettre la ligne suivante là où doivent être les boutons du menu: 
+	Puis mettre la ligne suivante lï¿½ oï¿½ doivent Ãªtre les boutons du menu: 
 	<nav id="menu"></nav>
 
-Mettre le dégradé et les arrondis sur une div 
+Mettre le dÃ©gradÃ© et les arrondis sur une div, mettre name="groupe"
+
+pour avoir un "petit" bouton de validation, mettre class="buttonVal"
+
+
+
+

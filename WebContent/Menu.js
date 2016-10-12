@@ -1,24 +1,20 @@
 /**
-
  */
 $(document).ready(function() {
-	$('#menu').html('<a href="ExpedierServlet"><button>Expédier</button></a>'
-			+'<a href="ExpedierServlet"><button>Réceptionner</button></a>'
-			+'<a href=""><button>Gestion Stock</button></a>' );
+	var nomPage = $(document).attr("URL");
+	nomPage = nomPage.split("/");
+	nomPage = nomPage[nomPage.length - 1];
+	//nom = nom.substr(0, nom.lastIndexOf("."));
+	//nom = nom.replace(new RegExp("(%20|_|-)", "g"), "");
+	//alert(nomPage);
+	var menu = "";
+	// construction du menu en fonction de page courante
+	if (nomPage != "IndexServlet")
+		menu += '<a href="IndexServlet"><button>Menu général</button></a>';
+	if (nomPage != "ExpedierServlet")
+		menu = '<a href="ExpedierServlet"><button>Expédier</button></a>';
 	
-	// fonction de test, ne pas en tenir compte
-	
-	$('#validRecherche').click(function() {
-		var url = "WebServiceServlet";
-		var retour = "...";
-		alert('retour');
-		$
-		.get(url, function(retour) {
-			console.log("on lance l'url");
-		})
-		.fail(function(jqXHR, textStatus, error){
-			console.log("Post error: " + error);
-		});
-		alert(retour);
-	});
+	menu += '<a href="ExpedierServlet"><button>Réceptionner</button></a>'
+		+'<a href=""><button>Gestion Stock</button></a>' ;
+	$('#menu').html(menu);
 });
