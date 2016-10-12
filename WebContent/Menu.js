@@ -1,5 +1,4 @@
 /**
-
  */
 $(document).ready(function() {
 	var nomPage = $(document).attr("URL");
