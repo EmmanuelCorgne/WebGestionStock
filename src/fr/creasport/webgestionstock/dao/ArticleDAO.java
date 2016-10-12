@@ -42,7 +42,7 @@ public class ArticleDAO {
 		}
 	}
 	public void modifier(Article article) {
-		String query="UPDATE article SET ar_ref=?, ar_nom=?,ar_isHC=?, ar_description=?, ar_image=?,ar_isActif "
+		String query="UPDATE articles SET ar_ref=?, ar_nom=?,ar_isHC=?, ar_description=?, ar_image=?,ar_isActif "
 				+ " WHERE ar_id=?";
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
@@ -65,7 +65,7 @@ public class ArticleDAO {
 	}
 	
 	public void supprimer(int id) throws ClassNotFoundException {
-		String query="DELETE FROM article WHERE ar_id=?";
+		String query="DELETE FROM articles WHERE ar_id=?";
 		
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);;
@@ -79,7 +79,7 @@ public class ArticleDAO {
 	public List<Article> SelectAll() throws ClassNotFoundException {
 		List<Article> list = new ArrayList<Article>();
 		Article article;
-		String query="SELECT * FROM article;";
+		String query="SELECT * FROM articles";
 		
 		try {
 			Statement st = DbConnection.getInstance().createStatement();
