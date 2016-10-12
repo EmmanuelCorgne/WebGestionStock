@@ -23,63 +23,88 @@ import fr.creasport.webgestionstock.metier.StockArticle;
  */
 public class TableauArticleAjaxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TableauArticleAjaxServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public TableauArticleAjaxServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doWork(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doWork(request, response);
 	}
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		// pour recuper la ref   String morFilm = request.getParameter("valeur");
-	
-		StockArticleDAO dbStockArticle = new StockArticleDAO();
-		TailleDAO dbTaille = new TailleDAO();
-		ModeleDAO dbModele = new ModeleDAO();
-		ArticleDAO dbArticle = new ArticleDAO();
-		StockArticle stockArticle = new StockArticle();
-		Article article = new Article();
-		ExpedierStockBean bean = new ExpedierStockBean();
+		// pour recuper la ref
+		String ref = request.getParameter("ref");
+		//System.out.println(ref);
+		// CUICYELIT0510160002-S
 		try {
-			//test push
-			stockArticle=dbStockArticle.selectParRef("CUICYELIT0510160002-S");
+
+			ExpedierStockBean bean = new ExpedierStockBean();
+			StockArticle stockArticle = new StockArticle();
+			StockArticleDAO dbStockArticle = new StockArticleDAO();
+			stockArticle = dbStockArticle.selectParRef(ref);
+			if(null!=stockArticle){
+	
+
 			// on set la ref dans le bean
 			bean.setSa_ref(stockArticle.getSa_ref());
+
 			// on recupere le nom de la taille et on le place dans bean
+			TailleDAO dbTaille = new TailleDAO();
 			bean.setTa_nom(dbTaille.selectNom(stockArticle.getTa_id()));
+
 			// on recupere l'id de article pour aller chercher id de modele
-			article=dbArticle.SelectById(stockArticle.getAr_id()); 
+			Article article = new Article();
+			ArticleDAO dbArticle = new ArticleDAO();
+			article = dbArticle.SelectById(stockArticle.getAr_id());
+
 			// on recupere le nom du modele et on le place dans bean
+			ModeleDAO dbModele = new ModeleDAO();
 			bean.setMo_nom(dbModele.selectNom(article.getMo_id()));
+
+			// on stock l'id Stock article dans le ExpedierStockBean
+			bean.setSa_id(stockArticle.getSa_id());
+
 			// on envoi vers le .js
 			PrintWriter ecrire;
 			Gson gson = new Gson();
 			ecrire = response.getWriter();
 			ecrire.println(gson.toJson(bean));
-			System.out.println(gson.toJson(bean));
+			// System.out.println(gson.toJson(bean));
+			}else{
+				PrintWriter ecrire;
+				Gson gson = new Gson();
+				ecrire = response.getWriter();
+				ecrire.println(gson.toJson("Erreur : la Ref n'est pas dans la base de donnee StockArticle"));
+
+			}
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 	}
 
 }

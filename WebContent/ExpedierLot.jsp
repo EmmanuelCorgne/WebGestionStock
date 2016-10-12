@@ -4,7 +4,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8">
 <script src="jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="ExpedierLot.css" />
 <link rel="stylesheet" href="CreaSport.css" />
@@ -32,41 +32,39 @@
 		</div>
 	</div>
 
-	<div class="cadre">
-		<form method="get" action="ExpedierServlet">
-			<div class="conteneur">
-				<div class="element">
-					Destinataire: <input type="text" name="destinataire"
-						id="destinataire" />
-				</div>
-				<div class="element">
-					Préparé par : <input type="text" name="preparePar" id="preparePar" />
-				</div>
-				<div class="element">
-					Le : <input type="text" name="dateEnvoi" id="dateEnvoi" />
-				</div>
+	<div class="cadre" name="groupe">
+		<div class="conteneur">
+			<div class="element">
+				Destinataire: <input type="text" name="destinataire"
+					id="destinataire" />
 			</div>
-			<div class="conteneur">
-				<div class="element1">
-					N° suivi colis : <input type="text" name="suiviColis"
-						id="suiviColis" />
-				</div>
+			<div class="element">
+				Préparé par : <input type="text" name="preparePar" id="preparePar" />
 			</div>
-			<div class="conteneur">
-				<div class="element">
-					<label for="ameliorer">Commentaire : </label>
-					<textarea name="commentaire" id="commentaire"></textarea>
-				</div>
+			<div class="element">
+				Le : <input type="text" name="dateEnvoi" id="dateEnvoi" />
 			</div>
-			<div class="conteneur" id="bouton">
-				<div>
-					<input type="submit" name="valider" id="valider" value="valider" />
-				</div>
+		</div>
+		<div class="conteneur">
+			<div class="element1">
+				N° suivi colis : <input type="text" name="suiviColis"
+					id="suiviColis" />
 			</div>
-		</form>
+		</div>
+		<div class="conteneur">
+			<div class="element">
+				<label for="ameliorer">Commentaire : </label>
+				<textarea name="commentaire" id="commentaire"></textarea>
+			</div>
+		</div>
+		<div class="conteneur" id="bouton">
+			<div>
+				<input type="submit" name="valider" id="valider" value="valider" />
+			</div>
+		</div>
 	</div>
 	<div class="titre2">Liste des articles</div>
-	<div class="cadre">
+	<div class="cadre" name="groupe">
 		<div class="conteneur">
 			<div class="element">
 				Réference : <input type="text" name="reference" id="reference" />
@@ -74,6 +72,7 @@
 			<div class="element">
 				<input type="submit" name="ajouter" id="ajouter" value="ajouter" />
 			</div>
+			<div id="errBas"></div>
 		</div>
 		<div class="conteneur">
 			<div>
@@ -90,20 +89,6 @@
 					</thead>
 					<tbody>
 						<!-- Corps du tableau -->
-						<tr>
-							<td>test Ref2</td>
-							<td>Test Nom2</td>
-							<td>Test taille2</td>
-							<td><a href="#">Edit</a></td>
-							<td><a href="#">Delete</a></td>
-						</tr>
-						<tr>
-							<td>test Ref2</td>
-							<td>Test Nom2</td>
-							<td>Test taille2</td>
-							<td><a href="#">Edit</a></td>
-							<td><a href="#">Delete</a></td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
