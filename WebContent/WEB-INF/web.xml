@@ -89,4 +89,14 @@
     <servlet-name>WSAlotServlet</servlet-name>
     <url-pattern>/WSAlotServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSApaysServlet</display-name>
+    <servlet-name>WSApaysServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSApaysServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSApaysServlet</servlet-name>
+    <url-pattern>/WSApaysServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

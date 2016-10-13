@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.creasport.webgestionstock.metier.Taille;
+import fr.creasport.webgestionstock.metier.Pays;
 
 public class PaysDAO {
 
@@ -14,20 +14,20 @@ public class PaysDAO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public List<Taille> SelectAll() throws ClassNotFoundException {
-		List<Taille> list = new ArrayList<Taille>();
-		Taille taille;
-		String query="SELECT * FROM tailles;";
+	public List<Pays> SelectAll() throws ClassNotFoundException {
+		List<Pays> list = new ArrayList<Pays>();
+		Pays pays;
+		String query="SELECT * FROM pays;";
 		
 		try {
 			Statement st = DbConnection.getInstance().createStatement();
 		    ResultSet rs = st.executeQuery(query);
 		    while (rs.next()){
-		    	taille=new Taille();
-		    	taille.setTa_id(rs.getInt("ta_id"));	
-		    	taille.setTa_code(rs.getString("ta_code"));	
-		    	taille.setTa_nom(rs.getString("ta_nom"));		    	
-		    	list.add(taille);
+		    	pays=new Pays();
+		    	pays.setPa_id(rs.getInt("pa_id"));	
+		    	pays.setPa_code(rs.getString("pa_code"));	
+		    	pays.setPa_nom(rs.getString("pa_nom"));		    	
+		    	list.add(pays);
 		    }
 		    st.close();
 		    rs.close();
