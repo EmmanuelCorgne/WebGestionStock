@@ -99,4 +99,14 @@
     <servlet-name>WSApaysServlet</servlet-name>
     <url-pattern>/WSApaysServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AutoCompRefStockArticle</display-name>
+    <servlet-name>AutoCompRefStockArticle</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.AutoCompRefStockArticle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutoCompRefStockArticle</servlet-name>
+    <url-pattern>/AutoCompRefStockArticle</url-pattern>
+  </servlet-mapping>
 </web-app>

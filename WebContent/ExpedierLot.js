@@ -14,6 +14,7 @@ function desactiverAjouter() {
 
 
 $(document).ready(function() {
+	
 	$("#dateEnvoi").val(moment().format('DD/MM/YYYY'));
 	$(function() {
 		// TODO date au format anglais et non francais attente de la correction de LOic
@@ -27,14 +28,8 @@ $(document).ready(function() {
 	});
 	
 			desactiverAjouter();
-			$('#ajouter').click(function() {
-					
-		});
 			// gestion des deletes Edit tableau en bas
-			$(document).on(
-					"click",
-					'#tabArticle a',
-					function() {
+			$(document).on("click",'#tabArticle a',function() {
 						if ($(this).html() == "Edit") {
 							var select = $(this).closest("tr").children("td")
 									.html();
@@ -78,25 +73,44 @@ $(document).ready(function() {
 							}
 							;
 						});
-
+						$('#reference').val("");
 					});
-						var JsonAutoComplete = [];
+			// autoComplete Club
+						var JsonAutoCompleteClub = [];
 						var url = "AutoCompDestinataireExperdierLot?valeur=";
 
 						$.getJSON(url, function(data) {
 							//console.log(data);
 							for (var k = 0; k < data.length; k++)
 							{
-								JsonAutoComplete.push(data[k].de_nomClub);
+								JsonAutoCompleteClub.push(data[k].de_nomClub);
 							}
 							var options = {
-								source : JsonAutoComplete,
+								source : JsonAutoCompleteClub,
 								select: function( event, ui ) {
-									idclub=data[JsonAutoComplete.indexOf(ui.item.label)].de_id;
-									//console.log(data[JsonAutoComplete.indexOf(ui.item.label)].de_nomContact);
+									idclub=data[JsonAutoCompleteClub.indexOf(ui.item.label)].de_id;
+									//console.log(data[JsonAutoCompleteClub.indexOf(ui.item.label)].de_nomContact);
 								}
 							};
 							$('#club').autocomplete(options);
+
+						});
+						
+						// autoComplete Reference
+						var JsonAutoCompleteRef = [];
+						var url = "AutoCompRefStockArticle?valeur=";
+						
+						$.getJSON(url, function(data) {
+						//	console.log(data);	
+							for (var k = 0; k < data.length; k++)
+							{
+								//console.log(data[k].sa_ref);
+								JsonAutoCompleteRef.push(data[k].sa_ref);
+							}
+							var options = {
+								source : JsonAutoCompleteRef
+							};
+							$('#reference').autocomplete(options);
 
 						});
 
