@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import fr.creasport.webgestionstock.dao.DestinataireDAO;
+import fr.creasport.webgestionstock.metier.Destinataire;
 
 /**
  * Servlet implementation class AutoCompDestinataireExperdierLot
@@ -50,8 +51,8 @@ public class AutoCompDestinataireExperdierLot extends HttpServlet {
 
 		PrintWriter ecrire;
 		try {
-			List list = destDAO.findDestinataire(morceauDestinataire);
-		//	System.out.println(list);  
+			List<Destinataire> list = destDAO.findDestinataire(morceauDestinataire);
+			//System.out.println(list);  
 			Gson gson = new Gson();
 			ecrire = response.getWriter();
 			ecrire.println(gson.toJson(list));

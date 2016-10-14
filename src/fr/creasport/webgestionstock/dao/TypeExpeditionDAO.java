@@ -19,22 +19,23 @@ public class TypeExpeditionDAO {
 	public List<TypeExpedition> SelectAll() throws ClassNotFoundException {
 		List<TypeExpedition> list = new ArrayList<TypeExpedition>();
 		TypeExpedition typeExpedition;
-		String query="SELECT * FROM typesexpeditions;";
+		String query="SELECT * FROM typesexpeditions";
 		
 		try {
 			Statement st = DbConnection.getInstance().createStatement();
 		    ResultSet rs = st.executeQuery(query);
 		    while (rs.next()){
 		    	typeExpedition=new TypeExpedition();
-		    	typeExpedition.setTe_id(rs.getInt("st_id"));	
-		    	typeExpedition.setTe_code(rs.getString("st_code"));	
-		    	typeExpedition.setTe_nom(rs.getString("st_nom"));		    	
+		    	typeExpedition.setTe_id(rs.getInt("te_id"));	
+		    	typeExpedition.setTe_code(rs.getString("te_code"));	
+		    	typeExpedition.setTe_nom(rs.getString("te_nom"));		    	
 		    	list.add(typeExpedition);
 		    }
 		    st.close();
 		    rs.close();
 		} catch(SQLException e) {
 		}
+		
 		return list;
 	}
 
