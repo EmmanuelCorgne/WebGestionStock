@@ -17,7 +17,7 @@ public class PaysDAO {
 	public List<Pays> SelectAll() throws ClassNotFoundException {
 		List<Pays> list = new ArrayList<Pays>();
 		Pays pays;
-		String query="SELECT * FROM pays;";
+		String query="SELECT * FROM pays;"; 
 		
 		try {
 			Statement st = DbConnection.getInstance().createStatement();

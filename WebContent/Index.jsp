@@ -115,7 +115,7 @@
 				<td><input type="text" placeholder="Nom de l'article"
 					size"5" id="selectArticle"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<td>Lot</td>
 				<td><input type="number" placeholder="Num. lot" id="selectLot" />
 					<input type="text" hidden id="idLot" /></td>

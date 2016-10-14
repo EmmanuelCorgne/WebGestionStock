@@ -138,7 +138,7 @@ $(document)
 				  showOn : "button",
 				  buttonImage : "images/calendar.gif",
 				  buttonImageOnly : true,
-				  buttonText : "Select date"
+				  buttonText : "Cliquer pour avoir un calendrier"
 				});
 			 });
 			 $(function() {
@@ -146,7 +146,7 @@ $(document)
 				  showOn : "button",
 				  buttonImage : "images/calendar.gif",
 				  buttonImageOnly : true,
-				  buttonText : "Select date"
+				  buttonText : "Cliquer pour avoir un calendrier" 
 				});
 			 });
 		  });

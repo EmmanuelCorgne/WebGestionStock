@@ -23,7 +23,7 @@ public class WSAlotServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public WSAlotServlet() {
+	public WSAlotServlet() { 
 		super();
 		// TODO Auto-generated constructor stub
 	}
