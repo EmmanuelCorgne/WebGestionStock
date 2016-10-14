@@ -53,7 +53,6 @@ public class ExpedierServlet extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		TypeExpeditionDAO typeExpeditionDAO = new TypeExpeditionDAO();
 		try {
 			List<TypeExpedition> list = typeExpeditionDAO.SelectAll();

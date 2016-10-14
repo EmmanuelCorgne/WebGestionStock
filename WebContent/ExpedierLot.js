@@ -1,6 +1,6 @@
 // declaration du tableau Json de stockage
 var tabJsonStockArticle = [];
-var idDestinataire;
+var idclub;
 function activerAjouter() {
 	// Active le bouton
 	$('#valider').prop('disabled', false);
@@ -14,6 +14,17 @@ function desactiverAjouter() {
 
 
 $(document).ready(function() {
+	$("#dateEnvoi").val(moment().format('DD/MM/YYYY'));
+	$(function() {
+		// TODO date au format anglais et non francais attente de la correction de LOic
+		$("#dateEnvoi").datepicker({
+			showOn : "button",
+			buttonImage : "images/calendar.gif",
+			buttonImageOnly : true,
+			buttonText : "Select date"
+			
+		});
+	});
 	
 			desactiverAjouter();
 			$('#ajouter').click(function() {
@@ -73,20 +84,19 @@ $(document).ready(function() {
 						var url = "AutoCompDestinataireExperdierLot?valeur=";
 
 						$.getJSON(url, function(data) {
-						//	console.log(data);
+							//console.log(data);
 							for (var k = 0; k < data.length; k++)
 							{
-								JsonAutoComplete.push(data[k].de_ref);
-
+								JsonAutoComplete.push(data[k].de_nomClub);
 							}
 							var options = {
 								source : JsonAutoComplete,
 								select: function( event, ui ) {
-									//idDestinataire=data[JsonAutoComplete.indexOf(ui.item.label)].de_id;
-									console.log(data[JsonAutoComplete.indexOf(ui.item.label)].de_nomContact);
+									idclub=data[JsonAutoComplete.indexOf(ui.item.label)].de_id;
+									//console.log(data[JsonAutoComplete.indexOf(ui.item.label)].de_nomContact);
 								}
 							};
-							$('#destinataire').autocomplete(options);
+							$('#club').autocomplete(options);
 
 						});
 
