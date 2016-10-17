@@ -86,4 +86,12 @@ public class Destinataire {
 		this.pa_id = pa_id;
 	}
 
+	@Override
+	public String toString() {
+		return "Destinataire [de_id=" + de_id + ", de_ref=" + de_ref + ", de_nomClub=" + de_nomClub + ", de_nomContact="
+				+ de_nomContact + ", de_adresse1=" + de_adresse1 + ", de_adresse2=" + de_adresse2 + ", de_codePostal="
+				+ de_codePostal + ", de_ville=" + de_ville + ", de_IsClient=" + de_IsClient + ", de_isActive="
+				+ de_isActive + ", pa_id=" + pa_id + "]";
+	}
+
 }

@@ -13,8 +13,8 @@ import fr.creasport.webgestionstock.metier.Destinataire;
 public class DestinataireDAO {
 	
 	
-	public void ajouter(Destinataire destinataire) {
-		String query="INSERT INTO destinatires VALUES(null,?,?,?,?,?,?,?,?,?)";
+	public String ajouter(Destinataire destinataire) {
+		String query="INSERT INTO destinataires VALUES(null,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
@@ -27,12 +27,16 @@ public class DestinataireDAO {
 			st.setString(6, destinataire.getDe_codePostal());
 			st.setString(7, destinataire.getDe_ville());
 			st.setBoolean(8,destinataire.isDe_IsClient());
-			st.setBoolean(9,destinataire.isDe_IsClient());
+			st.setBoolean(9,destinataire.isDe_isActive());
+			st.setInt(10, destinataire.getPa_id());
 
+			
 			st.executeUpdate();
 		    st.close();
+		    return("OK");
 		} catch(Exception e) {
 			e.printStackTrace();
+			return(e.getMessage());
 		}
 	}
 	

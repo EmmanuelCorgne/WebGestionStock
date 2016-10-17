@@ -30,26 +30,58 @@ $(document)
 								.click(
 									 function() {
 										var textErr = "";
-										console.log("---"
-											 + $('input[name=choix]:checked',
-												  '#dialClub_IsClient').length + "---")
-										if ($('#dialClub_ref').val.length < 3)
+										if (!($('#dialClub_ref').val()))
 										  textErr += "<br>La référence est obligatoire. ";
-										if ($('#dialClub_nom').val.length < 3)
+										if (!($('#dialClub_nonClub').val()))
 										  textErr += "<br>Il faut am moins 3 caractères pour le noms du club. ";
-										if ($('#dialClub_adresse1').val.length < 3)
+										if (!($('#dialClub_adresse1').val()))
 										  textErr += "<br>La première ligne d'adresse est nécessaire. ";
-										if ($('#dialClub_codePostal').val.length < 3)
+										if (!($('#dialClub_codePostal').val()))
 										  textErr += "<br>Le code postal est obligatoire. ";
-										if ($('#dialClub_ville').val.length < 3)
+										if (!($('#dialClub_ville').val()))
 										  textErr += "<br>La ville est obligatoire. ";
-										if ($('input[name=choix]:checked',
-											 '#dialClub_IsClient').length < 1)
+										if ($('input[name="choix"]:checked',
+											 '#dialClub_IsClient').length < 1) {
+										  console.log("isClient"
+												+ ($('input[name=choix]:checked',
+													 '#dialClub_IsClient').val()));
 										  textErr += "<br>Le club est il déjà client ? ";
-										if (textErr != "")
-										  $('#dialClub_err').html(textErr);
-									 });
+										} else
+										  console.log("isClient"
+												+ ($('input[name=choix]:checked',
+													 '#dialClub_IsClient').val()));
+										if (!($('#dialClub_pays').val()))
+										  textErr += "<br>il faut choisir un pays. ";
 
+										$('#dialClub_err').html(textErr);
+										if (textErr == "") {
+										  url = "WSAaddClubServlet";
+										  var dataClub = {};
+										  dataClub.ref = $('#dialClub_ref').val();
+										  dataClub.nom = $('#dialClub_nonClub').val();
+										  dataClub.nomContact = $('#dialClub_nomContact')
+												.val();
+										  dataClub.adr1 = $('#dialClub_adresse1').val();
+										  dataClub.adr2 = $('#dialClub_adresse2').val();
+										  dataClub.cp = $('#dialClub_codePostal').val();
+										  dataClub.ville = $('#dialClub_ville').val();
+										  dataClub.isClient = $(
+												'input[name=choix]:checked',
+												'#dialClub_IsClient').val();
+										  dataClub.idpays = $('#dialClub_IDpays').val();
+										  console.log(dataClub);
+										  $.post(url, dataClub, function(retour) {
+
+										  }).done(function(retour) {
+											 if (retour == "OK")
+												$('#dialog-club').hide();
+											 else {
+												textErr = retour;
+												$('#dialClub_err').html(textErr);
+											 }
+										  });
+										};
+									 });
 						  $('#dialClub_close').click(function() {
 							 $('#dialog-club').hide();
 						  });

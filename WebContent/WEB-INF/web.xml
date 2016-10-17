@@ -101,6 +101,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>WSAaddClubServlet</display-name>
+    <servlet-name>WSAaddClubServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSAaddClubServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSAaddClubServlet</servlet-name>
+    <url-pattern>/WSAaddClubServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <description></description>
     <display-name>AutoCompRefStockArticle</display-name>
     <servlet-name>AutoCompRefStockArticle</servlet-name>
     <servlet-class>fr.creasport.webgestionstock.servlet.AutoCompRefStockArticle</servlet-class>
@@ -128,5 +138,15 @@
   <servlet-mapping>
     <servlet-name>SaisirLotArticleServlet</servlet-name>
     <url-pattern>/SaisirLotArticleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSAlistArticle</display-name>
+    <servlet-name>WSAlistArticle</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSAlistArticle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSAlistArticle</servlet-name>
+    <url-pattern>/WSAlistArticle</url-pattern>
   </servlet-mapping>
 </web-app>

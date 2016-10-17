@@ -88,11 +88,11 @@ public class ArticleDAO {
 		    	article=new Article();
 		    	article.setAr_id(rs.getInt("ar_id"));	
 		    	article.setAr_ref(rs.getString("ar_ref"));
-		    	article.setAr_nom("ar_nom");
+		    	article.setAr_nom(rs.getString("ar_nom"));
 		    	article.setAr_description(rs.getString("ar_description"));
 		    	article.setAr_image(rs.getString("ar_image"));
 		    	article.setAr_isHC(rs.getBoolean("ar_isHC"));
-		    	article.setAr_isActif(rs.getBoolean("ar_isActive"));
+		    	article.setAr_isActif(rs.getBoolean("ar_isActif"));
 		    	article.setFa_id(rs.getInt("fa_id"));
 		    	article.setMo_id(rs.getInt("mo_id"));
 		    	
@@ -101,6 +101,7 @@ public class ArticleDAO {
 		    st.close();
 		    rs.close();
 		} catch(SQLException e) {
+			System.out.println("error : " + e);
 		}
 		return list;
 	}
