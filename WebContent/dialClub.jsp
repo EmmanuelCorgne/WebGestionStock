@@ -12,7 +12,7 @@
 			</tr>
 			<tr>
 				<td>Nom du contact</td>
-				<td><input type="text" id="dialClub_nomContact" /></td>
+				<td><input type="text" placeholder="facultatif" id="dialClub_nomContact" /></td>
 			</tr>
 			<tr>
 				<td>Adresse ligne 1</td>
