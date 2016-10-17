@@ -85,6 +85,7 @@ $(document)
 			 // affichage des combo de date en Jquery UI
 			 $(function() {
 				$("#datedeb").datepicker({
+				  dateFormat: "dd/mm/yy",
 				  showOn : "button",
 				  buttonImage : "images/calendar.gif",
 				  buttonImageOnly : true,
@@ -93,6 +94,7 @@ $(document)
 			 });
 			 $(function() {
 				$("#datefin").datepicker({
+				  dateFormat: "dd/mm/yy",
 				  showOn : "button",
 				  buttonImage : "images/calendar.gif",
 				  buttonImageOnly : true,
