@@ -46,7 +46,7 @@ public class WSApaysServlet extends HttpServlet {
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		PaysDAO PaysDAO = new PaysDAO();
-		System.out.println("Dabut de WSApaysServlet");
+		
 		
 		PrintWriter ecrire;
 		try {
