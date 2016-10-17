@@ -1,113 +1,178 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="fr.creasport.webgestionstock.metier.Taille"%>
+<%@ page import="fr.creasport.webgestionstock.metier.Modele"%>
+<%@ page import="fr.creasport.webgestionstock.metier.Famille"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8">
 <script src="jquery-3.1.0.min.js"></script>
-<link rel="stylesheet" href="ExpedierLot.css" />
+<link rel="stylesheet" href="Article.css" />
 <link rel="stylesheet" href="CreaSport.css" />
+<link rel="stylesheet" href="dialClub.css" />
+<link rel="stylesheet" href="jquery-ui.css">
+<script src="jquery-ui.js"></script>
 <script src="SaisirArticle.js"></script>
+<script src="moment.js"></script>
 <script src="Menu.js"></script>
-<title>Saisir un article</title>
+<script src="dialClub.js"></script>
+
+<title>Gestion des articles</title>
+
 </head>
-<div id="menuHeader">
-	<div>
-		<div class="header">
-			<div>
-				<img src="images/logoCreasport&Slogan.png" width="363" height="72">
-			</div>
+<body>
 
-		</div>
-		<div class="header">
-			<div>
-				<nav id="menu"></nav>
+	<div id="menuHeader">
+		<div>
+			<div class="header">
+				<div>
+					<img src="images/logoCreasport&Slogan.png" width="363" height="72">
+				</div>
 			</div>
+			<div class="header">
+				<div>
+					<nav id="menu"></nav>
+				</div>
+			</div>
+		</div>
+
+		<div class="titre">
+			<h1>Création d'un article</h1>
 		</div>
 	</div>
-	<div class="titre">
-		<h1>Gestion des articles</h1>
-	</div>
-</div>
+	<hr>
+	<div class="cadre" name="groupe">
+		<div class="conteneur" id="titre1">Article</div>
+		<div class="conteneur">
+			<div class="element">
+				<div class="titreInput2">
+					Réference : <input type="text" name="reference" id="reference"
+						Placeholder="Réference" />
+				</div>
+			</div>
+			<div>
+				Actif<input type="checkbox" name="actif" id="actif" checked /> Hors
+				Catégorie<input type="checkbox" name="isHC" id="isHC" />
+			</div>
+		</div>
 
-<div class="cadre">
-	<form method="get" action="SaisirArticleServlet">
+		<div class="vide"></div>
 		<div class="conteneur">
 			<div class="element">
-				R�ference: <input type="text" name="refArticle" id="refArticle" />
-				actif<input type="checkbox" name="actif" id="actif" checked />
+				<div class="titreInput2">
+					Nom : <input type="text" name="nomArticle" id="nomArticle"
+						Placeholder="Nom" />
+				</div>
+			</div>
+		</div>
+
+		<div class="conteneur">
+			<div class="element">
+				<div class="titreInput">
+					<label for="famille">Famille : </label>
+				</div>
+				<div>
+					<select name="famille" id="famille">
+						<%
+							List<Famille> listeFamille = (List<Famille>) request.getAttribute("listFamille");
+						%>
+						<%
+							for (int i = 0, j = listeFamille.size(); i < j; i++) {
+						%>
+						<option value="<%=listeFamille.get(i).getFa_code()%>"><%=listeFamille.get(i).getFa_nom()%></option>
+						<%
+							}
+						%>
+					</select>
+				</div>
 			</div>
 		</div>
 		<div class="conteneur">
 			<div class="element">
-				Nom : <input type="text" name="nomArticle" id="nomArticle" /> Hors
-				Categorie<input type="checkbox" name="ishc" id="ishc" /><br>
+				<div class="titreInput">
+					<label for="modele">Modéle : </label>
+				</div>
+				<div>
+					<select name="modele" id="modele">
+						<%
+							List<Modele> listeModele = (List<Modele>) request.getAttribute("listModele");
+						%>
+						<%
+							for (int i = 0, j = listeModele.size(); i < j; i++) {
+						%>
+						<option value="<%=listeModele.get(i).getMo_code()%>"><%=listeModele.get(i).getMo_nom()%></option>
+						<%
+							}
+						%>
+					</select>
+				</div>
 			</div>
 		</div>
 		<div class="conteneur">
 			<div class="element">
-				Famille : <Select name="famille" id="famille">
-					<option value="1" selected>Polo</option>
-					<option value="6">Polo</option>
-					<option value="2">Maillot</option>
-				</select>
-				Mod�le : <Select name="modele" id="modele">
-					<option value="1" selected>Anglirus</option>
-					<option value="6">Esperou</option>
-				</select>
+				<div class="titreInput">Quantité :</div>
+				<div>
+					<input type="number" name="qtArticle" id="qtArticle"
+						Placeholder="Quantité" />
+				</div>
+				
+					<div name="taille" id="taille">
+						<%
+							List<Taille> listeTaille = (List<Taille>) request.getAttribute("listTaille");
+						%>
+						<%
+							for (int i = 0, j = listeTaille.size(); i < j; i++) {
+								
+						%>
+						<input type="checkbox" value="<%=listeTaille.get(i).getTa_code()%> " id=<%=i%> name=<%=listeTaille.get(i).getTa_nom()%>><%=listeTaille.get(i).getTa_nom()%></option>
+						<%
+							}
+						%>
+					</div>
+				
 			</div>
-		</div>
-		<div class="conteneur">
-			<div class="element">
-				Quantite : <input type="number" name="quantite" id="quantite" />
-			</div>
-			<div class="element" id="checkTaille">
-				Taille XS : <input type="checkbox" name="tailXS" id="tailXS" />
-			</div>
+			<div class="conteneur" id="bouton">
+				<div>
+					<input type="submit" name="Générer" id="genTaille"
+						value="genTaille" />
+				</div>
+			</div>		
 		</div>
 		<div class="conteneur" id="bouton">
+				<div>
+					<input type="submit" name="valider" id="valider" value="valider" />
+				</div>
+			</div>
+	</div>
+
+
+	<div class="titre2"></div>
+	<div class="cadre" name="groupe">
+		<div class="conteneur">Liste des articles par taille</div>
+		
+		<div class="conteneur">
 			<div>
-				<input type="submit" name="valider" id="valider" value="valider" />
+				<table id="tabArticle" border="1">
+					<thead>
+						<!-- En-tête du tableau -->
+						<tr>
+							<th>Ref article</th>
+							<th>Taille</th>
+							<th>Quantité</th>
+							<th>Supprimer</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Corps du tableau -->
+					</tbody>
+				</table>
 			</div>
 		</div>
-	</form>
-</div>
-<div class="titre2">Gestion des tailles</div>
-<div class="cadre">
-
-	<div class="conteneur">
-		<div>
-			<table id="tabArticle" border="1">
-				<thead>
-					<!-- En-t�te du tableau -->
-					<tr>
-						<th>Ref article</th>
-						<th>Taille</th>
-						<th>Quantitz</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Corps du tableau -->
-					<tr>
-						<td>test Ref2</td>
-						<td>Test Nom2</td>
-						<td>Test taille2</td>
-						<td><a href="#">Edit</a></td>
-						<td><a href="#">Delete</a></td>
-					</tr>
-					<tr>
-						<td>test Ref2</td>
-						<td>Test Nom2</td>
-						<td>Test taille2</td>
-						<td><a href="#">Edit</a></td>
-						<td><a href="#">Delete</a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 	</div>
-</div>
+
 </body>
 </html>

@@ -18,16 +18,16 @@ public class FamilleDAO {
 	public List<Famille> SelectAll() throws ClassNotFoundException {
 		List<Famille> list = new ArrayList<Famille>();
 		Famille famille;
-		String query="SELECT * FROM familles;";
+		String query="SELECT * FROM familles";
 		
 		try {
 			Statement st = DbConnection.getInstance().createStatement();
 		    ResultSet rs = st.executeQuery(query);
 		    while (rs.next()){
 		    	famille=new Famille();
-		    	famille.setFa_id(rs.getInt("ar_id"));	
-		    	famille.setFa_code(rs.getString("ar_code"));	
-		    	famille.setFa_nom(rs.getString("ar_nom"));		    	
+		    	famille.setFa_id(rs.getInt("fa_id"));	
+		    	famille.setFa_code(rs.getString("fa_code"));	
+		    	famille.setFa_nom(rs.getString("fa_nom"));		    	
 		    	list.add(famille);
 		    }
 		    st.close();
@@ -39,7 +39,7 @@ public class FamilleDAO {
 
 
 	public Famille SelectId(int id) throws ClassNotFoundException {
-		String query="SELECT * FROM familles WHERE ar_id=?";
+		String query="SELECT * FROM familles WHERE fa_id=?";
 		Famille famille = null;
 		try {
 			//System.out.println(id);

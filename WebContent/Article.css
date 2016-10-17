@@ -1,0 +1,68 @@
+@CHARSET "ISO-8859-1";
+
+div
+{
+ margin-top:2px;
+ margin-right:2px;
+ margin-bottom:2px;
+ margin-left:0;
+}
+.conteneur {
+	display: flex;
+}
+.element {
+	display: flex;
+}
+.titreInput {
+	min-width: 125px;
+}
+.titreInput2 {
+	min-width:50x;
+}
+.vide{
+	width:25px;
+}
+
+#reference{
+	width:350px;
+}
+#nomArticle{
+	width:355px;
+}
+
+.cadre {
+	border-style: solid;
+	border-color: black;
+}
+
+.titre2 {
+	height: 20px;
+}
+.titre
+{
+	display: flex;
+}
+.header
+{
+    display: flex;
+
+}
+#titreVide
+{
+	background-color:blue;
+	width:363 ;
+	height:72;
+}
+#menuHeader
+{
+	display: flex;
+}
+#bouton
+{		
+    display: flex;
+}
+#errBas
+{
+	color : red;
+	font-size: large;
+}

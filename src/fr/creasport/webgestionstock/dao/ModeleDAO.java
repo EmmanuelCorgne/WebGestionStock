@@ -33,7 +33,7 @@ public class ModeleDAO {
 	public List<Modele> SelectAll() throws ClassNotFoundException {
 		List<Modele> list = new ArrayList<Modele>();
 		Modele modele;
-		String query="SELECT * FROM familles;";
+		String query="SELECT * FROM modeles;";
 		
 		try {
 			Statement st = DbConnection.getInstance().createStatement();
