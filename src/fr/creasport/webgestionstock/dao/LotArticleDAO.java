@@ -19,14 +19,14 @@ public class LotArticleDAO {
 	}
 
 	public void ajouter(LotArticle lotArt) {
-		String query = "INSERT INTO lotsarticles VALUES(null,?,?,?)";
+		String query = "INSERT INTO lotsarticles VALUES(null,null,?,?)";
 
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
 
-			st.setDate(1, new Date(lotArt.getLa_dateRetour().getTime()));
-			st.setInt(2, lotArt.getSa_id());
-			st.setInt(3, lotArt.getEa_id());
+			//st.setDate(1, new Date(lotArt.getLa_dateRetour().getTime()));
+			st.setInt(1, lotArt.getSa_id());
+			st.setInt(2, lotArt.getEa_id());
 			st.executeUpdate();
 			st.close();
 		} catch (Exception e) {

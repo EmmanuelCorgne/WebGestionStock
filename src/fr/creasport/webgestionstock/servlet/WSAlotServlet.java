@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import fr.creasport.webgestionstock.dao.ExpeditionArtcileDAO;
+import fr.creasport.webgestionstock.dao.ExpeditionArticleDAO;
 
 /** 
  * Servlet implementation class WSAclubServlet
@@ -47,7 +47,7 @@ public class WSAlotServlet extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		ExpeditionArtcileDAO LotDAO = new ExpeditionArtcileDAO();
+		ExpeditionArticleDAO LotDAO = new ExpeditionArticleDAO();
 		int limit =  Integer.parseInt(request.getParameter("limit"));
 
 		PrintWriter ecrire;

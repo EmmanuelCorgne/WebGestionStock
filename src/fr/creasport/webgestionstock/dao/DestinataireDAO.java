@@ -13,7 +13,7 @@ import fr.creasport.webgestionstock.metier.Destinataire;
 public class DestinataireDAO {
 	
 	
-	public void ajouter(Destinataire destinataire) {
+	public String ajouter(Destinataire destinataire) {
 		String query="INSERT INTO destinataires VALUES(null,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
@@ -31,12 +31,12 @@ public class DestinataireDAO {
 			st.setInt(10, destinataire.getPa_id());
 
 			
-System.out.println("st :" + st.toString());
-
 			st.executeUpdate();
 		    st.close();
+		    return("OK");
 		} catch(Exception e) {
 			e.printStackTrace();
+			return(e.getMessage());
 		}
 	}
 	

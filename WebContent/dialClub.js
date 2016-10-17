@@ -40,37 +40,47 @@ $(document)
 										  textErr += "<br>Le code postal est obligatoire. ";
 										if (!($('#dialClub_ville').val()))
 										  textErr += "<br>La ville est obligatoire. ";
-										if ($('input[name="choix"]:checked','#dialClub_IsClient').length < 1) {
-										  console.log("isClient" +($('input[name=choix]:checked','#dialClub_IsClient').val() ));
+										if ($('input[name="choix"]:checked',
+											 '#dialClub_IsClient').length < 1) {
+										  console.log("isClient"
+												+ ($('input[name=choix]:checked',
+													 '#dialClub_IsClient').val()));
 										  textErr += "<br>Le club est il déjà client ? ";
-										}
-										  else
-											  console.log("isClient" +($('input[name=choix]:checked','#dialClub_IsClient').val() ));
- 
-										
+										} else
+										  console.log("isClient"
+												+ ($('input[name=choix]:checked',
+													 '#dialClub_IsClient').val()));
 										if (!($('#dialClub_pays').val()))
 										  textErr += "<br>il faut choisir un pays. ";
+
 										$('#dialClub_err').html(textErr);
 										if (textErr == "") {
 										  url = "WSAaddClubServlet";
 										  var dataClub = {};
 										  dataClub.ref = $('#dialClub_ref').val();
-										  
 										  dataClub.nom = $('#dialClub_nonClub').val();
-										  
-										  dataClub.nomContact = $('#dialClub_nomContact').val();
+										  dataClub.nomContact = $('#dialClub_nomContact')
+												.val();
 										  dataClub.adr1 = $('#dialClub_adresse1').val();
 										  dataClub.adr2 = $('#dialClub_adresse2').val();
 										  dataClub.cp = $('#dialClub_codePostal').val();
 										  dataClub.ville = $('#dialClub_ville').val();
-										  dataClub.isClient = $('input[name=choix]:checked','#dialClub_IsClient').val();
+										  dataClub.isClient = $(
+												'input[name=choix]:checked',
+												'#dialClub_IsClient').val();
 										  dataClub.idpays = $('#dialClub_IDpays').val();
 										  console.log(dataClub);
 										  $.post(url, dataClub, function(retour) {
-											 console.log(retour);
+
+										  }).done(function(retour) {
+											 if (retour == "OK")
+												$('#dialog-club').hide();
+											 else {
+												textErr = retour;
+												$('#dialClub_err').html(textErr);
+											 }
 										  });
-										}
-										;
+										};
 									 });
 						  $('#dialClub_close').click(function() {
 							 $('#dialog-club').hide();

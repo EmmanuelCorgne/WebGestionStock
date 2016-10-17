@@ -52,10 +52,10 @@ public class ExpedierServlet extends HttpServlet {
 	}
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		TypeExpeditionDAO typeExpeditionDAO = new TypeExpeditionDAO();
 		try {
 			List<TypeExpedition> list = typeExpeditionDAO.SelectAll();
+		//	System.out.println(list.get(1).getTe_idString());
 			request.setAttribute("listoption",list);
 			request.getRequestDispatcher("ExpedierLot.jsp").forward(request, response);
 			

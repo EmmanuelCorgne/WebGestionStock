@@ -9,6 +9,13 @@ public class LotArticle {
 	private int ea_id;
 	
 
+	@Override
+	public String toString() {
+		return "LotArticle [la_id=" + la_id + ", la_dateRetour=" + la_dateRetour + ", sa_id=" + sa_id + ", ea_id="
+				+ ea_id + "]";
+	}
+
+
 	public LotArticle() {
 		// TODO Auto-generated constructor stub
 	}
