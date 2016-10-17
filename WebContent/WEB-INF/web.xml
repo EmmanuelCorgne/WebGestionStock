@@ -109,4 +109,24 @@
     <servlet-name>AutoCompRefStockArticle</servlet-name>
     <url-pattern>/AutoCompRefStockArticle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSAArticleServlet</display-name>
+    <servlet-name>WSAArticleServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSAArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSAArticleServlet</servlet-name>
+    <url-pattern>/WSAArticleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSAArticleAddServlet</display-name>
+    <servlet-name>WSAArticleAddServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSAArticleAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSAArticleAddServlet</servlet-name>
+    <url-pattern>/WSAArticleAddServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
