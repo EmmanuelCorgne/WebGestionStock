@@ -3,12 +3,12 @@ package fr.creasport.webgestionstock.metier;
 import java.util.Date;
 import java.util.List;
 
-import fr.creasport.webgestionstock.dao.ExpeditionArtcileDAO;
+import fr.creasport.webgestionstock.dao.ExpeditionArticleDAO;
 
 public class ExpeditionArticle {
 	
 	private int ea_id;
-	private Date ea_dateRetour;
+	private Date ea_dateCreation;
 	private String ea_realisePar;
 	private String ea_TrackingColis;
 	private int ea_nbArticleEnvoyeTotal;
@@ -24,7 +24,7 @@ public class ExpeditionArticle {
 
 	
 	public List<ExpeditionArticle> getAll(){
-		ExpeditionArtcileDAO dao=new ExpeditionArtcileDAO();
+		ExpeditionArticleDAO dao=new ExpeditionArticleDAO();
 		try {
 			return dao.SelectAll();
 		} catch (ClassNotFoundException e) {
@@ -45,13 +45,13 @@ public class ExpeditionArticle {
 	}
 
 
-	public Date getEa_dateRetour() {
-		return ea_dateRetour;
+	public Date getEa_dateCreation() {
+		return ea_dateCreation;
 	}
 
 
-	public void setEa_dateRetour(Date ea_dateRetour) {
-		this.ea_dateRetour = ea_dateRetour;
+	public void setEa_dateCreation(Date ea_dateRetour) {
+		this.ea_dateCreation = ea_dateRetour;
 	}
 
 
@@ -98,7 +98,6 @@ public class ExpeditionArticle {
 	public int getTe_id() {
 		return te_id;
 	}
-
 
 	public void setTe_id(int te_id) {
 		this.te_id = te_id;

@@ -109,4 +109,24 @@
     <servlet-name>AutoCompRefStockArticle</servlet-name>
     <url-pattern>/AutoCompRefStockArticle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SaisirExpeditionArticleServlet</display-name>
+    <servlet-name>SaisirExpeditionArticleServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.SaisirExpeditionArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaisirExpeditionArticleServlet</servlet-name>
+    <url-pattern>/SaisirExpeditionArticleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SaisirLotArticleServlet</display-name>
+    <servlet-name>SaisirLotArticleServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.SaisirLotArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaisirLotArticleServlet</servlet-name>
+    <url-pattern>/SaisirLotArticleServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -2,6 +2,7 @@ package fr.creasport.webgestionstock.metier;
 
 public class TypeExpedition {
 	private int te_id;
+	private String te_idString;
 	private String te_code;
 	private String te_nom;
 	
@@ -11,6 +12,10 @@ public class TypeExpedition {
 
 	public int getTe_id() {
 		return te_id;
+	}
+	public String getTe_idString() {
+		
+		return Integer.toString(te_id);
 	}
 
 	public void setTe_id(int te_id) {

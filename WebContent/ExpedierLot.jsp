@@ -74,11 +74,14 @@
 					<select name="expedition" id="expedition">
 						<%
 							List<TypeExpedition> listeTypesExpeditions = (List<TypeExpedition>) request.getAttribute("listoption");
+					
 						%>
 						<%
 							for (int i = 0, j = listeTypesExpeditions.size(); i < j; i++) {
+								
 						%>
-						<option value="<%listeTypesExpeditions.get(i).getTe_id();%>"><%=listeTypesExpeditions.get(i).getTe_nom()%></option>
+						
+						<option value="<%=listeTypesExpeditions.get(i).getTe_idString()%>" ><%=listeTypesExpeditions.get(i).getTe_nom()%></option>
 						<%
 							}
 						%>
