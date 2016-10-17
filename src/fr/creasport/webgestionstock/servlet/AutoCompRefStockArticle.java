@@ -1,6 +1,7 @@
 package fr.creasport.webgestionstock.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,27 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import fr.creasport.webgestionstock.bean.ExpedierStockBean;
-import fr.creasport.webgestionstock.dao.ArticleDAO;
-import fr.creasport.webgestionstock.dao.ModeleDAO;
-import fr.creasport.webgestionstock.dao.OutilDao;
 import fr.creasport.webgestionstock.dao.StockArticleDAO;
-import fr.creasport.webgestionstock.dao.TailleDAO;
-import fr.creasport.webgestionstock.dao.TypeExpeditionDAO;
-import fr.creasport.webgestionstock.metier.Article;
 import fr.creasport.webgestionstock.metier.StockArticle;
-import fr.creasport.webgestionstock.metier.TypeExpedition;
 
 /**
- * Servlet implementation class ExpedierServlet
+ * Servlet implementation class AutoCompRefStockArticle
  */
-public class ExpedierServlet extends HttpServlet {
+public class AutoCompRefStockArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ExpedierServlet() {
+    public AutoCompRefStockArticle() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -51,21 +44,23 @@ public class ExpedierServlet extends HttpServlet {
 		doWork(request, response);
 	}
 
-	private void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		TypeExpeditionDAO typeExpeditionDAO = new TypeExpeditionDAO();
+	private void doWork(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		StockArticleDAO dbStockArticle = new StockArticleDAO();
+	
+		PrintWriter ecrire;
 		try {
-			List<TypeExpedition> list = typeExpeditionDAO.SelectAll();
-			request.setAttribute("listoption",list);
-			request.getRequestDispatcher("ExpedierLot.jsp").forward(request, response);
-			
+			List<StockArticle> list = dbStockArticle.selectAll();
+			Gson gson = new Gson();
+			ecrire = response.getWriter();
+			ecrire.println(gson.toJson(list));
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//request.setAttribute("bean",bean);
-
-		
-		
 	}
 
 }

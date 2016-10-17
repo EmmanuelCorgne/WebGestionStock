@@ -119,5 +119,31 @@ public class StockArticleDAO {
 		}
 		return list;
 	}
+	public List<StockArticle> selectAll() throws ClassNotFoundException {
+		String query = "SELECT * FROM stocksarticles";
+		List<StockArticle> list = new ArrayList<StockArticle>();
+
+		StockArticle stockArticle = null;
+		try {
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			ResultSet rs = st.executeQuery();
+			 while (rs.next()){
+				stockArticle = new StockArticle();
+				stockArticle.setAr_id(rs.getInt("ar_id"));
+				stockArticle.setSa_id(rs.getInt("sa_id"));
+				stockArticle.setSt_id(rs.getInt("st_id"));
+				stockArticle.setTa_id(rs.getInt("ta_id"));
+				stockArticle.setSa_isActive(rs.getBoolean("sa_isActive"));
+				stockArticle.setSa_dateCreation(rs.getDate("sa_dateCreation"));
+				stockArticle.setSa_ref(rs.getString("sa_ref"));
+				list.add(stockArticle);
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }

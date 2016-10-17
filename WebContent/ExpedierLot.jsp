@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="fr.creasport.webgestionstock.metier.TypeExpedition" %>
+<%@ page import="java.util.List"%>
+<%@ page import="fr.creasport.webgestionstock.metier.TypeExpedition"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,11 +11,13 @@
 <script src="jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="ExpedierLot.css" />
 <link rel="stylesheet" href="CreaSport.css" />
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="dialClub.css" />
+<link rel="stylesheet"href="jquery-ui.css">
+<script src="jquery-ui.js"></script>
 <script src="ExpedierLot.js"></script>
+<script src="moment.js"></script>
 <script src="Menu.js"></script>
+<script src="dialClub.js"></script>
 
 <title>EXPEDIER LOT</title>
 
@@ -36,48 +38,73 @@
 				</div>
 			</div>
 		</div>
-	<div class="titre">
-			<h1>Expedier Lot</h1>
-	</div>
-	</div>
 
+		<div class="titre">
+			<h1>Expedier Lot</h1>
+		</div>
+	</div>
+	<hr>
 	<div class="cadre" name="groupe">
+		<div class="conteneur" id="titre1">titre1</div>
 		<div class="conteneur">
 			<div class="element">
-				Destinataire: <input type="text" name="destinataire"
-					id="destinataire" Placeholder="Destinataire" />
+				<div class="titreInput">Club:</div>
+				<div>
+					<input type="text" name="club" id="club" Placeholder="Club" />
+					<input type="button" value="+" id="addClub" />
+				</div>
 			</div>
+			<div class="vide"></div>
 			<div class="element">
-				Préparé par : <input type="text" name="preparePar" id="preparePar"
-					Placeholder="Préparé par" />
+				<div class="titreInput2"> Préparé par : <input type="text" name="preparePar" id="preparePar"
+					Placeholder="Préparé par" /></div>
 			</div>
+			<div class="vide"></div>
 			<div class="element">
-				Le : <input type="text" name="dateEnvoi" id="dateEnvoi"
-					Placeholder="date" />
+				 <div class="titreInput2">Le : <input type="text" name="dateEnvoi" id="dateEnvoi"
+					Placeholder="date" /></div>
 			</div>
 		</div>
 		<div class="conteneur">
 			<div class="element">
-			<label for="expedition">Expedition : </label>
-			<select name="expedition" id="expedition" >
-			<% List<TypeExpedition> listeTypesExpeditions = (List<TypeExpedition>)request.getAttribute("listoption"); %>
-			<% for(int i=0, j=listeTypesExpeditions.size(); i < j ; i++) { %>
-				<option value="<% listeTypesExpeditions.get(i).getTe_id(); %>"><%=listeTypesExpeditions.get(i).getTe_nom() %></option>
-			<% } %>
-			</select>
+				<div class="titreInput">
+					<label for="expedition">Expedition : </label>
+				</div>
+				<div>
+					<select name="expedition" id="expedition">
+						<%
+							List<TypeExpedition> listeTypesExpeditions = (List<TypeExpedition>) request.getAttribute("listoption");
+						%>
+						<%
+							for (int i = 0, j = listeTypesExpeditions.size(); i < j; i++) {
+						%>
+						<option value="<%listeTypesExpeditions.get(i).getTe_id();%>"><%=listeTypesExpeditions.get(i).getTe_nom()%></option>
+						<%
+							}
+						%>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="conteneur">
+			<div class="element">
+				<div class="titreInput">N° suivi colis :</div>
+				<div>
+					<input type="text" name="suiviColis" id="suiviColis"
+						Placeholder="N° suvi colis" />
+				</div>
 			</div>
 		</div>
 		<div class="conteneur">
 			<div class="element">
-				N° suivi colis : <input type="text" name="suiviColis"
-					id="suiviColis" Placeholder="N° suvi colis" />
-			</div>
-		</div>
-		<div class="conteneur">
-			<div class="element">
-				<label for="ameliorer">Commentaire : </label>
-				<textarea name="commentaire" id="commentaire"
-					Placeholder="Commentaire"></textarea>
+				<div class="titreInput">
+					<label for="ameliorer">Commentaire : </label>
+				</div>
+				<div>
+					<textarea name="commentaire" id="commentaire"
+						Placeholder="Commentaire"></textarea>
+				</div>
 			</div>
 		</div>
 		<div class="conteneur" id="bouton">
@@ -86,11 +113,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="titre2">Liste des articles</div>
+	<div class="titre2"></div>
 	<div class="cadre" name="groupe">
+		<div class="conteneur">Liste des articles</div>
 		<div class="conteneur">
 			<div class="element">
-				Réference : <input type="text" name="reference" id="reference"
+			<div class="titreInput">Réference :</div>
+				 <input type="text" name="reference" id="reference"
 					Placeholder="Référence" />
 			</div>
 			<div class="element">
@@ -118,5 +147,6 @@
 			</div>
 		</div>
 	</div>
+<%@include file="dialClub.jsp" %>	
 </body>
 </html>
