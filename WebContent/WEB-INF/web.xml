@@ -99,4 +99,14 @@
     <servlet-name>WSApaysServlet</servlet-name>
     <url-pattern>/WSApaysServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSAaddClubServlet</display-name>
+    <servlet-name>WSAaddClubServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSAaddClubServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSAaddClubServlet</servlet-name>
+    <url-pattern>/WSAaddClubServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
