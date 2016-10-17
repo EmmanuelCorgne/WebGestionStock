@@ -25,7 +25,7 @@ public class WSAArticleAddServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doWork(request, response);
 	}
 
 	/**
@@ -33,7 +33,12 @@ public class WSAArticleAddServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		doWork(request, response);
+	}
+
+	private void doWork(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
