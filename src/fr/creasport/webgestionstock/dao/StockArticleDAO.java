@@ -80,7 +80,31 @@ public class StockArticleDAO {
 				stockArticle.setTa_id((rs.getInt("ta_id")));
 				stockArticle.setSa_isActive(rs.getBoolean("sa_isActive"));
 				stockArticle.setSa_dateCreation(rs.getDate("sa_dateCreation"));
-				stockArticle.setSa_ref(Ref);
+				stockArticle.setSa_ref(Ref);				
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return stockArticle;
+	}
+	public StockArticle selectParId(int id) throws ClassNotFoundException {
+		String query = "SELECT * FROM stocksarticles WHERE sa_id=?";
+		StockArticle stockArticle = null;
+		try {
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			if (rs.next()) {
+				stockArticle = new StockArticle();
+				stockArticle.setAr_id((rs.getInt("ar_id")));
+				stockArticle.setSa_id(id);
+				stockArticle.setSt_id((rs.getInt("st_id")));
+				stockArticle.setTa_id((rs.getInt("ta_id")));
+				stockArticle.setSa_isActive(rs.getBoolean("sa_isActive"));
+				stockArticle.setSa_dateCreation(rs.getDate("sa_dateCreation"));
+				stockArticle.setSa_ref((rs.getString("sa_ref")));
 			}
 			rs.close();
 			st.close();

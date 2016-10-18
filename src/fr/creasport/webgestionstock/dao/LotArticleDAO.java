@@ -79,7 +79,7 @@ public class LotArticleDAO {
 				if (rs.next()) {
 					lotArticle = new LotArticle();
 					lotArticle.setEa_id(rs.getInt("ea_id"));
-					lotArticle.setLa_dateRetour(rs.getDate("sa_dateCreation"));
+					lotArticle.setLa_dateRetour(rs.getDate("la_dateRetour"));
 					lotArticle.setLa_id(rs.getInt("la_id"));
 					lotArticle.setSa_id(rs.getInt("sa_id"));
 
