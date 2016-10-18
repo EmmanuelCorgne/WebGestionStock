@@ -161,12 +161,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>WSarticlesenvoyés</display-name>
-    <servlet-name>WSarticlesenvoyés</servlet-name>
-    <servlet-class>fr.creasport.webgestionstock.servlet.WSarticlesenvoyés</servlet-class>
+    <display-name>WSarticlesenvoyes</display-name>
+    <servlet-name>WSarticlesenvoyes</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSarticlesenvoyes</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>WSarticlesenvoyés</servlet-name>
-    <url-pattern>/WSarticlesenvoyés</url-pattern>
+    <servlet-name>WSarticlesenvoyes</servlet-name>
+    <url-pattern>/WSarticlesenvoyes</url-pattern>
   </servlet-mapping>
 </web-app>
