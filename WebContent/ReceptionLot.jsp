@@ -102,7 +102,6 @@
 					<div class="titreInput">Réference :</div>
 				 <input type="text" name="reference" id="reference"
 					Placeholder="Référence" />
-			</div>
 			<div id="errBas"></div>
 		</div>
 		<div class="conteneur">

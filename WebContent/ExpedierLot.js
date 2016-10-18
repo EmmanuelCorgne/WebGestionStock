@@ -58,23 +58,19 @@ $(document)
 														url,
 														validerJson,
 														function(data) {
-
 															var url2 = "SaisirLotArticleServlet";
 
 															for (var k = 0; k < tabJsonStockArticle.length; k++) {
 
 																tabJsonStockArticle[k].id = escape(data);
 
-																$
-																		.post(
-																				url2,
-																				tabJsonStockArticle[k]);
+																$.post(url2,tabJsonStockArticle[k]);
 															}
-
+															window.location = 'IndexServlet';
+															window.print();
 														});
 											
-											window.location = 'IndexServlet';
-											window.print();
+											
 
 									});
 					desactiverAjouter();

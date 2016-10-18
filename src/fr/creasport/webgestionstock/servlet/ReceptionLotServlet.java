@@ -77,10 +77,10 @@ public class ReceptionLotServlet extends HttpServlet {
 		List<Modele> listModele= new ArrayList<Modele>();
 		List<LotArticle> listLotArticle = new ArrayList<LotArticle>();
 		
-	
+//	System.out.println(ea_id);
 		try {
 			listLotArticle = lotArticleDAO.selectParExpedition(ea_id);
-			
+
 				  for(int i = 0,j = listLotArticle.size(); i < j;i++){
 				  
 				  StockArticle stockArticle  = stockArticleDAO.selectParId(listLotArticle.get(i).getSa_id());
