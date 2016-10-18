@@ -109,6 +109,7 @@ public class ReceptionLotServlet extends HttpServlet {
 			bean.setEa_TrackingColis(expeditionArticle.getEa_TrackingColis());
 			bean.setEa_realisePar(expeditionArticle.getEa_realisePar());
 			bean.setClub(dest.getDe_nomClub());
+			bean.setClubId(dest.getDe_id());
 			bean.setExpedition(typeExpeditionDAO.SelectNomById(expeditionArticle.getTe_id()));
 		//	List<TypeExpedition> list = typeExpeditionDAO.SelectAll();
 			//envoi

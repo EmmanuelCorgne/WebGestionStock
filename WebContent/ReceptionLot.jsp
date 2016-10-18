@@ -47,7 +47,7 @@
 			<div class="element">
 				<div class="titreInput">Club:</div>
 				<div>
-					<input type="text" name="club" id="club" Placeholder="${bean.club}" readonly  />
+					<input type="text" name="${bean.clubId}" id="club" Placeholder="${bean.club}" readonly  />
 				</div>
 			</div>
 			<div class="vide"></div>
@@ -110,6 +110,7 @@
 					<thead>
 						<!-- En-tête du tableau -->
 						<tr>
+							<th>Retour</th>
 							<th>Ref article</th>
 							<th>Nom</th>
 							<th>Taille</th>
@@ -128,10 +129,11 @@
 							for (int i = 0, j = listStockArticle.size(); i < j; i++) {
 						%>
 						<tr>
+							<td>Non</td>
 							<td><%=listStockArticle.get(i).getSa_ref()%></td>
 							<td><%=listTaille.get(i).getTa_nom()%></td>
 							<td><%=listModele.get(i).getMo_nom()%></td>
-							<td><a href="#">Supprimer</a></td>
+							<td><a href="#">Recu</a></td>
 						</tr>		
 						<%
 							}
