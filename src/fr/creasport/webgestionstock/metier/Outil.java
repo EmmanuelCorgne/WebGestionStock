@@ -4,8 +4,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Outil {
 
+public class Outil {
+	
+	
 	public static Date convertStringToDate(String dateString)
 	{
 	    Date formatteddate = null;
@@ -19,4 +21,15 @@ public class Outil {
 	    }
 	    return formatteddate;
 	}
+	public static class retourWS {
+		public int id;
+		public String dateCreation;
+		public int nbArticle;
+		public String nomClub;
+		
+		public retourWS() {
+
+		}
+	}
+	
 }
