@@ -51,7 +51,7 @@ public class SaisirLotArticleServlet extends HttpServlet {
 		lA.setEa_id(c);
 		lA.setSa_id(Integer.parseInt(request.getParameter("sa_id")));
 		lADAO.ajouter(lA);
-		request.getRequestDispatcher("IndexServlet").forward(request, response);
+
 	}
 
 }

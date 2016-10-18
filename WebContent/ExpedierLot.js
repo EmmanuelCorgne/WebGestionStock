@@ -51,25 +51,30 @@ $(document)
 												.val();
 										// destinataire id
 										validerJson.de_id = idclub;
-										// console.log(validerJson);
+
 										var url = "SaisirExpeditionArticleServlet"
 										$
 												.post(
 														url,
 														validerJson,
 														function(data) {
-															console.log(data);
+
 															var url2 = "SaisirLotArticleServlet";
-																//console.log(tabJsonStockArticle);
+
 															for (var k = 0; k < tabJsonStockArticle.length; k++) {
-																//console.log(tabJsonStockArticle[k]);
-																tabJsonStockArticle[k].id=escape(data);
-																console.log(tabJsonStockArticle[k]);
-																$.post(url2, tabJsonStockArticle[k]);
+
+																tabJsonStockArticle[k].id = escape(data);
+
+																$
+																		.post(
+																				url2,
+																				tabJsonStockArticle[k]);
 															}
-															//$.post(url2, tabJsonStockArticle);
 
 														});
+										
+										window.location = 'IndexServlet';
+
 									});
 					desactiverAjouter();
 					// gestion des deletes Edit tableau en bas

@@ -45,7 +45,7 @@
 	</div>
 	<hr>
 	<div class="cadre" name="groupe">
-		<div class="conteneur" id="titre1">titre1</div>
+		<div class="conteneur" id="titre1">Information Destinataire</div>
 		<div class="conteneur">
 			<div class="element">
 				<div class="titreInput">Club:</div>
@@ -57,7 +57,7 @@
 			<div class="vide"></div>
 			<div class="element">
 				<div class="titreInput2"> Préparé par : <input type="text" name="preparePar" id="preparePar"
-					Placeholder="Préparé par" /></div>
+					Placeholder="Préparé par" maxlength="05" /></div>
 			</div>
 			<div class="vide"></div>
 			<div class="element">
