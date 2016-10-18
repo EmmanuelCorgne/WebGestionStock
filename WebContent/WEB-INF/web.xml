@@ -169,4 +169,14 @@
     <servlet-name>WSarticlesenvoyes</servlet-name>
     <url-pattern>/WSarticlesenvoyes</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReceptionLotServlet</display-name>
+    <servlet-name>ReceptionLotServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.ReceptionLotServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReceptionLotServlet</servlet-name>
+    <url-pattern>/ReceptionLotServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
