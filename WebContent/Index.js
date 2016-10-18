@@ -108,6 +108,7 @@ $(document).ready(
 		console.log('fin du javasrcipt');
 
 		// affichage des combo de date en Jquery UI
+		
 		$(function() {
 		  $("#datedeb").datepicker({
 			 dateFormat : "dd/mm/yy",
@@ -145,9 +146,11 @@ $(document).ready(
 			 $('#envoyes').append('<tr><td>'+value.id+' ('+ value.nomClub
 				  + ') </td><td>'+value.dateCreation+' </td><td> '
 				  +value.nbArticle+'</td><td> '+ moment(dateRetour).format('DD/MM/YYYY') +' </td><td> '
-				  + '<button class="buttonval" name="bouttonRecep" value="'+value.id+'">Réception</button>');
+				  + '<a href="ReceptionLotServlet?ea_id='+value.id+'"><button class="buttonval">Réception</button></a>');
 			 ArticleEnvoyes.push(value.nom);
 		  });
+		  
+		  
 		});
 
 		// Chargement de l'état des stocks
