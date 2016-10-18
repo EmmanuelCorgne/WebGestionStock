@@ -105,6 +105,34 @@ public class ExpeditionArticleDAO {
 		}
 		return list;
 	}
+	
+	public ExpeditionArticle selectParId(int ea_id) throws ClassNotFoundException {
+		ExpeditionArticle expArt= null;
+		String query="SELECT * FROM expeditionsarticles WHERE ea_id="+ea_id;
+		
+		try {
+			Statement st = DbConnection.getInstance().createStatement();
+		    ResultSet rs = st.executeQuery(query);
+		    if (rs.next()){
+		    	expArt=new ExpeditionArticle();
+		    	expArt.setDe_id(rs.getInt("de_id"));	
+		    	expArt.setEa_dateCreation(rs.getDate("ea_dateCreation"));
+		    	expArt.setEa_infoComplementaire(rs.getString("ea_infoComplementaire"));
+		    	expArt.setEa_id(rs.getInt("ea_id"));
+		    	expArt.setEa_isRetourIncomplet(rs.getBoolean("ea_isRetourIncomplet"));
+		    	expArt.setEa_nbArticleEnvoyeTotal(rs.getInt("ea_nbArticleEnvoyeTotal"));
+		    	expArt.setEa_realisePar(rs.getString("ea_realisePar"));
+		    	expArt.setEa_TrackingColis(rs.getString("ea_TrackingColis"));
+		    	expArt.setTe_id(rs.getInt("te_id"));
+		    	
+		    }
+		    st.close();
+		    rs.close();
+		} catch(SQLException e) {
+		}
+		return expArt;
+	}
+	
 	public int SelectWhere(ExpeditionArticle expart) {
 
 		String query="SELECT ea_id FROM expeditionsarticles WHERE ea_dateCreation=? AND ea_realisePar=? AND ea_TrackingColis=? AND "
