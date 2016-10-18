@@ -2,6 +2,10 @@ package fr.creasport.webgestionstock.metier;
 
 import java.sql.Date;
 
+import fr.creasport.webgestionstock.bean.ArticleStockBean;
+
+
+
 public class StockArticle {
 	protected int sa_id;
 	protected String sa_ref= "";
@@ -10,6 +14,27 @@ public class StockArticle {
 	protected int ar_id;
 	protected int ta_id;
 	protected int st_id;
+	
+	
+	public void ajouter(ArticleStockBean bean){
+		this.sa_ref=bean.getReference();
+		this.sa_dateCreation=bean.getDateCreation();
+		this.sa_isActive=bean.getIsActive();
+		this.ar_id=bean.getArticle();
+		this.ta_id=bean.getTaille();
+		Statut st=new Statut();
+		this.st_id=st.Envoye();
+
+		ArticleDAO dao=new ArticleDAO();
+		dao.ajouter(this);
+		try {
+			return dao.SelectByRef(this.ar_ref);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	
 	@Override

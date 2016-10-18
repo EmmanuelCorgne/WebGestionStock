@@ -1,29 +1,26 @@
 package fr.creasport.webgestionstock.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.creasport.webgestionstock.bean.ArticleBean;
-import fr.creasport.webgestionstock.dao.ArticleDAO;
+import fr.creasport.webgestionstock.bean.ArticleStockBean;
 import fr.creasport.webgestionstock.metier.Article;
-
-
+import fr.creasport.webgestionstock.metier.StockArticle;
 
 /**
- * Servlet implementation class WSAArticleAddServlet
+ * Servlet implementation class WSATailleArticleServlet
  */
-public class WSAArticleAddServlet extends HttpServlet {
+public class WSATailleArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WSAArticleAddServlet() {
+    public WSATailleArticleServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,29 +43,13 @@ public class WSAArticleAddServlet extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-	
-		ArticleBean artBean=new ArticleBean();
-		artBean.setReference(request.getParameter("reference"));
-		artBean.setNom(request.getParameter("nom"));
-		boolean b = Boolean.valueOf(request.getParameter("isActive")).booleanValue() ; 
-		artBean.setIsActive(b);
-		b = Boolean.valueOf(request.getParameter("isHC")).booleanValue() ; 
-		artBean.setIsHC(b);
-		artBean.setFamille(Integer.parseInt(request.getParameter("familleID")));
-		artBean.setModele(Integer.parseInt(request.getParameter("modeleID")));
+		ArticleStockBean artStockBean=new ArticleStockBean();
+		StockArticle artStockMetier= new StockArticle();
+		artStockBean.setReference(request.getParameter("reference"));
+		artStockBean.setArticle(Integer.parseInt(request.getParameter("artID")));
+		artStockBean.setIsActive(true);
+		artStockBean.setTaille(Integer.parseInt(request.getParameter("tailleID")));
 		
-		Article artMetier= new Article();
-		Article article=artMetier.ajouter(artBean);
-		//retour de l'ajax
-		PrintWriter retour;
-		try {
-			retour = response.getWriter();
-			retour.println(article.getAr_id());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 	}
 
 }

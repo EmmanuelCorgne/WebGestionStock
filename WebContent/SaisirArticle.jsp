@@ -83,7 +83,7 @@
 						<%
 							for (int i = 0, j = listeFamille.size(); i < j; i++) {
 						%>
-						<option value="<%=listeFamille.get(i).getFa_code()%>"><%=listeFamille.get(i).getFa_nom()%></option>
+						<option value="<%=listeFamille.get(i).getFa_idString()%>"><%=listeFamille.get(i).getFa_nom()%></option>
 						<%
 							}
 						%>
@@ -104,7 +104,7 @@
 						<%
 							for (int i = 0, j = listeModele.size(); i < j; i++) {
 						%>
-						<option value="<%=listeModele.get(i).getMo_code()%>"><%=listeModele.get(i).getMo_nom()%></option>
+						<option value="<%=listeModele.get(i).getMo_idString()%>"><%=listeModele.get(i).getMo_nom()%></option>
 						<%
 							}
 						%>

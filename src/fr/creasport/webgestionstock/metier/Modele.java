@@ -12,7 +12,9 @@ public class Modele {
 	public int getMo_id() {
 		return mo_id;
 	}
-
+	public String getMo_idString() {
+		return Integer.toString(mo_id);
+	}
 	public void setMo_id(int mo_id) {
 		this.mo_id = mo_id;
 	}

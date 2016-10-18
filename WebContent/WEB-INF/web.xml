@@ -179,4 +179,14 @@
     <servlet-name>ReceptionLotServlet</servlet-name>
     <url-pattern>/ReceptionLotServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSATailleArticleServlet</display-name>
+    <servlet-name>WSATailleArticleServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSATailleArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSATailleArticleServlet</servlet-name>
+    <url-pattern>/WSATailleArticleServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
