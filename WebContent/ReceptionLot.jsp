@@ -15,7 +15,6 @@
 <link rel="stylesheet"href="jquery-ui.css">
 <script src="jquery-ui.js"></script>
 <script src="ReceptionLot.js"></script>
-<script src="moment.js"></script>
 <script src="Menu.js"></script>
 <script src="dialClub.js"></script>
 
@@ -50,19 +49,19 @@
 			<div class="element">
 				<div class="titreInput">Club:</div>
 				<div>
-					<input type="text" name="club" id="club" Placeholder="Club" />
+					<input type="text" name="club" id="club" Placeholder="${bean.club}" />
 					<input type="button" value="+" id="addClub" />
 				</div>
 			</div>
 			<div class="vide"></div>
 			<div class="element">
 				<div class="titreInput2"> Préparé par : <input type="text" name="preparePar" id="preparePar"
-					Placeholder="Préparé par" maxlength="05" /></div>
+					Placeholder="${bean.ea_realisePar}" maxlength="05" /></div>
 			</div>
 			<div class="vide"></div>
 			<div class="element">
 				 <div class="titreInput2">Le : <input type="text" name="dateEnvoi" id="dateEnvoi"
-					Placeholder="date" /></div>
+					Placeholder="${bean.ea_dateCreation}" /></div>
 			</div>
 		</div>
 		<div class="conteneur">
@@ -72,19 +71,7 @@
 				</div>
 				<div>
 					<select name="expedition" id="expedition">
-						<%
-							List<TypeExpedition> listeTypesExpeditions = (List<TypeExpedition>) request.getAttribute("listoption");
-					
-						%>
-						<%
-							for (int i = 0, j = listeTypesExpeditions.size(); i < j; i++) {
-								
-						%>
-						
-						<option value="<%=listeTypesExpeditions.get(i).getTe_idString()%>" ><%=listeTypesExpeditions.get(i).getTe_nom()%></option>
-						<%
-							}
-						%>
+						<option value="${bean.expedition}" >${bean.expedition}</option>
 					</select>
 				</div>
 			</div>
@@ -95,7 +82,7 @@
 				<div class="titreInput">N° suivi colis :</div>
 				<div>
 					<input type="text" name="suiviColis" id="suiviColis"
-						Placeholder="N° suvi colis" />
+						Placeholder="${bean.ea_TrackingColis}" />
 				</div>
 			</div>
 		</div>
@@ -106,13 +93,8 @@
 				</div>
 				<div>
 					<textarea name="commentaire" id="commentaire"
-						Placeholder="Commentaire"></textarea>
+						Placeholder="${bean.ea_infoComplementaire}"></textarea>
 				</div>
-			</div>
-		</div>
-		<div class="conteneur" id="bouton">
-			<div>
-				<input type="submit" name="valider" id="valider" value="valider" />
 			</div>
 		</div>
 	</div>
@@ -120,14 +102,6 @@
 	<div class="cadre" name="groupe">
 		<div class="conteneur">Liste des articles</div>
 		<div class="conteneur">
-			<div class="element">
-			<div class="titreInput">Réference :</div>
-				 <input type="text" name="reference" id="reference"
-					Placeholder="Référence" />
-			</div>
-			<div class="element">
-				<input type="submit" name="ajouter" id="ajouter" value="ajouter" />
-			</div>
 			<div id="errBas"></div>
 		</div>
 		<div class="conteneur">

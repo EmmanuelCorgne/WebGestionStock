@@ -114,4 +114,38 @@ public class DestinataireDAO {
 			return list;
 		}
 	
+	
+	public Destinataire findDestinataireParId(int de_id) throws ClassNotFoundException {
+		Destinataire dest = new Destinataire();
+		String query="SELECT * FROM destinataires WHERE de_id = ?" ;
+		try {
+			//System.out.println(name);
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			st.setInt(1, de_id);
+			ResultSet rs=st.executeQuery();
+		
+			 if (rs.next()){
+				 
+				 dest.setDe_id( rs.getInt("de_id"));
+				 dest.setDe_ref( rs.getString("de_ref"));
+					dest.setDe_nomClub(rs.getString("de_nomClub"));
+					dest.setDe_nomContact(rs.getString("de_nomContact"));
+					dest.setDe_adresse1(rs.getString("de_adresse1"));
+					dest.setDe_adresse2(rs.getString("de_adresse2"));
+					dest.setDe_codePostal(rs.getString("de_codePostal"));
+					dest.setDe_ville(rs.getString("de_ville"));
+					dest.setDe_IsClient(rs.getBoolean("de_IsClient"));
+					dest.setDe_isActive(rs.getBoolean("de_isActive"));
+					dest.setPa_id(rs.getInt("pa_id"));
+				 
+			 }
+			rs.close();
+			st.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		//
+		//System.out.println(list);
+		return dest;
+	}
 }

@@ -1,9 +1,12 @@
 package fr.creasport.webgestionstock.metier;
 
+import fr.creasport.webgestionstock.dao.StatutsDAO;
+
 public class Statut {
 	private int st_id;
 	private String st_code;
 	private String st_nom;
+	
 	
 	
 	public Statut() {
@@ -39,5 +42,25 @@ public class Statut {
 	public void setSt_nom(String st_nom) {
 		this.st_nom = st_nom;
 	}
-
+	
+	public int EnStock() throws ClassNotFoundException{
+		String code="0";
+		StatutsDAO dao=new StatutsDAO();
+		return dao.SelectCode(code);
+	}
+	public int Envoye() throws ClassNotFoundException{
+		String code="1";
+		StatutsDAO dao=new StatutsDAO();
+		return dao.SelectCode(code);
+	}
+	public int NonRecu() throws ClassNotFoundException{
+		String code="2";
+		StatutsDAO dao=new StatutsDAO();
+		return dao.SelectCode(code);
+	}
+	public int Vendu() throws ClassNotFoundException{
+		String code="3";
+		StatutsDAO dao=new StatutsDAO();
+		return dao.SelectCode(code);
+	}
 }

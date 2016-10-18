@@ -15,6 +15,10 @@ public class Famille {
 	public int getFa_id() {
 		return fa_id;
 	}
+	public String getFa_idString() {
+		
+		return Integer.toString(fa_id);
+	}
 
 	public void setFa_id(int fa_id) {
 		this.fa_id = fa_id;

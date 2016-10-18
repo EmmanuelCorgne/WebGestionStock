@@ -13,6 +13,8 @@ $(document).ready(function() {
 		menu += '<a href="IndexServlet"><button>Menu général</button></a>';
 	if (nomPage != "ExpedierServlet")
 		menu = '<a href="ExpedierServlet"><button>Expédier</button></a>';
+	if (nomPage != "SaisirArticleServlet")
+		menu = '<a href="SaisirArticleServlet"><button>Menu général</button></a>';
 	
 	menu += '<a href="ExpedierServlet"><button>Réceptionner</button></a>'
 		+'<a href=""><button>Gestion Stock</button></a>' ;

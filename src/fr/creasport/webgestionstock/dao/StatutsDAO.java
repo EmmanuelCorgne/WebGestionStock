@@ -61,6 +61,29 @@ public class StatutsDAO {
 		}
 		return statut;
 	}
+	
+	public int SelectCode(String code) throws ClassNotFoundException {
+		String query="SELECT * FROM statuts WHERE st_code=?";
+		Statut statut = null;
+		try {
+			//System.out.println(id);
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			st.setString(1, code);
+			ResultSet rs=st.executeQuery();
+		    if (rs.next()) {
+		    	statut=new Statut();
+		    	statut.setSt_id(rs.getInt("st_id"));	
+		    	statut.setSt_code(rs.getString("st_code"));
+		    	statut.setSt_nom(rs.getString("st_nom"));
+
+		    }
+			rs.close();
+			st.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return statut.getSt_id();
+	}
 
 
 }
