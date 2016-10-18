@@ -120,9 +120,10 @@
 					<tbody>
 						<%
 
-						List<StockArticle> listStockArticle = (List<StockArticle>) request.getAttribute("ListStockArticle");
+						List<StockArticle> listStockArticle = (List<StockArticle>) request.getAttribute("listStockArticle");
 						List<Taille> listTaille = (List<Taille>) request.getAttribute("listTaille");
 						List<Modele> listModele = (List<Modele>) request.getAttribute("listModele");
+						List<LotArticle> listLotArticle = (List<LotArticle>) request.getAttribute("listLotArticle");
 						%>
 						<%
 						

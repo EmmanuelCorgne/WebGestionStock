@@ -98,9 +98,7 @@ public class ReceptionLotServlet extends HttpServlet {
 
 			//ta_nom ta_id
 			//mo_nom mo_id
-			  
-			  
-			  
+
 			ExpeditionArticle expeditionArticle =expeditionArticleDAO.selectParId(ea_id);
 			bean.setEa_dateCreation(expeditionArticle.getEa_dateCreation());
 			bean.setEa_infoComplementaire(expeditionArticle.getEa_infoComplementaire());
@@ -113,10 +111,12 @@ public class ReceptionLotServlet extends HttpServlet {
 			bean.setExpedition(typeExpeditionDAO.SelectNomById(expeditionArticle.getTe_id()));
 		//	List<TypeExpedition> list = typeExpeditionDAO.SelectAll();
 			//envoi
+			
 			request.setAttribute("bean",bean);
+			request.setAttribute("listLotArticle",listLotArticle);
 			request.setAttribute("listTaille",listTaille);
 			request.setAttribute("listModele",listModele);
-			request.setAttribute("ListStockArticle",listStockArticle);
+			request.setAttribute("listStockArticle",listStockArticle);
 		//	request.setAttribute("listoption",list);
 
 			request.getRequestDispatcher("ReceptionLot.jsp").forward(request, response);
