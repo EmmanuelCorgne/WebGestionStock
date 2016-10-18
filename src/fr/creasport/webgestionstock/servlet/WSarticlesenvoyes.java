@@ -51,16 +51,18 @@ public class WSarticlesenvoyes extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
+		System.out.println("WSarticleEnvoyes : " );
 		
 		List<Outil.retourWS> list = new ArrayList<Outil.retourWS>();
 
 		ExpeditionArticleDAO expeditionArticleDAO = new ExpeditionArticleDAO();
 
 		try {
-			list = expeditionArticleDAO.SelectForIndex(Integer.parseInt(request.getParameter("limit")));
+			list = expeditionArticleDAO.SelectForIndex(Integer.parseInt(request.getParameter("limit")),Integer.parseInt(request.getParameter("id")));
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			System.out.println("erreur dans WSarticleEnvoyes : " + e1);
 		}
 
 		try {

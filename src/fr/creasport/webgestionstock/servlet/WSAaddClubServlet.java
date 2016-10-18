@@ -81,7 +81,7 @@ public class WSAaddClubServlet extends HttpServlet {
 		try {
 			Gson gson = new Gson();
 			ecrire = response.getWriter();
-			ecrire.println(gson.toJson(result));
+			ecrire.println(result);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

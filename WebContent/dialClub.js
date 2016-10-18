@@ -73,10 +73,10 @@ $(document)
 										  $.post(url, dataClub, function(retour) {
 
 										  }).done(function(retour) {
-											 if (retour == "OK")
+											 if (retour.trim() == "OK" )
 												$('#dialog-club').hide();
 											 else {
-												textErr = retour;
+												textErr = "--"+retour+"--";
 												$('#dialClub_err').html(textErr);
 											 }
 										  });

@@ -21,11 +21,11 @@
 
 </head>
 <body>
-	<table id="header">
+	<table id="header" width="100%">
 		<tr>
-			<td><img src="images/logoCreasport&Slogan.png" width="363"
+			<td width="10%"><img src="images/logoCreasport&Slogan.png" width="363"
 				height="72"></td>
-			<td><h1>Accueil</h1></td>
+			<td align="center"><h1>Accueil</h1></td>
 		</tr>
 	</table>
 	
@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<td>Contact</td>
-				<td><input type="text" size="10" placeholder="Nom"
+				<td><input type="text" size="15" placeholder="Nom"
 					id="nomContact" /></td>
 				<td>Article</td>
 				<td><input type="text" placeholder="Nom de l'article"
@@ -118,7 +118,7 @@
 |_____|\__\__,_|\__|  \__,_|\___||___/ |____/ \__\___/ \___|_|\_\___/
  -->
  
- <div name="groupe">
+ <div name="groupe" id="stock">
 <B name="titregroupe">Etat des sttocks</B>
  <table>
  <tr>
