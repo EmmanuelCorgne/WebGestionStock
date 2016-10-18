@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
-input
-{
-	maxlength: 0 ;
+input:read-only {
+}
+input:-moz-read-only { /* For Firefox */
 }
 div
 {

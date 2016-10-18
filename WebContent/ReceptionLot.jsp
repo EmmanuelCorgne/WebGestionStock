@@ -11,12 +11,10 @@
 <script src="jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="ReceptionLot.css" />
 <link rel="stylesheet" href="CreaSport.css" />
-<link rel="stylesheet" href="dialClub.css" />
 <link rel="stylesheet"href="jquery-ui.css">
 <script src="jquery-ui.js"></script>
 <script src="ReceptionLot.js"></script>
 <script src="Menu.js"></script>
-<script src="dialClub.js"></script>
 
 <title>RECEPTION LOT</title>
 
@@ -49,19 +47,18 @@
 			<div class="element">
 				<div class="titreInput">Club:</div>
 				<div>
-					<input type="text" name="club" id="club" Placeholder="${bean.club}" />
-					<input type="button" value="+" id="addClub" />
+					<input type="text" name="club" id="club" Placeholder="${bean.club}" readonly  />
 				</div>
 			</div>
 			<div class="vide"></div>
 			<div class="element">
 				<div class="titreInput2"> Préparé par : <input type="text" name="preparePar" id="preparePar"
-					Placeholder="${bean.ea_realisePar}" maxlength="05" /></div>
+					Placeholder="${bean.ea_realisePar}" maxlength="05" readonly /></div>
 			</div>
 			<div class="vide"></div>
 			<div class="element">
 				 <div class="titreInput2">Le : <input type="text" name="dateEnvoi" id="dateEnvoi"
-					Placeholder="${bean.ea_dateCreation}" /></div>
+					Placeholder="${bean.ea_dateCreation}" readonly  /></div>
 			</div>
 		</div>
 		<div class="conteneur">
@@ -71,7 +68,7 @@
 				</div>
 				<div>
 					<select name="expedition" id="expedition">
-						<option value="${bean.expedition}" >${bean.expedition}</option>
+						<option value="${bean.expedition}" >${bean.expedition}  </option>
 					</select>
 				</div>
 			</div>
@@ -82,7 +79,7 @@
 				<div class="titreInput">N° suivi colis :</div>
 				<div>
 					<input type="text" name="suiviColis" id="suiviColis"
-						Placeholder="${bean.ea_TrackingColis}" />
+						Placeholder="${bean.ea_TrackingColis}" readonly />
 				</div>
 			</div>
 		</div>
@@ -93,7 +90,7 @@
 				</div>
 				<div>
 					<textarea name="commentaire" id="commentaire"
-						Placeholder="${bean.ea_infoComplementaire}"></textarea>
+						Placeholder="${bean.ea_infoComplementaire}" readonly ></textarea>
 				</div>
 			</div>
 		</div>
