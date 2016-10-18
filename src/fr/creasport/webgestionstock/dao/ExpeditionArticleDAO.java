@@ -134,4 +134,41 @@ public class ExpeditionArticleDAO {
 		}
 		return id_Ea_id;
 	}
+	public ArrayList SelectForIndex(int limit)  throws ClassNotFoundException  {
+		
+		class retourWS {
+			public int id;
+			public String dateCreation;
+			public int nbArticle;
+			public String nomClub;
+			
+			public retourWS() {
+
+			}
+			
+		}
+		String query="select ea_id as id, "
+				+ "DATE_FORMAT(ea_datecreation,'%d/%m/%Y') as date, "
+				+ "ea_nbarticleenvoyetotal as nbart, "
+				+ "de_nomclub as nomclub "
+				+ "from expeditionsarticles EA, destinataires DE "
+				+ "where EA.ea_isretourincomplet = false "
+				+ "and EA.de_id = DE.de_id "
+				+ "order by EA.ea_datecreation "
+				+ "desc limit " + limit;
+		
+		List listResult = new ArrayList();
+
+		try {
+			Statement st = DbConnection.getInstance().createStatement();
+		    ResultSet rs = st.executeQuery(query);
+		    while (rs.next()){
+		    	String[] result;
+		    }
+		    st.close();
+		    rs.close();
+		} catch(SQLException e) {
+		}
+		return (ArrayList) listResult;
+	}
 }

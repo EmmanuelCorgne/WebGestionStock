@@ -19,10 +19,20 @@ import fr.creasport.webgestionstock.metier.Article;
  * Servlet implementation class WSAlistArticle
  */
 
-
 public class WSAlistArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	class MiniArticle {
+		public int id;
+		public String nom;
+		public MiniArticle() {
 
+		}
+		@Override
+		public String toString() {
+			return "MiniArticle [id=" + id + ", nom=" + nom + "]";
+		}
+	}
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -53,24 +63,12 @@ public class WSAlistArticle extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		class MiniArticle {
-			public int id;
-			public String nom;
-			public MiniArticle(){
-				
-			}
-			@Override
-			public String toString() {
-				return "MiniArticle [id=" + id + ", nom=" + nom + "]";
-			}
-		}
-		List<MiniArticle> listMiniArticle = new ArrayList<MiniArticle>();
-			
-		ArticleDAO articleDAO = new ArticleDAO();
 		
-		List<Article> malist = new ArrayList<Article>();
+		List<MiniArticle> listMiniArticle = new ArrayList<MiniArticle>();
 
-		System.out.println("début de WSAlistArticle");
+		ArticleDAO articleDAO = new ArticleDAO();
+
+		List<Article> malist = new ArrayList<Article>();
 
 		try {
 			malist = articleDAO.SelectAll();
@@ -78,22 +76,20 @@ public class WSAlistArticle extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		for (Article temp : malist) {
 			MiniArticle miniArticle = new MiniArticle();
 			miniArticle.id = temp.getAr_id();
 			miniArticle.nom = temp.getAr_nom();
-			//System.out.println(miniArticle.toString());
 			listMiniArticle.add(miniArticle);
 		}
-		
-		
+
 		try {
 			PrintWriter ecrire;
 			Gson gson = new Gson();
 			ecrire = response.getWriter();
-			ecrire.println((listMiniArticle));
-		} catch (IOException  e) {
+			ecrire.println(gson.toJson(listMiniArticle));
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("erreur dans WSAlistArticle : " + e);

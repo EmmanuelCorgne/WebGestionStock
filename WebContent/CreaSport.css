@@ -19,7 +19,9 @@ h1 {
 	border: 1px solid black;
 	width: 100%;
 }
-
+.tdBorderLeft {
+	border-left: 1px solid black;
+}
 .buttonVal {
 	border-radius: 10px;
 	font-family: Arial, sans-serif;

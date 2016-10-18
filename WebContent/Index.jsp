@@ -55,17 +55,17 @@
 			</tr>
 			<tr>
 				<td>Contact</td>
-				<td><input type="text size=" 10" placeholder="Nom"
+				<td><input type="text" size="10" placeholder="Nom"
 					id="nomContact" /></td>
 				<td>Article</td>
 				<td><input type="text" placeholder="Nom de l'article"
-					size"5" id="selectArticle"></td>
+					size"5" id="selectArticle"><input tpe="text" hidden id="ArticleId"/></td>
 			</tr>
 			<tr> 
 				<td>Lot</td>
 				<td><input type="number" placeholder="Num. lot" id="selectLot" />
 					<input type="text" hidden id="idLot" /></td>
-				<td colspan="2"></td>
+				<td id="ErrorRecherche" colspan="2"></td>
 			</tr>
 		</table>
 	</div>
@@ -88,7 +88,7 @@
 						<tr>
 							<th>Ref. Lot nom du club</th>
 							<th>Date d'envoi</th>
-							<th>Ref. Lot nom du club</th>
+							<th>Nb articles</th>
 							<th>date retour prévue</th>
 							<td></td>
 						</tr>
@@ -109,7 +109,47 @@
 			</tr>
 		</table>
 	</div>
-
+<!-- 
+ _____ _        _         _             ____  _             _        
+| ____| |_ __ _| |_    __| | ___  ___  / ___|| |_ ___   ___| | _____ 
+|  _| | __/ _` | __|  / _` |/ _ \/ __| \___ \| __/ _ \ / __| |/ / __|
+| |___| || (_| | |_  | (_| |  __/\__ \  ___) | || (_) | (__|   <\__ \
+|_____|\__\__,_|\__|  \__,_|\___||___/ |____/ \__\___/ \___|_|\_\___/
+ -->
+ 
+ <div name="groupe">
+<B name="titregroupe">Etat des sttocks</B>
+ <table>
+ <tr>
+ 				<td>
+					<table class="tab1" id="envoyes">
+						<tr>
+							<td colspan=10><B name="titregroupe">Rupture</B></td>
+						</tr>
+						<tr>
+							<th>Famille (modèle)</th>
+							<th>Nom d'article (taille)</th>
+							<th>Nombre d'article restants</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td class="tdBorderLeft">
+					<table class="tab1" id="recus" width="100%">
+						<tr>
+							<td colspan=10><B name="titregroupe">Vendus</B></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+ </tr>
+ </table>
+ </div>
+ 
  <%@include file="dialClub.jsp" %>	
 </body>
 </html>
