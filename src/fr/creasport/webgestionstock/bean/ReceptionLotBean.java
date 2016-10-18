@@ -24,8 +24,8 @@ public class ReceptionLotBean {
 	public String getExpedition() {
 		return expedition;
 	}
-	public void setExpedition(int expedition) {
-		this.expedition = Integer.toString(expedition);
+	public void setExpedition(String expedition) {
+		this.expedition = expedition;
 	}
 	public String getEa_realisePar() {
 		return ea_realisePar;

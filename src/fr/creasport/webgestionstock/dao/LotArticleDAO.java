@@ -76,13 +76,13 @@ public class LotArticleDAO {
 				st.setInt(1, eaId);
 				
 				ResultSet rs = st.executeQuery();
-				if (rs.next()) {
+				while (rs.next()) {
 					lotArticle = new LotArticle();
 					lotArticle.setEa_id(rs.getInt("ea_id"));
 					lotArticle.setLa_dateRetour(rs.getDate("la_dateRetour"));
 					lotArticle.setLa_id(rs.getInt("la_id"));
 					lotArticle.setSa_id(rs.getInt("sa_id"));
-
+					list.add(lotArticle);
 				}
 				rs.close();
 				st.close();

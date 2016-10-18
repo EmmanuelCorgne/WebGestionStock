@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
-<%@ page import="fr.creasport.webgestionstock.metier.TypeExpedition"%>
+<%@ page import="fr.creasport.webgestionstock.metier.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -39,7 +39,7 @@
 		</div>
 
 		<div class="titre">
-			<h1>Expedier Lot</h1>
+			<h1>RECEPTION LOT</h1>
 		</div>
 	</div>
 	<hr>
@@ -118,6 +118,26 @@
 						</tr>
 					</thead>
 					<tbody>
+						<%
+
+						List<StockArticle> listStockArticle = (List<StockArticle>) request.getAttribute("ListStockArticle");
+						List<Taille> listTaille = (List<Taille>) request.getAttribute("listTaille");
+						List<Modele> listModele = (List<Modele>) request.getAttribute("listModele");
+						%>
+						<%
+						
+							for (int i = 0, j = listStockArticle.size(); i < j; i++) {
+						%>
+						<tr>
+							<td><%=listStockArticle.get(i).getSa_ref()%></td>
+							<td><%=listTaille.get(i).getTa_nom()%></td>
+							<td><%=listModele.get(i).getMo_nom()%></td>
+							<td><a href="#">Edit</a></td>
+							<td><a href="#">Delete</a></td>
+						</tr>		
+						<%
+							}
+						%>
 						<!-- Corps du tableau -->
 					</tbody>
 				</table>

@@ -41,7 +41,7 @@ public class TypeExpeditionDAO {
 
 
 	public TypeExpedition SelectId(int id) throws ClassNotFoundException {
-		String query="SELECT * FROM familles WHERE ar_id=?";
+		String query="SELECT * FROM typesexpeditions WHERE ar_id=?";
 		TypeExpedition typeExpedition = null;
 		try {
 			//System.out.println(id);
@@ -63,5 +63,24 @@ public class TypeExpeditionDAO {
 		return typeExpedition;
 	}
 
+	public String SelectNomById(int id) throws ClassNotFoundException {
+		String query="SELECT te_nom FROM typesexpeditions WHERE te_id=?";
+		String te_nom="";
+		try {
+			//System.out.println(id);
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			st.setInt(1, id);
+			ResultSet rs=st.executeQuery();
+		    if (rs.next()) {
+		    	te_nom=rs.getString("te_nom");
+
+		    }
+			rs.close();
+			st.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return te_nom;
+	}
 
 }

@@ -135,4 +135,25 @@ public class ArticleDAO {
 		}
 		return article;
 	}
+	
+	public int SelectModelleById(int id) throws ClassNotFoundException {
+		String query="SELECT mo_id FROM articles WHERE ar_id=?";
+		int mo_id = 0;
+		try {
+			//System.out.println(id);
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			st.setInt(1, id);
+			ResultSet rs=st.executeQuery();
+		    if (rs.next()) {
+		 			    	
+		    	mo_id=rs.getInt("mo_id");	
+	
+		    }
+			rs.close();
+			st.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return mo_id;
+	}
 }
