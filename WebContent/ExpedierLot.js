@@ -51,7 +51,7 @@ $(document)
 												.val();
 										// destinataire id
 										validerJson.de_id = idclub;
-
+										
 										var url = "SaisirExpeditionArticleServlet"
 										$
 												.post(
@@ -72,8 +72,9 @@ $(document)
 															}
 
 														});
-										
-										window.location = 'IndexServlet';
+											
+											window.location = 'IndexServlet';
+											window.print();
 
 									});
 					desactiverAjouter();
@@ -98,8 +99,11 @@ $(document)
 															"td").html()), 1);
 									// desactivation du bp valider si tableau
 									// vide
+									$('#afficheNbElement').html("il y a "+tabJsonStockArticle.length+" Article(s)");
+									
 									if (tabJsonStockArticle.length == 0) {
 										desactiverAjouter();
+										$('#afficheNbElement').html("");
 									}
 								}
 							});
@@ -120,6 +124,8 @@ $(document)
 															// base sinon msg
 															// d'erreur
 															if (data.sa_ref) {
+																$('#errBas')
+																.html("");
 																tabJsonStockArticle
 																		.push(data);
 																var ligne = '<tr>'
@@ -138,6 +144,8 @@ $(document)
 																$(ligne)
 																		.prependTo(
 																				"#tabArticle");
+																
+																$('#afficheNbElement').html("il y a "+(tabJsonStockArticle.length)+" Article(s)");
 															} else {
 																$('#errBas')
 																		.html(
@@ -145,6 +153,7 @@ $(document)
 															}
 															;
 														});
+
 										$('#reference').val("");
 									});
 					var JsonAutoCompleteClub = [];

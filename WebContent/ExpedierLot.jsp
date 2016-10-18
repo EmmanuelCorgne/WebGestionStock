@@ -148,6 +148,7 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="vide"></div><div><h1  id="afficheNbElement"></h1></div>
 		</div>
 	</div>
 <%@include file="dialClub.jsp" %>	
