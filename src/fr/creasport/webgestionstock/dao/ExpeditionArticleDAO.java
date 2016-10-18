@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.creasport.webgestionstock.metier.Article;
+import fr.creasport.webgestionstock.metier.Outil;
+
 import fr.creasport.webgestionstock.metier.ExpeditionArticle;
-import fr.creasport.webgestionstock.metier.Famille;
+import fr.creasport.webgestionstock.servlet.*;
 
 public class ExpeditionArticleDAO {
 
@@ -162,19 +164,8 @@ public class ExpeditionArticleDAO {
 		}
 		return id_Ea_id;
 	}
-	public ArrayList SelectForIndex(int limit)  throws ClassNotFoundException  {
+	public ArrayList<Outil.retourWS> SelectForIndex(int limit)  throws ClassNotFoundException  {
 		
-		class retourWS {
-			public int id;
-			public String dateCreation;
-			public int nbArticle;
-			public String nomClub;
-			
-			public retourWS() {
-
-			}
-			
-		}
 		String query="select ea_id as id, "
 				+ "DATE_FORMAT(ea_datecreation,'%d/%m/%Y') as date, "
 				+ "ea_nbarticleenvoyetotal as nbart, "
@@ -184,19 +175,25 @@ public class ExpeditionArticleDAO {
 				+ "and EA.de_id = DE.de_id "
 				+ "order by EA.ea_datecreation "
 				+ "desc limit " + limit;
-		
-		List listResult = new ArrayList();
+			
+		List<Outil.retourWS> listResult = new ArrayList<Outil.retourWS>();
 
 		try {
 			Statement st = DbConnection.getInstance().createStatement();
 		    ResultSet rs = st.executeQuery(query);
+		    //System.out.println(rs.toString());
 		    while (rs.next()){
-		    	String[] result;
+		    	Outil.retourWS retour = new Outil.retourWS();
+		    	retour.id = rs.getInt("id");
+		    	retour.dateCreation = rs.getString("date");
+		    	retour.nbArticle = rs.getInt("nbart");
+		    	retour.nomClub = rs.getString("nomclub");
+		    	listResult.add(retour);
 		    }
 		    st.close();
 		    rs.close();
 		} catch(SQLException e) {
 		}
-		return (ArrayList) listResult;
+		return (ArrayList<Outil.retourWS>) listResult;
 	}
 }

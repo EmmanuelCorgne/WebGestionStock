@@ -72,7 +72,7 @@ $(document).ready(
 		});
 
 		// autotcomplte pour les articles
-		
+
 		var choixArticle = [];
 		var data;
 		var url = "WSAlistArticle";
@@ -88,7 +88,7 @@ $(document).ready(
 			 }
 		  });
 		});
-		
+
 		// validation de la recherche
 
 		$('#validRecherche').click(
@@ -99,7 +99,7 @@ $(document).ready(
 				if ($('#datedeb').val().length < 5)
 				  err += "il manque la date de début ";
 				if ($('#selectArticle').val().length < 5)
-				 err += " - il choisir un article ";
+				  err += " - il choisir un article ";
 				if (err != "")
 				  $('#ErrorRecherche').html(err);
 				console.log("on envoie : club " + $('#nomClub').val()
@@ -126,14 +126,29 @@ $(document).ready(
 			 buttonText : "Cliquer pour avoir un calendrier"
 		  });
 		});
-		
+
 		// Chargement du suivi des lots
 		
-		
-		
-		// Chargement de l'état des stocks
-		
-		
+		url = "WSarticlesenvoyes?limit=5";
+		var ArticleEnvoyes = [];
+		$.getJSON(url, function(data) {
+		  console.log(data);
+		  var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
+		  
+		  $.each(data, function(key, value) {
+			 var temp = value.dateCreation; 
+			 
+			 var dt = new Date(temp.replace(pattern,'$3/$2/$1'));
+			 console.log(dt);
+			 
+			 $('#envoyes').append('<tr><td>'+value.id+' ('+ value.nomClub
+				  + ') </td><td>'+value.dateCreation+' </td><td> '
+				  +value.nbArticle+'</td><td> date retour </td><td> '
+				  + '<button class="buttonval" name="bouttonRecep" value="'+value.id+'">Réception</button>');
+			 ArticleEnvoyes.push(value.nom);
+		  });
+		});
 
-		
+		// Chargement de l'état des stocks
+
 	 });
