@@ -45,10 +45,18 @@ public class WSATailleArticleServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		ArticleStockBean artStockBean=new ArticleStockBean();
 		StockArticle artStockMetier= new StockArticle();
+		String a = request.getParameter("artID");
+		String artID = a.replace("%0D%0A","") ;
+		
 		artStockBean.setReference(request.getParameter("reference"));
-		artStockBean.setArticle(Integer.parseInt(request.getParameter("artID")));
+		artStockBean.setArticle(Integer.parseInt(artID));
 		artStockBean.setIsActive(true);
-		artStockBean.setTaille(Integer.parseInt(request.getParameter("tailleID")));
+		String t = request.getParameter("tailleID");
+		String tailleID = t.replace("%20","") ;
+		System.out.println("taile"+tailleID);
+		artStockBean.setTaille(Integer.parseInt(tailleID));
+		
+		artStockMetier.ajouter(artStockBean);
 		
 	}
 

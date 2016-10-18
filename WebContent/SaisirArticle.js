@@ -12,7 +12,7 @@ $(document).ready(
 				var url = "WSAArticleAddServlet";
 			
 				art.reference=$('#reference').val();
-				art.nom= $('#nom').val();
+				art.nom= $('#nomArticle').val();
 				art.isActive=$('#actif').is(':checked');
 				art.isHC=$('#isHC').is(':checked');
 				art.familleID=$('#famille').val();
@@ -30,7 +30,7 @@ $(document).ready(
 						console.log(artTaille[k]);
 						$.post(url2, artTaille[k]);
 					}
-					// $.post(url2, tabJsonStockArticle);
+					
 
 				});
 			});
@@ -57,7 +57,7 @@ $(document).ready(
 									var tailleJS = {
 										reference : ref + "-" + $("#" + k).prop('name')
 												+ v,
-										taille : $("#" + k).prop('name')
+										tailleID :escape($("#" + k).val())
 									};
 									console.log("TailleJS :"+tailleJS.reference);
 									artTaille.push(tailleJS);

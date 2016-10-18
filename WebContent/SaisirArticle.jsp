@@ -128,7 +128,7 @@
 							for (int i = 0, j = listeTaille.size(); i < j; i++) {
 								
 						%>
-						<input type="checkbox" value="<%=listeTaille.get(i).getTa_code()%> " id=<%=i%> name=<%=listeTaille.get(i).getTa_nom()%>><%=listeTaille.get(i).getTa_nom()%></option>
+						<input type="checkbox" value="<%=listeTaille.get(i).getTa_idString()%> " id=<%=i%> name=<%=listeTaille.get(i).getTa_nom()%>><%=listeTaille.get(i).getTa_nom()%></option>
 						<%
 							}
 						%>
