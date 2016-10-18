@@ -171,10 +171,11 @@ public class ExpeditionArticleDAO {
 				+ "ea_nbarticleenvoyetotal as nbart, "
 				+ "de_nomclub as nomclub "
 				+ "from expeditionsarticles EA, destinataires DE "
-				+ "where EA.ea_isretourincomplet = false "
-				+ "and EA.de_id = DE.de_id "
-				+ "order by EA.ea_datecreation "
-				+ "desc limit " + limit;
+				+ "where EA.de_id = DE.de_id  "
+				+ "and EA.ea_isretourincomplet = false "
+				+ "order by EA.ea_datecreation ";
+		if (limit > 0)	
+				query += " desc limit " + limit;
 			
 		List<Outil.retourWS> listResult = new ArrayList<Outil.retourWS>();
 

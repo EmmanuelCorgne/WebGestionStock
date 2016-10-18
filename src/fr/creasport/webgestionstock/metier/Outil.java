@@ -31,5 +31,15 @@ public class Outil {
 
 		}
 	}
+	public static class recusManquants {
+		public int id;
+		public String nomClub;
+		public String dateRecep;
+		public int nbArticle;
+		
+		public recusManquants() {
+
+		}
+	}
 	
 }
