@@ -131,19 +131,20 @@ $(document).ready(
 		
 		url = "WSarticlesenvoyes?limit=5";
 		var ArticleEnvoyes = [];
+		Date.prototype.addDays = function(days) {
+		    this.setDate(this.getDate() + parseInt(days));
+		    return this;
+		};
 		$.getJSON(url, function(data) {
-		  console.log(data);
-		  var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
-		  
+
 		  $.each(data, function(key, value) {
-			 var temp = value.dateCreation; 
-			 
-			 var dt = new Date(temp.replace(pattern,'$3/$2/$1'));
-			 console.log(dt);
-			 
+			  var parts = value.dateCreation.split('/');
+			  // parts[0] : jour;
+			  // parts[2] : année;
+			  var dateRetour = new Date(parts[2],parts[1],parts[0]).addDays(15); 
 			 $('#envoyes').append('<tr><td>'+value.id+' ('+ value.nomClub
 				  + ') </td><td>'+value.dateCreation+' </td><td> '
-				  +value.nbArticle+'</td><td> date retour </td><td> '
+				  +value.nbArticle+'</td><td> '+ moment(dateRetour).format('DD/MM/YYYY') +' </td><td> '
 				  + '<button class="buttonval" name="bouttonRecep" value="'+value.id+'">Réception</button>');
 			 ArticleEnvoyes.push(value.nom);
 		  });

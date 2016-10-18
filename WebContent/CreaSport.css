@@ -14,7 +14,10 @@ h1 {
 	padding-left: 5px;
 	padding-right: 5px;
 }
-
+.tab1 td {
+	text-align: center;
+	color: red;
+}
 .tab1 {
 	border: 1px solid black;
 	width: 100%;
