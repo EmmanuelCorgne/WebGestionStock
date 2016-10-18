@@ -189,4 +189,14 @@
     <servlet-name>WSATailleArticleServlet</servlet-name>
     <url-pattern>/WSATailleArticleServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSrecusManquants</display-name>
+    <servlet-name>WSrecusManquants</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.WSrecusManquants</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSrecusManquants</servlet-name>
+    <url-pattern>/WSrecusManquants</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -197,4 +197,38 @@ public class ExpeditionArticleDAO {
 		}
 		return (ArrayList<Outil.retourWS>) listResult;
 	}
+public ArrayList<Outil.recusManquants> SelectManquants(int limit)  throws ClassNotFoundException  {
+		
+		String query="select ea_id as id, "
+				+ "DATE_FORMAT(la_dateretour,'%d/%m/%Y') as date, "
+				+ "ea_nbarticleenvoyetotal as nbart, "
+				+ "de_nomclub as nomclub "
+				+ "from expeditionsarticles EA, destinataires DE, lotsarticles as LA "
+				+ "where EA.de_id = DE.de_id  "
+				+ " EA.ea_id = LA.ea_id"
+				+ "and EA.ea_isretourincomplet = true "
+				+ "order by EA.ea_datecreation ";
+		if (limit > 0)	
+				query += " desc limit " + limit;
+			
+		List<Outil.recusManquants> listResult = new ArrayList<Outil.recusManquants>();
+
+		try {
+			Statement st = DbConnection.getInstance().createStatement();
+		    ResultSet rs = st.executeQuery(query);
+		    //System.out.println(rs.toString());
+		    while (rs.next()){
+		    	Outil.recusManquants retour = new Outil.recusManquants();
+		    	retour.id = rs.getInt("id");
+		    	retour.dateRecep = rs.getString("date");
+		    	retour.nbArticle = rs.getInt("nbart");
+		    	retour.nomClub = rs.getString("nomclub");
+		    	listResult.add(retour);
+		    }
+		    st.close();
+		    rs.close();
+		} catch(SQLException e) {
+		}
+		return (ArrayList<Outil.recusManquants>) listResult;
+	}
 }
