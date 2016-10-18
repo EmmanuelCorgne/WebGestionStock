@@ -77,10 +77,10 @@ public class ReceptionLotServlet extends HttpServlet {
 		List<Modele> listModele= new ArrayList<Modele>();
 		List<LotArticle> listLotArticle = new ArrayList<LotArticle>();
 		
-	
+//	System.out.println(ea_id);
 		try {
 			listLotArticle = lotArticleDAO.selectParExpedition(ea_id);
-			
+
 				  for(int i = 0,j = listLotArticle.size(); i < j;i++){
 				  
 				  StockArticle stockArticle  = stockArticleDAO.selectParId(listLotArticle.get(i).getSa_id());
@@ -109,6 +109,7 @@ public class ReceptionLotServlet extends HttpServlet {
 			bean.setEa_TrackingColis(expeditionArticle.getEa_TrackingColis());
 			bean.setEa_realisePar(expeditionArticle.getEa_realisePar());
 			bean.setClub(dest.getDe_nomClub());
+			bean.setClubId(dest.getDe_id());
 			bean.setExpedition(typeExpeditionDAO.SelectNomById(expeditionArticle.getTe_id()));
 		//	List<TypeExpedition> list = typeExpeditionDAO.SelectAll();
 			//envoi

@@ -41,7 +41,6 @@ public class SaisirLotArticleServlet extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		LotArticle lA= new LotArticle();
 	
 		LotArticleDAO lADAO = new LotArticleDAO();

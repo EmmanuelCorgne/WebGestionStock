@@ -58,23 +58,19 @@ $(document)
 														url,
 														validerJson,
 														function(data) {
-
 															var url2 = "SaisirLotArticleServlet";
 
 															for (var k = 0; k < tabJsonStockArticle.length; k++) {
 
 																tabJsonStockArticle[k].id = escape(data);
 
-																$
-																		.post(
-																				url2,
-																				tabJsonStockArticle[k]);
+																$.post(url2,tabJsonStockArticle[k]);
 															}
-
+															window.location = 'IndexServlet';
+															window.print();
 														});
 											
-											window.location = 'IndexServlet';
-											window.print();
+											
 
 									});
 					desactiverAjouter();
@@ -83,12 +79,7 @@ $(document)
 							"click",
 							'#tabArticle a',
 							function() {
-								if ($(this).html() == "Edit") {
-									var select = $(this).closest("tr")
-											.children("td").html();
-									alert(select);
-								}
-								if ($(this).html() == "Delete") {
+								if ($(this).html() == "Supprimer") {
 									$(this).closest("tr").hide('slow');
 									// Supprimer la ligne dans le tableau json
 									// avec le
@@ -138,8 +129,7 @@ $(document)
 																		+ '<td>'
 																		+ data.ta_nom
 																		+ '</td>'
-																		+ '<td><a href="#">Edit</a></td>'
-																		+ '<td><a href="#">Delete</a></td>'
+																		+ '<td><a href="#">Supprimer</a></td>'
 																		+ '</tr>';
 																$(ligne)
 																		.prependTo(
