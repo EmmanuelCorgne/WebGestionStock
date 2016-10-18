@@ -138,8 +138,7 @@ $(document)
 																		+ '<td>'
 																		+ data.ta_nom
 																		+ '</td>'
-																		+ '<td><a href="#">Edit</a></td>'
-																		+ '<td><a href="#">Delete</a></td>'
+																		+ '<td><a href="#">Supprimer</a></td>'
 																		+ '</tr>';
 																$(ligne)
 																		.prependTo(

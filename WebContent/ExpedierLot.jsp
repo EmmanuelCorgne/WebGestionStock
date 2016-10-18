@@ -139,8 +139,7 @@
 							<th>Ref article</th>
 							<th>Nom</th>
 							<th>Taille</th>
-							<th>Edit</th>
-							<th>Delete</th>
+							<th>Supprimer</th>
 						</tr>
 					</thead>
 					<tbody>

@@ -99,6 +99,10 @@
 	<div class="cadre" name="groupe">
 		<div class="conteneur">Liste des articles</div>
 		<div class="conteneur">
+					<div class="titreInput">Réference :</div>
+				 <input type="text" name="reference" id="reference"
+					Placeholder="Référence" />
+			</div>
 			<div id="errBas"></div>
 		</div>
 		<div class="conteneur">
@@ -110,8 +114,7 @@
 							<th>Ref article</th>
 							<th>Nom</th>
 							<th>Taille</th>
-							<th>Edit</th>
-							<th>Delete</th>
+							<th>Supprimer</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -129,8 +132,7 @@
 							<td><%=listStockArticle.get(i).getSa_ref()%></td>
 							<td><%=listTaille.get(i).getTa_nom()%></td>
 							<td><%=listModele.get(i).getMo_nom()%></td>
-							<td><a href="#">Edit</a></td>
-							<td><a href="#">Delete</a></td>
+							<td><a href="#">Supprimer</a></td>
 						</tr>		
 						<%
 							}
