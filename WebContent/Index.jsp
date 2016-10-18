@@ -16,6 +16,7 @@
 <script src="Menu.js"></script>
 <script src="Index.js"></script>
 <script src="dialClub.js"></script>
+<script src="moment.js"></script>
 
 
 </head>
@@ -89,7 +90,7 @@
 							<th>Ref. Lot nom du club</th>
 							<th>Date d'envoi</th>
 							<th>Nb articles</th>
-							<th>date retour prévue</th>
+							<th>Retour prévue</th>
 							<td></td>
 						</tr>
 					</table>

@@ -13,6 +13,9 @@ public class Taille {
 	public int getTa_id() {
 		return ta_id;
 	}
+	public String getTa_idString() {
+		return Integer.toString(ta_id);
+	}
 
 	public void setTa_id(int ta_id) {
 		this.ta_id = ta_id;

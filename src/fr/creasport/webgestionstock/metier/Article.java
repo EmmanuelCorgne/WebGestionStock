@@ -15,7 +15,7 @@ public class Article {
 	protected int fa_id;
 	protected int mo_id;
 	
-	public void ajouter(ArticleBean articleBean){
+	public Article ajouter(ArticleBean articleBean){
 		this.ar_ref=articleBean.getReference();
 		this.ar_nom=articleBean.getNom();
 		this.ar_isHC=articleBean.getIsHC();
@@ -25,6 +25,13 @@ public class Article {
 		this.mo_id=articleBean.getModele();
 		ArticleDAO dao=new ArticleDAO();
 		dao.ajouter(this);
+		try {
+			return dao.SelectByRef(this.ar_ref);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public void modifier(ArticleBean articleBean){
