@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.creasport.webgestionstock.metier.Famille;
 import fr.creasport.webgestionstock.metier.Outil.stockArticlesRupture;
 import fr.creasport.webgestionstock.metier.StockArticle;
 
@@ -173,6 +172,7 @@ public class StockArticleDAO {
 	}
 	
 	// Liste des articles en rupture
+	
 	public List<stockArticlesRupture> selectRupture() throws ClassNotFoundException {
 		String query = "SELECT * FROM stocksarticles";
 		List<stockArticlesRupture> list = new ArrayList<stockArticlesRupture>();

@@ -87,7 +87,7 @@
 							<td colspan=10><B name="titregroupe">Envoyés</B></td>
 						</tr>
 						<tr>
-							<th>Ref. Lot nom du club</th>
+							<th>Nom du club</th>
 							<th>Date d'envoi</th>
 							<th>Nb articles</th>
 							<th>Retour prévue</th>
@@ -101,9 +101,9 @@
 							<td colspan=10><B name="titregroupe">Reçus manquants</B></td>
 						</tr>
 						<tr>
-							<th>Ref. Lot nom du club</th>
+							<th>Nom du club</th>
 							<th>Date de réception</th>
-							<th>nombre de pièce manquante</th>
+							<th>nombre de pièce(s) manquante(s)</th>
 						</tr>
 					</table>
 				</td>

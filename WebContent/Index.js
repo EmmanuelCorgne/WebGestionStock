@@ -171,7 +171,7 @@ $(document).ready(
 			 // parts[2] : année;
 			 var dateRetour = new Date(parts[2], parts[1], parts[0]).addDays(15);
 			 $('#envoyes').append(
-				  '<tr><td>' + value.id + ' (' + value.nomClub + ') </td><td>'
+				  '<tr><td>'+ value.nomClub + ' </td><td>'
 						+ value.dateCreation + ' </td><td> ' + value.nbArticle
 						+ '</td><td> ' + moment(dateRetour).format('DD/MM/YYYY')
 						+ ' </td><td> ' + '<a href="ReceptionLotServlet?ea_id='
@@ -191,7 +191,7 @@ $(document).ready(
 			 function(data) {
 				$.each(data, function(key, value) {
 				  $('#recus').append(
-						'<tr><td>' + value.id + ' (' + value.nomClub + ') </td><td>'
+						'<tr><td>'+ value.nomClub + ' </td><td>'
 							 + value.dateRecep + ' </td><td> ' + value.nbArticle
 							 + '</td><td> ');
 				  recusManquants.push(value.nom);
