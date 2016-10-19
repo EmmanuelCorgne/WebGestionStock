@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="CreaSport.css" />
 <link rel="stylesheet" href="dialClub.css" />
-<link rel="stylesheet" href="jquery-ui.css">
+<link rel="stylesheet" href="jquery-ui.css"> 
 
 <script src="jquery-3.1.0.min.js"></script>
 

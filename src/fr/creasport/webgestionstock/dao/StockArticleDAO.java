@@ -181,7 +181,7 @@ public class StockArticleDAO {
 				+ " and TA.ta_id = SA.ta_id and SA.st_id in (select st_id from statuts where st_code = 0) "
 				+ " group by SA.ar_id";
 		List<stockArticlesRupture> list = new ArrayList<stockArticlesRupture>();
-System.out.println(query);
+
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
 			ResultSet rs = st.executeQuery();

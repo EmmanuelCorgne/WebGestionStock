@@ -183,26 +183,49 @@ $(document).ready(
 
 		// Chargement de l'état des stocks
 
-		url = "WSruptureArticle";
-		var listRupture = [];
-		console.log('test');
+		url = "WSrecusManquants?limit=5";
+		var recusManquants = [];
+
 		$.getJSON(
 			 url,
 			 function(data) {
 				$.each(data, function(key, value) {
-				  $('#rupture').append(
-						'<tr><td>'+ value.famille + '('+value.modele+') </td><td>'
-							 + value.article +'('+value.taille+ ') </td><td> ' + value.nbArticle
+				  $('#recus').append(
+						'<tr><td>'+ value.nomClub + ' </td><td>'
+							 + value.dateRecep + ' </td><td> ' + value.nbArticle
 							 + '</td><td> ');
-				  console.log('test');
-				  listRupture.push(value.nom);
+				  recusManquants.push(value.nom);
 				});
 
 			 }).done(data, function() {
-		  if (listRupture.length == 0)
-			 $('#rupture').hide();
+		  if (recusManquants.length == 0)
+			 $('#recus').hide();
 		  else
-			 $('#rupture').show();
+			 $('#recus').show();
 		});
 		console.log('fin du javasrcipt');
 	 });
+
+
+    var listRupture = [];
+		url = "WSruptureArticle?limit=5";
+    
+    $.getJSON(
+    	 url,
+    	 function(data) {
+    		$.each(data, function(key, value) {
+    		  $('#rupture').append(
+    				'<tr><td>'+ value.famille + '('+value.modele+') </td><td>'
+    					 + value.article +'('+value.taille+ ') </td><td> ' + value.nbArticle
+    					 + '</td><td> ');
+    		  console.log('test');
+    		  listRupture.push(value.nom);
+    		});
+    
+    	 })
+    	 .done(data, function() {
+      if (listRupture.length == 0)
+    	 $('#rupture').hide();
+      else
+    	 $('#rupture').show();
+    });

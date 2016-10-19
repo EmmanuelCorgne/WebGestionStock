@@ -219,4 +219,14 @@
     <servlet-name>WSruptureArticle</servlet-name>
     <url-pattern>/WSruptureArticle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>s</display-name>
+    <servlet-name>s</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.s</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>s</servlet-name>
+    <url-pattern>/s</url-pattern>
+  </servlet-mapping>
 </web-app>
