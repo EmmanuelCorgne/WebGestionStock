@@ -183,25 +183,26 @@ $(document).ready(
 
 		// Chargement de l'état des stocks
 
-		url = "WSrecusManquants?limit=5";
-		var recusManquants = [];
-
+		url = "WSruptureArticle";
+		var listRupture = [];
+		console.log('test');
 		$.getJSON(
 			 url,
 			 function(data) {
 				$.each(data, function(key, value) {
-				  $('#recus').append(
-						'<tr><td>'+ value.nomClub + ' </td><td>'
-							 + value.dateRecep + ' </td><td> ' + value.nbArticle
+				  $('#rupture').append(
+						'<tr><td>'+ value.famille + '('+value.modele+') </td><td>'
+							 + value.article +'('+value.taille+ ') </td><td> ' + value.nbArticle
 							 + '</td><td> ');
-				  recusManquants.push(value.nom);
+				  console.log('test');
+				  listRupture.push(value.nom);
 				});
 
 			 }).done(data, function() {
-		  if (recusManquants.length == 0)
-			 $('#recus').hide();
+		  if (listRupture.length == 0)
+			 $('#rupture').hide();
 		  else
-			 $('#recus').show();
+			 $('#rupture').show();
 		});
 		console.log('fin du javasrcipt');
 	 });

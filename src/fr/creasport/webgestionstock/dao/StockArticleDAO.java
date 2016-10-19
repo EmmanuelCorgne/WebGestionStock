@@ -80,7 +80,7 @@ public class StockArticleDAO {
 				stockArticle.setTa_id((rs.getInt("ta_id")));
 				stockArticle.setSa_isActive(rs.getBoolean("sa_isActive"));
 				stockArticle.setSa_dateCreation(rs.getDate("sa_dateCreation"));
-				stockArticle.setSa_ref(Ref);				
+				stockArticle.setSa_ref(Ref);
 			}
 			rs.close();
 			st.close();
@@ -89,6 +89,7 @@ public class StockArticleDAO {
 		}
 		return stockArticle;
 	}
+
 	public StockArticle selectParId(int id) throws ClassNotFoundException {
 		String query = "SELECT * FROM stocksarticles WHERE sa_id=?";
 		StockArticle stockArticle = null;
@@ -113,9 +114,8 @@ public class StockArticleDAO {
 		}
 		return stockArticle;
 	}
-	
-	
-	//recherche tous les stockArticle de l'article
+
+	// recherche tous les stockArticle de l'article
 	public List<StockArticle> selectParArticle(int arId) throws ClassNotFoundException {
 		String query = "SELECT * FROM stocksarticles WHERE ar_id=?";
 		List<StockArticle> list = new ArrayList<StockArticle>();
@@ -124,7 +124,7 @@ public class StockArticleDAO {
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
 			st.setInt(1, arId);
-			
+
 			ResultSet rs = st.executeQuery();
 			if (rs.next()) {
 				stockArticle = new StockArticle();
@@ -143,7 +143,7 @@ public class StockArticleDAO {
 		}
 		return list;
 	}
-	
+
 	public List<StockArticle> selectAll() throws ClassNotFoundException {
 		String query = "SELECT * FROM stocksarticles";
 		List<StockArticle> list = new ArrayList<StockArticle>();
@@ -152,7 +152,7 @@ public class StockArticleDAO {
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
 			ResultSet rs = st.executeQuery();
-			 while (rs.next()){
+			while (rs.next()) {
 				stockArticle = new StockArticle();
 				stockArticle.setAr_id(rs.getInt("ar_id"));
 				stockArticle.setSa_id(rs.getInt("sa_id"));
@@ -170,23 +170,28 @@ public class StockArticleDAO {
 		}
 		return list;
 	}
-	
+
 	// Liste des articles en rupture
-	
+
 	public List<stockArticlesRupture> selectRupture() throws ClassNotFoundException {
-		String query = "SELECT * FROM stocksarticles";
+		String query = "select FA.fa_nom as famille, MO.mo_nom as modele, AR.ar_nom as article, "
+				+ "TA.ta_nom as taille , count(sa_id) as nbarticles "
+				+ " from stocksarticles SA, articles AR, familles FA, modeles MO, tailles TA"
+				+ " where SA.ar_id = AR.ar_id and FA.fa_id = AR.fa_id and MO.mo_id = AR.mo_id"
+				+ " and TA.ta_id = SA.ta_id and SA.st_id in (select st_id from statuts where st_code = 0) "
+				+ " group by SA.ar_id";
 		List<stockArticlesRupture> list = new ArrayList<stockArticlesRupture>();
-
-
+System.out.println(query);
 		try {
 			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
 			ResultSet rs = st.executeQuery();
-			 while (rs.next()){
+			while (rs.next()) {
 				stockArticlesRupture element = new stockArticlesRupture();
 				element.famille = rs.getString("famille");
-				element.modele  = rs.getString("modele");
+				element.modele = rs.getString("modele");
 				element.article = rs.getString("article");
-				element.taille  = rs.getString("taille");
+				element.taille = rs.getString("taille");
+				element.nbArticle = rs.getInt("nbArticles");
 				list.add(element);
 			}
 			rs.close();

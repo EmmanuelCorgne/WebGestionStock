@@ -123,7 +123,7 @@
  <table>
  <tr>
  				<td>
-					<table class="tab1" id="envoyes">
+					<table class="tab1" id="rupture">
 						<tr>
 							<td colspan=10><B name="titregroupe">Rupture</B></td>
 						</tr>
@@ -135,7 +135,7 @@
 						</tr>
 					</table>
 				</td>
-				<td class="tdBorderLeft">
+				<td class="tdBorderLeft" hidden>
 					<table class="tab1" id="recus" width="100%">
 						<tr>
 							<td colspan=10><B name="titregroupe">Vendus</B></td>
