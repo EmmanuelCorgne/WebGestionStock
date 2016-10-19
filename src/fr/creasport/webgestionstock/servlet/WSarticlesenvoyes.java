@@ -51,7 +51,6 @@ public class WSarticlesenvoyes extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		System.out.println("WSarticleEnvoyes : " );
 		
 		List<Outil.retourWS> list = new ArrayList<Outil.retourWS>();
 
