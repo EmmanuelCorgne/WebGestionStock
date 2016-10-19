@@ -51,7 +51,7 @@
 			<div class="element">
 				<div class="titreInput2">
 					Réference : <input type="text" name="reference" id="reference"
-						Placeholder="Réference" />
+						Placeholder="Réference" readonly/>
 				</div>
 			</div>
 			<div>
@@ -83,7 +83,7 @@
 						<%
 							for (int i = 0, j = listeFamille.size(); i < j; i++) {
 						%>
-						<option value="<%=listeFamille.get(i).getFa_idString()%>"><%=listeFamille.get(i).getFa_nom()%></option>
+						<option value="<%=listeFamille.get(i).getFa_idString()%>" name ="<%=listeFamille.get(i).getFa_code()%>"><%=listeFamille.get(i).getFa_nom()%></option>
 						<%
 							}
 						%>
@@ -104,7 +104,7 @@
 						<%
 							for (int i = 0, j = listeModele.size(); i < j; i++) {
 						%>
-						<option value="<%=listeModele.get(i).getMo_idString()%>"><%=listeModele.get(i).getMo_nom()%></option>
+						<option value="<%=listeModele.get(i).getMo_idString()%>" name="<%=listeModele.get(i).getMo_code()%>"><%=listeModele.get(i).getMo_nom()%></option>
 						<%
 							}
 						%>
@@ -151,10 +151,10 @@
 
 
 	<div class="titre2"></div>
-	<div class="cadre" name="groupe">
-		<div class="conteneur">Liste des articles par taille</div>
+	<div class="cadre" name="groupe" id="tabListArticle" name="tabListArticle">
+		<div class="conteneur" >Liste des articles par taille</div>
 		
-		<div class="conteneur">
+		<div class="conteneur" >
 			<div>
 				<table id="tabArticle" border="1">
 					<thead>

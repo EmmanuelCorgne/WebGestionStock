@@ -22,7 +22,7 @@ public class StockArticle {
 			this.ta_id = bean.getTaille();
 			Statut st = new Statut();
 
-			this.st_id = st.Envoye();
+			this.st_id = st.EnStock();
 
 			StockArticleDAO dao = new StockArticleDAO();
 			dao.ajouter(this);

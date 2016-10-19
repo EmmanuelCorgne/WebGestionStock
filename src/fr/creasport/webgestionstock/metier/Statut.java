@@ -46,6 +46,7 @@ public class Statut {
 	public int EnStock() throws ClassNotFoundException{
 		String code="0";
 		StatutsDAO dao=new StatutsDAO();
+		System.out.println("stock"+dao.SelectCode(code));
 		return dao.SelectCode(code);
 	}
 	public int Envoye() throws ClassNotFoundException{
