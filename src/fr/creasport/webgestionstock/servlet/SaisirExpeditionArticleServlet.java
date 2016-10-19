@@ -58,9 +58,14 @@ public class SaisirExpeditionArticleServlet extends HttpServlet {
 	}
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws ParseException {
-		
-		int id_Ea_id=0;
 		ExpeditionArticleDAO expeditionArticleDAO = new ExpeditionArticleDAO();
+		if("Reception".equals(request.getParameter("Expediteur"))){
+			boolean ea_isRetourIncomplet = Boolean.valueOf(request.getParameter("ea_isRetourIncomplet")).booleanValue();
+			int ea_id=Integer.parseInt(request.getParameter("ea_id"));
+			expeditionArticleDAO.setRetourIncomplet(ea_id,ea_isRetourIncomplet);
+		}else{
+		int id_Ea_id=0;
+		
 		ExpeditionArticle expeditionArticle = new ExpeditionArticle();
 		expeditionArticle.setEa_dateCreation(Outil.convertStringToDate(request.getParameter("ea_dateCreation")));
 		expeditionArticle.setEa_realisePar(request.getParameter("ea_realisePar"));
@@ -83,5 +88,5 @@ public class SaisirExpeditionArticleServlet extends HttpServlet {
 		}
 		
 	}
-
+	}
 }

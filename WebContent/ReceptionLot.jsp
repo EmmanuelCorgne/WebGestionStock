@@ -11,7 +11,7 @@
 <script src="jquery-3.1.0.min.js"></script>
 <link rel="stylesheet" href="ReceptionLot.css" />
 <link rel="stylesheet" href="CreaSport.css" />
-<link rel="stylesheet"href="jquery-ui.css">
+<link rel="stylesheet" href="jquery-ui.css">
 <script src="jquery-ui.js"></script>
 <script src="ReceptionLot.js"></script>
 <script src="Menu.js"></script>
@@ -47,18 +47,23 @@
 			<div class="element">
 				<div class="titreInput">Club:</div>
 				<div>
-					<input type="text" name="${bean.ea_id}" id="club" Placeholder="${bean.club}" readonly  />
+					<input type="text" name="${bean.ea_id}" id="club"
+						Placeholder="${bean.club}" readonly />
 				</div>
 			</div>
 			<div class="vide"></div>
 			<div class="element">
-				<div class="titreInput2"> Préparé par : <input type="text" name="preparePar" id="preparePar"
-					Placeholder="${bean.ea_realisePar}" maxlength="05" readonly /></div>
+				<div class="titreInput2">
+					Préparé par : <input type="text" name="preparePar" id="preparePar"
+						Placeholder="${bean.ea_realisePar}" maxlength="05" readonly />
+				</div>
 			</div>
 			<div class="vide"></div>
 			<div class="element">
-				 <div class="titreInput2">Le : <input type="text" name="dateEnvoi" id="dateEnvoi"
-					Placeholder="${bean.ea_dateCreation}" readonly  /></div>
+				<div class="titreInput2">
+					Le : <input type="text" name="dateEnvoi" id="dateEnvoi"
+						Placeholder="${bean.ea_dateCreation}" readonly />
+				</div>
 			</div>
 		</div>
 		<div class="conteneur">
@@ -68,7 +73,7 @@
 				</div>
 				<div>
 					<select name="expedition" id="expedition">
-						<option value="${bean.expedition}" >${bean.expedition}  </option>
+						<option value="${bean.expedition}">${bean.expedition}</option>
 					</select>
 				</div>
 			</div>
@@ -90,8 +95,14 @@
 				</div>
 				<div>
 					<textarea name="commentaire" id="commentaire"
-						Placeholder="${bean.ea_infoComplementaire}" readonly ></textarea>
+						Placeholder="${bean.ea_infoComplementaire}" readonly></textarea>
 				</div>
+			</div>
+		</div>
+		<div class="conteneur" id="bouton">
+			<div>
+				<input type="submit" class="buttonVal" name="valider" id="valider"
+					value="valider" />
 			</div>
 		</div>
 	</div>
@@ -99,9 +110,9 @@
 	<div class="cadre" name="groupe">
 		<div class="conteneur">Liste des articles</div>
 		<div class="conteneur">
-					<div class="titreInput">Réference :</div>
-				 <input type="text" name="reference" id="reference"
-					Placeholder="Référence" />
+			<div class="titreInput">Réference :</div>
+			<input type="text" name="reference" id="reference"
+				Placeholder="Référence" />
 			<div id="errBas"></div>
 		</div>
 		<div class="conteneur">
@@ -117,35 +128,45 @@
 							<th>Supprimer</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="tbody">
+					<!-- Corps du tableau -->
 						<%
-
-						List<StockArticle> listStockArticle = (List<StockArticle>) request.getAttribute("listStockArticle");
-						List<Taille> listTaille = (List<Taille>) request.getAttribute("listTaille");
-						List<Modele> listModele = (List<Modele>) request.getAttribute("listModele");
-						List<LotArticle> listLotArticle = (List<LotArticle>) request.getAttribute("listLotArticle");
+							List<StockArticle> listStockArticle = (List<StockArticle>) request.getAttribute("listStockArticle");
+							List<Taille> listTaille = (List<Taille>) request.getAttribute("listTaille");
+							List<Modele> listModele = (List<Modele>) request.getAttribute("listModele");
+							List<LotArticle> listLotArticle = (List<LotArticle>) request.getAttribute("listLotArticle");
 						%>
 						<%
-						
 							for (int i = 0, j = listStockArticle.size(); i < j; i++) {
 						%>
 						<tr>
-							<td>Non</td>
+							<td id = "<%=i%>">
+								<%
+									if (listLotArticle.get(i).getLa_dateRetour() != null) {
+								%>oui<%
+									} else
+								%>non
+							</td>
+
 							<td><%=listStockArticle.get(i).getSa_ref()%></td>
 							<td><%=listTaille.get(i).getTa_nom()%></td>
 							<td><%=listModele.get(i).getMo_nom()%></td>
-							<td><a name="<%=listStockArticle.get(i).getSa_id()%>" href="#">Recu</a></td>
-						</tr>		
+							<td><a name="<%=listStockArticle.get(i).getSa_id()%>"
+								href="#">Recu</a></td>
+						</tr>
 						<%
 							}
 						%>
-						<!-- Corps du tableau -->
+						
 					</tbody>
 				</table>
 			</div>
-			<div class="vide"></div><div><h1  id="afficheNbElement"></h1></div>
+			<div class="vide"></div>
+			<div>
+				<h1 id="afficheNbElement"></h1>
+			</div>
 		</div>
 	</div>
-<%@include file="dialClub.jsp" %>	
+	<%@include file="dialClub.jsp"%>
 </body>
 </html>

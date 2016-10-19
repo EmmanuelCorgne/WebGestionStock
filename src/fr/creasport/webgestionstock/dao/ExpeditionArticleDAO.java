@@ -235,4 +235,21 @@ public ArrayList<Outil.recusManquants> SelectManquants(int limit)  throws ClassN
 		}
 		return (ArrayList<Outil.recusManquants>) listResult;
 	}
+public void setRetourIncomplet(int ea_id,boolean ea_isRetourIncomplet ) {
+	String query = "UPDATE expeditionsarticles SET ea_isRetourIncomplet=? WHERE ea_id=? ";
+	try {
+		PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+
+
+		st.setBoolean(1,ea_isRetourIncomplet);
+
+		// where ID
+		st.setInt(2, ea_id);
+
+		st.executeUpdate();
+		st.close();
+	} catch (Exception e) {
+	}
+}
+
 }
