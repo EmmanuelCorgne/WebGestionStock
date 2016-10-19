@@ -199,4 +199,14 @@
     <servlet-name>WSrecusManquants</servlet-name>
     <url-pattern>/WSrecusManquants</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SaisirDateLotArticleServlet</display-name>
+    <servlet-name>SaisirDateLotArticleServlet</servlet-name>
+    <servlet-class>fr.creasport.webgestionstock.servlet.SaisirDateLotArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaisirDateLotArticleServlet</servlet-name>
+    <url-pattern>/SaisirDateLotArticleServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -47,7 +47,7 @@
 			<div class="element">
 				<div class="titreInput">Club:</div>
 				<div>
-					<input type="text" name="${bean.clubId}" id="club" Placeholder="${bean.club}" readonly  />
+					<input type="text" name="${bean.ea_id}" id="club" Placeholder="${bean.club}" readonly  />
 				</div>
 			</div>
 			<div class="vide"></div>
@@ -134,7 +134,7 @@
 							<td><%=listStockArticle.get(i).getSa_ref()%></td>
 							<td><%=listTaille.get(i).getTa_nom()%></td>
 							<td><%=listModele.get(i).getMo_nom()%></td>
-							<td><a href="#">Recu</a></td>
+							<td><a name="<%=listStockArticle.get(i).getSa_id()%>" href="#">Recu</a></td>
 						</tr>		
 						<%
 							}

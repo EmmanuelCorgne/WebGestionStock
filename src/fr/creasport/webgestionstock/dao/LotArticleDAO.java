@@ -91,5 +91,23 @@ public class LotArticleDAO {
 			}
 			return list;
 		}
+		
+		public void ReceptionDateDuJour(int ea_id , int sa_id) {
+			
+			String query = "UPDATE la_dateRetour SET la_dateRetour=? WHERE sa_id=?, ea_id=?";
+			try {
+				java.util.Date aujourdhui = new java.util.Date();
+				PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+
+				st.setDate(1, new Date(aujourdhui.getTime()));
+
+				st.setInt(2, sa_id);
+				st.setInt(3, ea_id);
+
+				st.executeUpdate();
+				st.close();
+			} catch (Exception e) {
+			}
+		}
 
 }

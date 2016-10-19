@@ -6,7 +6,7 @@ import java.util.Date;
 public class ReceptionLotBean {
 	
 	protected String club="";
-	protected String clubId="";
+	protected String ea_id="";
 	protected String expedition="";
 	protected String ea_realisePar="";
 	protected String ea_dateCreation="";
@@ -66,11 +66,11 @@ public class ReceptionLotBean {
 	public void setEa_isRetourIncomplet(String ea_isRetourIncomplet) {
 		this.ea_isRetourIncomplet = ea_isRetourIncomplet;
 	}
-	public String getClubId() {
-		return clubId;
+	public String getEa_id() {
+		return ea_id;
 	}
-	public void setClubId(int clubId) {
-		this.clubId = Integer.toString(clubId);
+	public void setEa_id(int ea_id) {
+		this.ea_id = Integer.toString(ea_id);
 	}
 	
 }
