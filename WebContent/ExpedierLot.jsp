@@ -112,7 +112,7 @@
 		</div>
 		<div class="conteneur" id="bouton">
 			<div>
-				<input type="submit" name="valider" id="valider" value="valider" />
+				<input type="submit" class="buttonVal" name="valider" id="valider" value="valider" />
 			</div>
 		</div>
 	</div>
@@ -126,7 +126,7 @@
 					Placeholder="Référence" />
 			</div>
 			<div class="element">
-				<input type="submit" name="ajouter" id="ajouter" value="ajouter" />
+				<input type="submit" name="ajouter" id="ajouter" class="buttonVal" value="ajouter" />
 			</div>
 			<div id="errBas"></div>
 		</div>
