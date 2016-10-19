@@ -1,5 +1,8 @@
 @CHARSET "UTF-8";
 
+.header {
+	width:100%;
+}
 h1 {
 	text-shadow: 1px 1px 2px grey;
 	margin-left: 100px;

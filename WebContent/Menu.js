@@ -13,10 +13,10 @@ $(document).ready(function() {
 		menu += '<a href="IndexServlet"><button>Menu général</button></a>';
 	if (nomPage != "ExpedierServlet")
 		menu += '<a href="ExpedierServlet"><button>Expédier</button></a>';
+//	if (nomPage != "ReceptionLotServlet")
+//		menu += '<a href="ReceptionLotServlet"><button>Réceptionner</button></a>';
 	if (nomPage != "SaisirArticleServlet")
 		menu += '<a href="SaisirArticleServlet"><button>Gestion Stock</button></a>';
-	if (nomPage != "ReceptionLotServlet")
-		menu += '<a href="ReceptionLotServlet"><button>Réceptionner</button></a>';
 	
 	$('#menu').html(menu);
 	$('body').append("<footer> CreaSport &copy; (2016) </footer>");

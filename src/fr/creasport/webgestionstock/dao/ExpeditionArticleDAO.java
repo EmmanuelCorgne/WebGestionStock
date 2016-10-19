@@ -164,19 +164,21 @@ public class ExpeditionArticleDAO {
 		}
 		return id_Ea_id;
 	}
-	public ArrayList<Outil.retourWS> SelectForIndex(int limit)  throws ClassNotFoundException  {
+	public ArrayList<Outil.retourWS> SelectForIndex(int limit, int id)  throws ClassNotFoundException  {
 		
 		String query="select ea_id as id, "
 				+ "DATE_FORMAT(ea_datecreation,'%d/%m/%Y') as date, "
 				+ "ea_nbarticleenvoyetotal as nbart, "
 				+ "de_nomclub as nomclub "
 				+ "from expeditionsarticles EA, destinataires DE "
-				+ "where EA.de_id = DE.de_id  "
-				+ "and EA.ea_isretourincomplet = false "
-				+ "order by EA.ea_datecreation ";
+				+ "where EA.de_id = DE.de_id  ";
+		if (id > 0)
+			query += " and DE.de_id = " + id
+				+ " and EA.ea_isretourincomplet = false "
+				+ "order by EA.ea_datecreation desc ";
 		if (limit > 0)	
-				query += " desc limit " + limit;
-			
+				query += " limit " + limit;
+
 		List<Outil.retourWS> listResult = new ArrayList<Outil.retourWS>();
 
 		try {
@@ -196,5 +198,41 @@ public class ExpeditionArticleDAO {
 		} catch(SQLException e) {
 		}
 		return (ArrayList<Outil.retourWS>) listResult;
+	}
+public ArrayList<Outil.recusManquants> SelectManquants(int limit)  throws ClassNotFoundException  {
+		
+		String query="select EA.ea_id as id, "
+				+ " DATE_FORMAT(LA.la_dateretour,'%d/%m/%Y') as date, "
+				+ " ea_nbarticleenvoyetotal as nbart, "
+				+ " de_nomclub as nomclub "
+				+ " from expeditionsarticles EA, destinataires DE, lotsarticles as LA "
+				+ " where EA.de_id = DE.de_id  "
+				+ " and EA.ea_id = LA.ea_id"
+				+ " and LA.la_dateretour is not null"
+				+ " and EA.ea_isretourincomplet = true "
+				+ " order by EA.ea_datecreation desc ";
+		if (limit > 0)	
+				query += "  limit " + limit;
+			
+		List<Outil.recusManquants> listResult = new ArrayList<Outil.recusManquants>();
+
+		try {
+			Statement st = DbConnection.getInstance().createStatement();
+		    ResultSet rs = st.executeQuery(query);
+		    //System.out.println(rs.toString());
+		    while (rs.next()){
+		    	Outil.recusManquants retour = new Outil.recusManquants();
+		    	retour.id = rs.getInt("id");
+		    	retour.dateRecep = rs.getString("date");
+		    	retour.nbArticle = rs.getInt("nbart");
+		    	retour.nomClub = rs.getString("nomclub");
+		    	listResult.add(retour);
+
+		    }
+		    st.close();
+		    rs.close();
+		} catch(SQLException e) {
+		}
+		return (ArrayList<Outil.recusManquants>) listResult;
 	}
 }

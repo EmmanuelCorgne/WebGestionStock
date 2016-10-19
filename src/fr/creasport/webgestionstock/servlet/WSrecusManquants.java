@@ -14,18 +14,16 @@ import com.google.gson.Gson;
 
 import fr.creasport.webgestionstock.dao.ExpeditionArticleDAO;
 import fr.creasport.webgestionstock.metier.*;
-
 /**
- * Servlet implementation class WSarticlesenvoyés
+ * Servlet implementation class WSrecusManquants
  */
-public class WSarticlesenvoyes extends HttpServlet {
+public class WSrecusManquants extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WSarticlesenvoyes() {
+    public WSrecusManquants() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -51,18 +49,17 @@ public class WSarticlesenvoyes extends HttpServlet {
 
 	private void doWork(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		System.out.println("WSarticleEnvoyes : " );
 		
-		List<Outil.retourWS> list = new ArrayList<Outil.retourWS>();
+		List<Outil.recusManquants> list = new ArrayList<Outil.recusManquants>();
 
 		ExpeditionArticleDAO expeditionArticleDAO = new ExpeditionArticleDAO();
 
 		try {
-			list = expeditionArticleDAO.SelectForIndex(Integer.parseInt(request.getParameter("limit")),Integer.parseInt(request.getParameter("id")));
+			list = expeditionArticleDAO.SelectManquants(Integer.parseInt(request.getParameter("limit")));
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-			System.out.println("erreur dans WSarticleEnvoyes : " + e1);
+			System.out.println(e1);
 		}
 
 		try {
@@ -73,9 +70,8 @@ public class WSarticlesenvoyes extends HttpServlet {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("erreur dans WSarticleEnvoyes : " + e);
+			System.out.println("erreur dans WSrecusManquants : " + e);
 		}
 
 	}
-
 }

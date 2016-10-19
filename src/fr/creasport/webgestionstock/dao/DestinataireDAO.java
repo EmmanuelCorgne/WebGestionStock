@@ -33,7 +33,7 @@ public class DestinataireDAO {
 			
 			st.executeUpdate();
 		    st.close();
-		    return("OK");
+		    return("OK".toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 			return(e.getMessage());

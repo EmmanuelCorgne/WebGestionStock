@@ -6,12 +6,21 @@ $(document).ready(
 		// préparation de la page
 		$('#nomClub').val = "votre choix";
 
+		// supprimer la ligne après avoir programmé la gestion des stocks
+		
+		$('#stock').hide();
+		
 		// Gestion des autocomplete de la recherche club
 
 		var choixClub = [];
 		var choixContact = [];
 		var data;
+		var idChoixClub = 0;
 		var url = "AutoCompDestinataireExperdierLot?valeur=";
+		Date.prototype.addDays = function(days) {
+		  this.setDate(this.getDate() + parseInt(days));
+		  return this;
+		};
 		$.getJSON(url, function(data) {
 		  $.each(data, function(key, value) {
 			 choixClub.push(value.de_nomClub);
@@ -24,7 +33,7 @@ $(document).ready(
 					 $('#nomContact').val("");
 					 $('#nomContact').attr("placeholder",
 						  data[choixClub.indexOf(ui.item.label)].de_nomContact);
-					 console.log($('#nomContact').attr("placeholder"));
+					 idChoixClub = data[choixClub.indexOf(ui.item.label)].de_id;
 				  }
 				});
 		  $("#nomContact").autocomplete(
@@ -32,7 +41,6 @@ $(document).ready(
 				  source : choixContact,
 				  select : function(event, ui) {
 					 $('#nomClub').val("");
-					 console.log($('#nomClub').attr("value"));
 					 $('#nomClub').attr("placeholder",
 						  data[choixContact.indexOf(ui.item.label)].de_nomClub);
 
@@ -62,7 +70,6 @@ $(document).ready(
 				  source : choixContact,
 				  select : function(event, ui) {
 					 $('#nomClub').val("");
-					 console.log($('#nomClub').attr("value"));
 					 $('#nomClub').attr("placeholder",
 						  data[choixContact.indexOf(ui.item.label)].de_nomClub);
 
@@ -94,21 +101,40 @@ $(document).ready(
 		$('#validRecherche').click(
 			 function() {
 				var err = "";
-				if ($('#datedeb').val().length < 5)
+/*				if ($('#datedeb').val().length < 5)
 				  err += "il manque la date de début ";
 				if ($('#datedeb').val().length < 5)
 				  err += "il manque la date de début ";
 				if ($('#selectArticle').val().length < 5)
 				  err += " - il choisir un article ";
-				if (err != "")
+*/				if (err != "")
 				  $('#ErrorRecherche').html(err);
-				console.log("on envoie : club " + $('#nomClub').val()
-					 + ", date deb " + $('#datedeb').val());
+				else {
+				  $('button[name="boutonRecep"').parent().parent().parent().remove();
+				  url = "WSarticlesenvoyes?limit=0&id=" + idChoixClub;
+					var ArticleEnvoyes = [];
+					$.getJSON(url, function(data) {
+					  $.each(data, function(key, value) {
+						 var parts = value.dateCreation.split('/');
+						 // parts[0] : jour;
+						 // parts[2] : année;
+						 var dateRetour = new Date(parts[2], parts[1], parts[0]).addDays(15);
+						 $('#envoyes').append(
+							  '<tr><td>' + value.id + ' (' + value.nomClub + ') </td><td>'
+									+ value.dateCreation + ' </td><td> ' + value.nbArticle
+									+ '</td><td> ' + moment(dateRetour).format('DD/MM/YYYY')
+									+ ' </td><td> ' + '<a href="ReceptionLotServlet?ea_id='
+									+ value.id
+									+ '"><button name="boutonRecep" class="buttonval">Réception</button></a>');
+						 ArticleEnvoyes.push(value.nom);
+					  });
+					});
+				};
 			 });
-		console.log('fin du javasrcipt');
+
 
 		// affichage des combo de date en Jquery UI
-		
+
 		$(function() {
 		  $("#datedeb").datepicker({
 			 dateFormat : "dd/mm/yy",
@@ -129,30 +155,54 @@ $(document).ready(
 		});
 
 		// Chargement du suivi des lots
-		
-		url = "WSarticlesenvoyes?limit=5";
+
+		url = "WSarticlesenvoyes?limit=5&id=0";
 		var ArticleEnvoyes = [];
-		Date.prototype.addDays = function(days) {
-		    this.setDate(this.getDate() + parseInt(days));
-		    return this;
-		};
+
 		$.getJSON(url, function(data) {
 
 		  $.each(data, function(key, value) {
-			  var parts = value.dateCreation.split('/');
-			  // parts[0] : jour;
-			  // parts[2] : année;
-			  var dateRetour = new Date(parts[2],parts[1],parts[0]).addDays(15); 
-			 $('#envoyes').append('<tr><td>'+value.id+' ('+ value.nomClub
-				  + ') </td><td>'+value.dateCreation+' </td><td> '
-				  +value.nbArticle+'</td><td> '+ moment(dateRetour).format('DD/MM/YYYY') +' </td><td> '
-				  + '<a href="ReceptionLotServlet?ea_id='+value.id+'"><button class="buttonval">Réception</button></a>');
+			 var parts = value.dateCreation.split('/');
+			 // parts[0] : jour;
+			 // parts[2] : année;
+			 var dateRetour = new Date(parts[2], parts[1], parts[0]).addDays(15);
+			 $('#envoyes').append(
+				  '<tr><td>' + value.id + ' (' + value.nomClub + ') </td><td>'
+						+ value.dateCreation + ' </td><td> ' + value.nbArticle
+						+ '</td><td> ' + moment(dateRetour).format('DD/MM/YYYY')
+						+ ' </td><td> ' + '<a href="ReceptionLotServlet?ea_id='
+						+ value.id
+						+ '"><button name="boutonRecep" class="buttonval">Réception</button></a>');
 			 ArticleEnvoyes.push(value.nom);
 		  });
-		  
-		  
 		});
 
 		// Chargement de l'état des stocks
 
+		url = "WSrecusManquants?limit=5";
+		var recusManquants = [];
+
+		$.getJSON(
+			 url,
+			 function(data) {
+				$.each(data, function(key, value) {
+				  var parts = value.dateRecep.split('/');
+				  // parts[0] : jour;
+				  // parts[2] : année;
+				  var dateRetour = new Date(parts[2], parts[1], parts[0])
+						.addDays(15);
+				  $('#recus').append(
+						'<tr><td>' + value.id + ' (' + value.nomClub + ') </td><td>'
+							 + value.dateRecep + ' </td><td> ' + value.nbArticle
+							 + '</td><td> ');
+				  recusManquants.push(value.nom);
+				});
+
+			 }).done(data, function() {
+		  if (recusManquants.length == 0)
+			 $('#recus').hide();
+		  else
+			 $('#recus').show();
+		});
+		console.log('fin du javasrcipt');
 	 });

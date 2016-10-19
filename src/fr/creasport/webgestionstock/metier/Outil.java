@@ -30,6 +30,12 @@ public class Outil {
 		public retourWS() {
 
 		}
+
+		@Override
+		public String toString() {
+			return "retourWS [id=" + id + ", dateCreation=" + dateCreation + ", nbArticle=" + nbArticle + ", nomClub="
+					+ nomClub + "]";
+		}
 	}
 	public static class recusManquants {
 		public int id;
@@ -39,6 +45,12 @@ public class Outil {
 		
 		public recusManquants() {
 
+		}
+
+		@Override
+		public String toString() {
+			return "recusManquants [id=" + id + ", nomClub=" + nomClub + ", dateRecep=" + dateRecep + ", nbArticle="
+					+ nbArticle + "]";
 		}
 	}
 	
