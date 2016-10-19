@@ -47,8 +47,9 @@ public class WSATailleArticleServlet extends HttpServlet {
 		StockArticle artStockMetier= new StockArticle();
 		String a = request.getParameter("artID");
 		String artID = a.replace("%0D%0A","") ;
+		int qty=Integer.parseInt(request.getParameter("quantite"));
+		String ref=request.getParameter("reference");
 		
-		artStockBean.setReference(request.getParameter("reference"));
 		artStockBean.setArticle(Integer.parseInt(artID));
 		artStockBean.setIsActive(true);
 		String t = request.getParameter("tailleID");
@@ -56,8 +57,12 @@ public class WSATailleArticleServlet extends HttpServlet {
 		System.out.println("taile"+tailleID);
 		artStockBean.setTaille(Integer.parseInt(tailleID));
 		
-		artStockMetier.ajouter(artStockBean);
-		
+		for (int i = 0; i < qty; i++) {
+			artStockBean.setReference(ref+"-"+i);
+			artStockMetier.ajouter(artStockBean);
+			System.out.println("Ajouter stocke article"+artStockBean.getReference());
+		}
+				
 	}
 
 }
