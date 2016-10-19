@@ -8,7 +8,7 @@ $(document).ready(
 
 		// supprimer la ligne après avoir programmé la gestion des stocks
 		
-		$('#stock').hide();
+		//$('#stock').hide();
 		
 		// Gestion des autocomplete de la recherche club
 
@@ -17,10 +17,14 @@ $(document).ready(
 		var data;
 		var idChoixClub = 0;
 		var url = "AutoCompDestinataireExperdierLot?valeur=";
+		
+		// fonction d'ajout d'un nombre de jour à une date en format javascript
 		Date.prototype.addDays = function(days) {
 		  this.setDate(this.getDate() + parseInt(days));
 		  return this;
 		};
+		
+		
 		$.getJSON(url, function(data) {
 		  $.each(data, function(key, value) {
 			 choixClub.push(value.de_nomClub);
@@ -186,11 +190,6 @@ $(document).ready(
 			 url,
 			 function(data) {
 				$.each(data, function(key, value) {
-				  var parts = value.dateRecep.split('/');
-				  // parts[0] : jour;
-				  // parts[2] : année;
-				  var dateRetour = new Date(parts[2], parts[1], parts[0])
-						.addDays(15);
 				  $('#recus').append(
 						'<tr><td>' + value.id + ' (' + value.nomClub + ') </td><td>'
 							 + value.dateRecep + ' </td><td> ' + value.nbArticle

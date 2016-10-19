@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.creasport.webgestionstock.metier.Famille;
+import fr.creasport.webgestionstock.metier.Outil.stockArticlesRupture;
 import fr.creasport.webgestionstock.metier.StockArticle;
 
 public class StockArticleDAO {
@@ -143,6 +144,7 @@ public class StockArticleDAO {
 		}
 		return list;
 	}
+	
 	public List<StockArticle> selectAll() throws ClassNotFoundException {
 		String query = "SELECT * FROM stocksarticles";
 		List<StockArticle> list = new ArrayList<StockArticle>();
@@ -169,5 +171,30 @@ public class StockArticleDAO {
 		}
 		return list;
 	}
+	
+	// Liste des articles en rupture
+	public List<stockArticlesRupture> selectRupture() throws ClassNotFoundException {
+		String query = "SELECT * FROM stocksarticles";
+		List<stockArticlesRupture> list = new ArrayList<stockArticlesRupture>();
 
+
+		try {
+			PreparedStatement st = DbConnection.getInstance().prepareStatement(query);
+			ResultSet rs = st.executeQuery();
+			 while (rs.next()){
+				stockArticlesRupture element = new stockArticlesRupture();
+				element.famille = rs.getString("famille");
+				element.modele  = rs.getString("modele");
+				element.article = rs.getString("article");
+				element.taille  = rs.getString("taille");
+				list.add(element);
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

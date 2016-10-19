@@ -4,29 +4,26 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class Outil {
-	
-	
-	public static Date convertStringToDate(String dateString)
-	{
-	    Date formatteddate = null;
-	    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-	    try{
+
+	public static Date convertStringToDate(String dateString) {
+		Date formatteddate = null;
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		try {
 			formatteddate = df.parse(dateString);
-			//  formatteddate = df.parse(df.format(d1));
-	    }
-	    catch ( Exception ex ){
-	        System.out.println(ex);
-	    }
-	    return formatteddate;
+			// formatteddate = df.parse(df.format(d1));
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		return formatteddate;
 	}
+
 	public static class retourWS {
 		public int id;
 		public String dateCreation;
 		public int nbArticle;
 		public String nomClub;
-		
+
 		public retourWS() {
 
 		}
@@ -37,12 +34,13 @@ public class Outil {
 					+ nomClub + "]";
 		}
 	}
+
 	public static class recusManquants {
 		public int id;
 		public String nomClub;
 		public String dateRecep;
 		public int nbArticle;
-		
+
 		public recusManquants() {
 
 		}
@@ -53,5 +51,24 @@ public class Outil {
 					+ nbArticle + "]";
 		}
 	}
-	
+
+	public static class stockArticlesRupture {
+		public String famille;
+		public String modele;
+		public String article;
+		public String taille;
+		public int nbArticle;
+
+		public stockArticlesRupture() {
+
+		}
+
+		@Override
+		public String toString() {
+			return "stockArticlesRupture [famille=" + famille + ", modele=" + modele + ", article=" + article + ", taille="
+					+ taille + ", nbArticle=" + nbArticle + "]";
+		}
+
+	}
+
 }
